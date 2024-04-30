@@ -43,13 +43,14 @@ toc: false
 
 p { max-width: none; }
 >
-
 </style>
 
 <div class="hero">
     <h1>Trabalho</h1>
     <h2>Curso de Visualização de Dados (SI & PGC - UFF)<br>Prof. Marcos Lage</h2>
-     <h2><br><br>Alunos: Edel Melo & Christiano</h2>
+     <h2><br><br>Alunos:         </h2>
+     <h3> Edel Melo </h3>
+     <h3> Christiano </h3>
 </div>
 
 ## Índice

@@ -1,3 +1,12 @@
+<style> 
+    p, table, figure, figcaption, h1, h2, h3, h4, h5, h6, .katex-display 
+    {
+        max-width:none;
+        text-align: justify;
+        margin: 15px 15px;
+        text-wrap: pretty;
+    }
+</style>
 # Parte 2 - Popularidade Musical
 
 ## Análise do que faz uma música ser popular.
@@ -12,49 +21,49 @@ Percebe-se no gráfico que a maior parte dos pontos se concentram na parte esque
 
 <div class="grid grid-cols-2">
     <div id="ex01" class="card">
-        <h1>Danceability X Streams</h1>
+        <h4>Danceability X Streams. A1</h4>
         <div style="width: 100%; margin-top: 15px;">
             ${ vl.render(ex01(divWidth - 30)) }
         </div>
     </div>  
     <div id="ex02" class="card">
-        <h1>Valence X Streams</h1>
+        <h4>Valence X Streams. A2</h4>
         <div style="width: 100%; margin-top: 15px;">
             ${ vl.render(ex02(divWidth - 30)) }
         </div>
     </div>
     <div id="ex03" class="card">
-        <h1>Energy X Streams</h1>
+        <h4>Energy X Streams. A3</h4>
         <div style="width: 100%; margin-top: 15px;">
             ${ vl.render(ex03(divWidth - 30)) }
         </div>
     </div>
     <div id="ex04" class="card">
-        <h1>Acousticness X Streams</h1>
+        <h4>Acousticness X Streams. A4</h4>
         <div style="width: 100%; margin-top: 15px;">
             ${ vl.render(ex04(divWidth - 30)) }
         </div>
     </div>
      <div id="ex05" class="card">
-        <h1>Instrumentalness X Streams</h1>
+        <h4>Instrumentalness X Streams. A5</h4>
         <div style="width: 100%; margin-top: 15px;">
             ${ vl.render(ex05(divWidth - 30)) }
         </div>
     </div>
     <div id="ex06" class="card">
-        <h1>Liveness X Streams</h1>
+        <h4>Liveness X Streams. A6</h4>
         <div style="width: 100%; margin-top: 15px;">
             ${ vl.render(ex06(divWidth - 30)) }
         </div>
     </div>
      <div id="ex07" class="card">
-        <h1>Speechiness X Streams</h1>
+        <h4>Speechiness X Streams. A7</h4>
         <div style="width: 100%; margin-top: 15px;">
             ${ vl.render(ex07(divWidth - 30)) }
         </div>
     </div>
      <div id="ex08" class="card">
-        <h1>BMP X Streams</h1>
+        <h4>BMP X Streams. A8</h4>
         <div style="width: 100%; margin-top: 15px;">
             ${ vl.render(ex08(divWidth - 30)) }
         </div>

@@ -1,7 +1,7 @@
 // See https://observablehq.com/framework/config for documentation.
 export default {
   // The project’s title; used in the sidebar and webpage titles.
-  title: "vega-lite",
+  title: "Visualisação de Dados",
 
   // The pages and sections in the sidebar. If you don’t specify this option,
   // all pages will be listed in alphabetical order. Listing pages explicitly
@@ -15,9 +15,8 @@ export default {
   //     ]
   //   }
   // ],
-
   // Some additional configuration options and their defaults:
-  // theme: "default", // try "light", "dark", "slate", etc.
+  theme: "light",  // "default", // try "light", "dark", "slate", etc.
   // header: "", // what to show in the header (HTML)
   // footer: "Built with Observable.", // what to show in the footer (HTML)
   // toc: true, // whether to show the table of contents
