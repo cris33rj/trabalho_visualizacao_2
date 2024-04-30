@@ -9,7 +9,7 @@
 </style>
 
 # Parte 1 - Apresentação
-Este trabalho de pesquisa foi produzido no curso de Mestrado em Computação - PGC UFF, como atividade parcial para cumprimento da disciplina de VISUALISAÇÃO DE DADOS (SI & PGC - UFF), ministrado pelo Professor Marcos Lage
+Este trabalho de pesquisa foi produzido no curso de Mestrado em Computação - PGC UFF, como atividade parcial para cumprimento da disciplina de VISUALISAÇÃO DE DADOS (SI & PGC - UFF), ministrado pelo Professor Marcos Lage.
 
 ### Alunos:
 
