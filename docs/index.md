@@ -43,38 +43,40 @@ toc: false
 
 p { max-width: none; }
 >
+
 </style>
 
 <div class="hero">
     <h1>Trabalho</h1>
     <h2>Curso de Visualização de Dados (SI & PGC - UFF)<br>Prof. Marcos Lage</h2>
-     <h2><br><br>Alunos:         </h2>
-     <h3> Edel Melo </h3>
-     <h3> Christiano </h3>
+     <h2><br><br>Alunos: Edel Melo & Christiano</h2>
 </div>
 
 ## Índice
 
 <div class="grid grid-cols-3">
-    <div class="card" >
+<span class="card"><h4>Introdução<br></h4>
+    <div class="card" flex>
         <h2>Parte 01<br><a href="1-Apresentacao">Apresentação</a></h2>
     </div>
+</span>
+<span class="card"><h4>Desenvolvimento<br></h4>
     <div class="card" >
         <h2>Parte 02<br><a href="2-Popularidade_musical">Popularidade Musical</a></h2>
     </div>
     <div class="card" >
         <h2>Parte 03<br><a href="3-Top10">Avaliação dos Top 10</a></h2>
     </div>
-</div>
-
-<div class="grid grid-cols-3">
     <div class="card" >
         <h2>Parte 04<br><a href="4-Comparativo">Comparativo entre plataformas</a></h2>
     </div>
-    <div class="card" >
+</span>
+<span class="card"><h4>Fechamento<br></h4>
+    <div class="card">
         <h2>Parte 05<br><a href="5- Discussao">Discussão</a></h2>
     </div>
     <div class="card" >
         <h2>Parte 06<br><a href="6-Conclusao">Conclusão</a></h2>
     </div>
+</span>
 </div>

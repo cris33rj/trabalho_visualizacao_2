@@ -1,11 +1,37 @@
 // See https://observablehq.com/framework/config for documentation.
 export default {
   // The project’s title; used in the sidebar and webpage titles.
-  title: "Visualisação de Dados",
+  title: "Visualização de Dados",
 
   // The pages and sections in the sidebar. If you don’t specify this option,
   // all pages will be listed in alphabetical order. Listing pages explicitly
   // lets you organize them into sections and have unlisted pages.
+    pages: [
+      {
+        name: "Introdução",
+        pages: [
+          {name: "Parte 1 - Apresentação", path: "/1-Apresentacao"},
+        ]
+      },
+      {
+        name: "Desenvolvimento",
+        open: false,
+        pages: [
+          {name: "Parte 2 - Popularidade Musical", path: "/2-Popularidade_musical"},
+          {name: "Parte 3 - Top 10", path: "/3-Top10"},          
+          {name: "Parte 4 - Comparativo", path: "/4-Comparativo"},          
+        ]
+      },
+      {
+        name: "Fechamento",
+        open: false,
+        pages: [
+          {name: "Parte 5 - Discussão", path: "/5-Discussao"},
+          {name: "Parte 6 - Conclusão", path: "/6-Conclusao"},          
+        ]
+      }      
+    ],
+
   // pages: [
   //   {
   //     name: "Examples",
