@@ -9,6 +9,7 @@ export default {
     pages: [
       {
         name: "Introdução",
+        open: false,
         pages: [
           {name: "Parte 1 - Apresentação", path: "/1-Apresentacao"},
         ]
