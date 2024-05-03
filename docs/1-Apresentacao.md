@@ -18,8 +18,8 @@ Este trabalho de pesquisa foi produzido no curso de Mestrado em Computação - P
 
 | Edel Melo          | Cristiano           |
 | :----:             |    :----:           |
-| Mestrado           | Mestrado            |
-| edelmelo@id.uff.br | cristiano@id.uff.br |
+| Aluno de Mestrado <BR> Mat. M048.123.012  | Aluno de Mestrado <br> Mat. M000.000.000  |
+| <address><a href="mailto:edelmelo@id.uff.br">edelmelo@id.uff.br</a></address> | <address><a href="mailto:cristiano@id.uff.br">cristinao@id.uff.br</a></address> |
 
 </div>
 </div>

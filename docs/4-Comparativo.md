@@ -230,7 +230,7 @@ function ex04(divWidth) {
                 "groupby": ["track_name","released_year"],
 
             },
-            {"filter": "datum.released_year == 2023 && datum.rank >= 430000000"},
+            {"filter": "datum.track_name == 'Flowers' || datum.track_name == 'FLOWERS'"},
          
             ],      
                    
