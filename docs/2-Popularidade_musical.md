@@ -13,11 +13,9 @@
 
 Esta análise visa responder a seguinte questão: <b>Existe alguma característica que faz uma música ter mais chance de se tornar popular? </b>
 
-Para respondê-la, geramos oito scatter plots que com o objetivo de observar a relação da variável "Streams" com "Danceability", "Valence", "Energy", "Acousticness", "Instrumentalness", "Liveness", "Speechiness" e "BMP", respectivamente. 
+Para respondê-la, geramos oito scatter plots que com o objetivo de observar a relação da variável "Streams" com "Danceability", "Valence", "Energy", "Acousticness", "Instrumentalness", "Liveness", "Speechiness" e "BPM", respectivamente. Os gráficos que apresentam uma correlação mais forte, indicando características presentes em músicas populares são: "Streams X Danceability" e "Streams X Energy". O gráfico "Streams X Speechiness" apresenta também correlação, mas de forma inversa. 
 
-O gráfico que apresenta uma correlação mais forte, indicando uma característica presente em músicas populares, é que  relaciona "Stream" com "Speechiness".  O eixo Y indica a quantidade de streams em bilhões e o eixo X indica a quantidade de elementos de fala em uma música ("speechiness"). O valor mínimo zero no Eixo X refere-se a músicas com muito instrumental, sem reconhecimento claro de voz, e o valor máximo 65 é relativo a músicas cuja composição tem grande quantidade de fala humana. 
-
-Percebe-se no gráfico que a maior parte dos pontos se concentram na parte esquerda, evidenciando que músicas com baixa "speechiness" têm um grande número de streams sendo, portanto, muito populares. À medida que a “speechiness” aumenta, há menos pontos, sugerindo que músicas com alta “speechiness” geralmente não são tão populares.
+Nos dois primeiros gráficos apontados é possível perceber que "Streams" (em bilhões) mostra uma tendência de aumento à medida que "Danceability" e "Energy" crescem. Quanto ao gráfico "Streams X Speechiness", percebe-se no gráfico que a maior parte dos pontos se concentram na parte esquerda, evidenciando que músicas com baixa "speechiness" têm um grande número de streams sendo, portanto, mais populares. Por outro lado, à medida que “speechiness” aumenta, há menos pontos, sugerindo que músicas com alta “speechiness” geralmente não são tão populares.
 
 <div class="grid grid-cols-2">
     <div id="ex01" class="card">
@@ -63,11 +61,11 @@ Percebe-se no gráfico que a maior parte dos pontos se concentram na parte esque
         </div>
     </div>
      <div id="ex08" class="card">
-        <h4>BMP X Streams. A8</h4>
+        <h4>BPM X Streams. A8</h4>
         <div style="width: 100%; margin-top: 15px;">
             ${ vl.render(ex08(divWidth - 30)) }
         </div>
-    </div>
+    </div>     
 </div>
 
 ```js
@@ -80,13 +78,14 @@ const divWidth = Generators.width(document.querySelector("#ex01"));
 import * as vega from "npm:vega";
 import * as vegaLite from "npm:vega-lite";
 import * as vegaLiteApi from "npm:vega-lite-api";
-import * as d3v6 from "npm:d3@6";
-
+import { showCode } from './showCode.js'; 
 
 
 const vl = vegaLiteApi.register(vega, vegaLite);
 
-const spotify = await FileAttachment("./data/spotify-2023.csv").csv({typed: true});
+const spotify = await FileAttachment("./data/spotify-2023.csv").csv({typed: true})
+
+
 
 
 function ex01(divWidth) {
@@ -303,6 +302,8 @@ function ex08(divWidth) {
                 }
             }
         }
-    };
+    }
 }
+
+
 ```

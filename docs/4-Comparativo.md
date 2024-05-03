@@ -20,13 +20,13 @@ Para os que analisam os cantores, temos:
 
 <div class="grid grid-cols-2">
     <div id="ex01" class="card">
-        <h4>Top 10 maiores cantores em todo o período analisado. (A1)</h4>
+        <h4>Comparação da contagem total de músicas presentes nas playlists e charts das plataformas. (A1)</h4>
    <div style="width: 100%; margin-top: 15px;">
             ${ vl.render(ex01(divWidth)) }
         </div>
     </div>
     <div id="ex02" class="card">
-        <h4>Top 10 maiores cantores com  músicas lançadas em 2023. (A2)</h4>
+        <h4>Músicas top 10 do Spotify com base no total de músicas presentes em playlists e charts. (A2)</h4>
         <div style="width: 100%; margin-top: 15px;">
             ${ vl.render(ex02(divWidth)) }
         </div>
@@ -42,15 +42,21 @@ Já para as músicas, temos:
 
 <div class="grid grid-cols-2">
     <div id="ex03" class="card">
-        <h4>Top 10 músicas mais ouvidas em todo o período analisado. B1</h4>
+        <h4>Músicas top 10 da Apple com base no total de músicas presentes em playlists e charts. . B1</h4>
         <div style="width: 100%; margin-top: 15px;">
              ${ vl.render(ex03(divWidth)) }
         </div>
     </div>
     <div id="ex04" class="card">
-        <h4>Top 10 músicas mais ouvidas que foram lançadas em 2023. B2</h4>
+        <h4>Músicas top 10 do Deezer com base no total de músicas presentes em playlists e charts. B2</h4>
         <div style="width: 100%; margin-top: 15px;">
              ${ vl.render(ex04(divWidth)) }
+        </div>
+    </div>
+    <div id="ex05" class="card">
+        <h4>Músicas top 10 do Shazam com base no total de músicas presentes em playlists e charts. B2</h4>
+        <div style="width: 100%; margin-top: 15px;">
+             ${ vl.render(ex05(divWidth)) }
         </div>
     </div>
 </div>
@@ -60,7 +66,7 @@ Os histogramas acima denominados B1 e B2, representam, respectivamente, as 10 m�
 #### Ao analisá-los, respondemos que SIM, houve 80% de variação da composição das 10 músicas mais ouvidos.
 
 ```js
-const divWidth = 345;
+const divWidth = 430;
 const divheight = 300;
 
 ```
@@ -70,185 +76,134 @@ const divheight = 300;
 import * as vega from "npm:vega";
 import * as vegaLite from "npm:vega-lite";
 import * as vegaLiteApi from "npm:vega-lite-api";
+import { showCode } from './showCode.js'; 
 
 const vl = vegaLiteApi.register(vega, vegaLite);
 
 const spotify = await FileAttachment("./data/spotify-2023.json").json({typed: true});
 
+showCode(FileAttachment("./comparacao_contagem_total_plataformas.csv.py"))
+const comparacao_contagem_plataformas = await FileAttachment("./comparacao_contagem_total_plataformas.csv").csv({typed: true});
+
+showCode(FileAttachment("./top_10_songs_spotify_playlists_charts.csv.py"))
+const top_10_songs_spotify_playlists_charts = await FileAttachment("./top_10_songs_spotify_playlists_charts.csv").csv({typed: true});
+
+showCode(FileAttachment("./top_10_songs_apple_playlists_charts.csv.py"))
+const top_10_songs_apple_playlists_charts = await FileAttachment("./top_10_songs_apple_playlists_charts.csv").csv({typed: true});
+
+showCode(FileAttachment("./top_10_songs_deezer_playlists_charts.csv.py"))
+const top_10_songs_deezer_playlists_charts = await FileAttachment("./top_10_songs_deezer_playlists_charts.csv").csv({typed: true});
+
+showCode(FileAttachment("./top_10_songs_shazam_playlists_charts.csv.py"))
+const top_10_songs_shazam_playlists_charts = await FileAttachment("./top_10_songs_shazam_playlists_charts.csv").csv({typed: true});
+
 function ex01(divWidth) {
-   return {
+    return {
         spec: {
             width: divWidth,
-            height: divheight,
             data: {
-                values: spotify
+                values: comparacao_contagem_plataformas 
             },
-            "mark": {
-                "type": "bar"
-            },
-            "transform": 
-           [{
-                "aggregate": 
-                [{
-                    "field": ["streams"],
-                    "op": "sum", 
-                    "as": "rank",
-                }],
-                "groupby": ["artist(s)_name"],
-            },
-            {
-                "filter": "datum.rank >= 5000000000"
-            }],      
-                   
+            "mark": "bar",
             "encoding": {
-                "x": {
-                    "field": ["artist(s)_name"],
-                    "type": "nominal",
-                    "aggregate": "artist(s)_name",
-                    "sort": {
-                        "field": "rank",
-                        "order": "descending"
-                    },            
-                },
-                "y": {
-                   "field": ["rank"],
+                "x": {"field": "plataforma", 
+                "type": "nominal",
+                "axis": {
+                "labelAngle": 45  // Set the angle to 45 degrees
+                }},
+                "y": {"field": "contagem", 
                     "type": "quantitative",
-                }
-            }
+                    "scale": {"domain": [0, 5500000]}
+                    }
+            }            
         }
     }
 }
 
 function ex02(divWidth) {
-   return {
+    return {
         spec: {
             width: divWidth,
-            height: divheight,
             data: {
-                values: spotify
+                values: top_10_songs_spotify_playlists_charts 
             },
-            "mark": {
-                "type": "bar"
-            },
-            "transform": 
-           [{
-                "aggregate": 
-                [{
-                    "field": ["streams"],
-                    "op": "sum", 
-                    "as": "rank",
-                }],
-                "groupby": ["artist(s)_name","released_year"],
-
-            },
-            {"filter": "datum.released_year == 2023 && datum.rank >= 510000000"},
-         
-            ],      
-                   
+            "mark": "bar",
             "encoding": {
-                "x": {
-                    "field": ["artist(s)_name"],
-                    "type": "nominal",
-                    "aggregate": "artist(s)_name",
-                    "sort": {
-                        "field": "rank",
-                        "order": "descending"
-                    },            
-                },
-                "y": {
-                   "field": ["rank"],
-                    "type": "quantitative",
-                }
-            }
+                "x": {"field": "spotify_total", 
+                "type": "quantitative",
+                "axis": {
+                "labelAngle": 45  // Set the angle to 45 degrees
+                }},
+                "y": {"field": "track_name", 
+                    "type": "nominal"                    
+                    }
+            }            
         }
     }
 }
 
 function ex03(divWidth) {
-  return {
+    return {
         spec: {
             width: divWidth,
-            height: divheight,
             data: {
-                values: spotify
+                values: top_10_songs_apple_playlists_charts 
             },
-            "mark": {
-                "type": "bar"
-            },
-            "transform": 
-           [{
-                "aggregate": 
-                [{
-                    "field": ["streams"],
-                    "op": "sum", 
-                    "as": "rank",
-                }],
-                "groupby": ["track_name"],
-            },
-            {
-                "filter": "datum.rank >= 2560000000"
-            }],      
-                   
+            "mark": "bar",
             "encoding": {
-                "x": {
-                    "field": ["track_name"],
-                    "type": "nominal",
-                    "aggregate": "track_name",
-                    "sort": {
-                        "field": "rank",
-                        "order": "descending"
-                    },            
-                },
-                "y": {
-                   "field": ["rank"],
-                    "type": "quantitative",
-                }
-            }
+                "x": {"field": "apple_total", 
+                "type": "quantitative",
+                "axis": {
+                "labelAngle": 45  // Set the angle to 45 degrees
+                }},
+                "y": {"field": "track_name", 
+                    "type": "nominal"                    
+                    }
+            }            
         }
     }
 }
 
 function ex04(divWidth) {
-   return {
+    return {
         spec: {
             width: divWidth,
-            height: divheight,
             data: {
-                values: spotify
+                values: top_10_songs_deezer_playlists_charts 
             },
-            "mark": {
-                "type": "bar"
-            },
-            "transform": 
-           [{
-                "aggregate": 
-                [{
-                    "field": ["streams"],
-                    "op": "sum", 
-                    "as": "rank",
-                }],
-                "groupby": ["track_name","released_year"],
-
-            },
-            {"filter": "datum.released_year == 2023 && datum.rank >= 430000000"},
-         
-            ],      
-                   
+            "mark": "bar",
             "encoding": {
-                "x": {
-                    "field": ["track_name"],
-                    "type": "nominal",
-                    "aggregate": "track_name",
-                    "sort": {
-                        "field": "rank",
-                        "order": "descending"
-                    },            
-                },
-                "y": {
-                   "field": ["rank"],
-                    "type": "quantitative",
-                }
-            }
+                "x": {"field": "deezer_total", 
+                "type": "quantitative",
+                "axis": {
+                "labelAngle": 45  // Set the angle to 45 degrees
+                }},
+                "y": {"field": "track_name", 
+                    "type": "nominal"                    
+                    }
+            }            
+        }
+    }
+}
+
+function ex05(divWidth) {
+    return {
+        spec: {
+            width: divWidth,
+            data: {
+                values: top_10_songs_shazam_playlists_charts 
+            },
+            "mark": "bar",
+            "encoding": {
+                "x": {"field": "shazam_total", 
+                "type": "quantitative",
+                "axis": {
+                "labelAngle": 45  // Set the angle to 45 degrees
+                }},
+                "y": {"field": "track_name", 
+                    "type": "nominal"                    
+                    }
+            }            
         }
     }
 }
