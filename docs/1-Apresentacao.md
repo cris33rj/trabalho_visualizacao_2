@@ -18,15 +18,15 @@ Este trabalho de pesquisa foi produzido no curso de Mestrado em Computação - P
 
 | Edel Melo          | Cristiano           |
 | :----:             |    :----:           |
-| Mestrado           | Mestrado            |
-| edelmelo@id.uff.br | cristiano@id.uff.br |
+| Aluno de Mestrado <BR> Mat. M048.123.012  | Aluno de Mestrado <br> Mat. M000.000.000  |
+| <address><a href="mailto:edelmelo@id.uff.br">edelmelo@id.uff.br</a></address> | <address><a href="mailto:cristiano@id.uff.br">cristinao@id.uff.br</a></address> |
 
 </div>
 </div>
 
 ### O trabalho:
 
-O trabalho consiste em fazer análises de um conjunto de dados contendo uma lista das músicas mais populares de 2023 em serviços de streaming, disponível em um DATASET, no endereço: https://www.kaggle.com/datasets/nelgiriyewithana/top-spotify-songs-2023, visando responder a três perguntas:
+O trabalho consiste em fazer análises sobre um conjunto de dados contendo uma lista dos cantores e das músicas mais populares de 2023 no serviço de streaming Spotify, disponível em um DATASET, no endereço: https://www.kaggle.com/datasets/nelgiriyewithana/top-spotify-songs-2023, com o objetivo de responder a três perguntas:
 
 1. Existe alguma característica que faz uma música ter mais chance de se tornar popular?
 2. O conjunto das top 10 músicas e dos top 10 artistas varia muito se considerarmos apenas musicas lançadas no mesmo ano?

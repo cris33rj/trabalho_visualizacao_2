@@ -8,7 +8,7 @@ toc: false
     flex-direction: column;
     align-items: center;
     font-family: var(--sans-serif);
-    margin: 3rem 0 3rem;
+    margin: 0rem 0 0rem;
     text-wrap: balance;
     text-align: center;
 }
@@ -49,11 +49,10 @@ p { max-width: none; }
 <div class="hero">
     <h1>Trabalho</h1>
     <h2>Curso de Visualização de Dados (SI & PGC - UFF)<br>Prof. Marcos Lage</h2>
-     <h2><br><br>Alunos: Edel Melo & Christiano</h2>
+     <h2><br>Alunos: Edel Melo & Christiano</h2>
 </div>
 
 ## Índice
-
 <div class="grid grid-cols-3">
 <span class="card"><h4>Introdução<br></h4>
     <div class="card" flex>
