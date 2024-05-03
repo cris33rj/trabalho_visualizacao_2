@@ -49,7 +49,7 @@ p { max-width: none; }
 <div class="hero">
     <h1>Trabalho</h1>
     <h2>Curso de Visualização de Dados (SI & PGC - UFF)<br>Prof. Marcos Lage</h2>
-     <h2><br>Alunos: Edel Melo & Christiano</h2>
+     <h2><br>Alunos: Edel Melo & Cristiano Santana do Nascimento</h2>
 </div>
 
 ## Índice

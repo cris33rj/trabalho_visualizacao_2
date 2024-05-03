@@ -16,10 +16,10 @@ Este trabalho de pesquisa foi produzido no curso de Mestrado em Computação - P
 <div class="grid grid-cols-1">    
 <div class="card" >
 
-| Edel Melo          | Cristiano           |
+| Edel Melo          | Cristiano Nascimento          |
 | :----:             |    :----:           |
-| Aluno de Mestrado <BR> Mat. M048.123.012  | Aluno de Mestrado <br> Mat. M000.000.000  |
-| <address><a href="mailto:edelmelo@id.uff.br">edelmelo@id.uff.br</a></address> | <address><a href="mailto:cristiano@id.uff.br">cristinao@id.uff.br</a></address> |
+| Aluno de Mestrado <BR> Mat. M048.123.012  | Aluno de Mestrado <br> Mat. M048.123.010  |
+| <address><a href="mailto:edelmelo@id.uff.br">edelmelo@id.uff.br</a></address> | <address><a href="mailto:cristiano_nascimento@id.uff.br">mailto:cristiano_nascimento@id.uff.br</a></address> |
 
 </div>
 </div>
