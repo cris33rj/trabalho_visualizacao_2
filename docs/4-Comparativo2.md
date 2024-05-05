@@ -73,6 +73,12 @@ Dito isto, concluí-se que nos dois caos, dos top 10 cantores e músicas mais ou
 const divWidth = Generators.width(document.querySelector("#ex01"));
 ```
 
+```sql
+sql:
+  stores: ./data/spotify-2023.json
+SELECT * FROM stores LIMIT 10
+```
+
 
 ```js
 import * as vega from "npm:vega";
@@ -96,34 +102,31 @@ function ex01(VdivWidth) {
                 "size": 14,
             },
             "transform": 
-           [{
+           [
+            {
                 "aggregate": 
                 [{
-                    "field": ["streams"],
+                    "field": ["in_spotify_playlists"],
                     "op": "sum", 
-                    "as": "Stream_total",
-                }],
-                "groupby": ["artist(s)_name"],
+                    "as": "Qtd",
+                },
+               ],
+                "groupby": ["in_spotify_playlists"],
             },
-            {
-                "filter": "datum.Stream_total >= 5000000000"
-            }],      
+
+           ],      
                    
             "encoding": {
                 "x": {
-                    "field": ["artist(s)_name"],
-                    "type": "nominal",
-                    "aggregate": "artist(s)_name",
-                    "sort": {
-                        "field": "Stream_total",
-                        "order": "descending"
-                    },        
-                    "title": "Nome(s) do(s) Cantor(es)",                                  
+                    "field": "Qtd",
+                    "type": "quantitative",
+                    "aggregate": "Qtd",
+                               
                 },
                 "y": {
-                   "field": ["Stream_total"],
+                   "field": ["Qtd"],
                     "type": "quantitative",
-                    "title": "Total de Streams",    
+                    "title": "Qtd",    
                 }
             }
         }

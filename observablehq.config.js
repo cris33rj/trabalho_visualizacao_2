@@ -18,9 +18,10 @@ export default {
         open: false,
         pages: [
           {name: "Parte 2 - Popularidade Musical", path: "/2-Popularidade_musical"},
-          {name: "Parte 3 - Top 10", path: "/3-Top10"},          
+          {name: "Parte 3 - Top 10", path: "/3-Top10"},      
           {name: "Parte 4 - Comparativo", path: "/4-Comparativo"},          
-        ]
+          {name: "Parte 4.1 - Comparativo teste", path: "/4-Comparativo2"},   
+              ]
       },
       {
         name: "Fechamento",
