@@ -28,3 +28,284 @@ Discussão Discussão Discussão Discussão Discussão Discussão Discussão Dis
 Discussão Discussão Discussão Discussão Discussão Discussão Discussão Discussão Discussão Discussão <br>
 Discussão Discussão Discussão Discussão Discussão Discussão Discussão Discussão Discussão Discussão <br>
 Discussão Discussão Discussão Discussão Discussão Discussão Discussão Discussão Discussão Discussão <br>
+
+<style> 
+    p, table, figure, figcaption, h1, h2, h3, h4, h5, h6, .katex-display 
+    {
+        max-width:none;
+        text-align: justify;
+        margin: 15px 15px;
+        text-wrap: pretty;
+    }
+</style>
+# Parte 3 - Top 10
+
+## Análise dos TOP 10 maiores cantores e músicas mais ouvidas do Spotify.
+
+Esta análise visa responder a seguinte questão: ***O conjunto das top 10 músicas e dos top 10 artistas varia muito se considerarmos apenas musicas lançadas no mesmo ano?***
+
+Por se tratar de um comparativo de proporções de 10 itens, poderíamos escolher gráficos em formato de pizza ou de barras, ou até mesmo uma tabela, pois o intuito seria verificar se ocorreria grandes variações entre os eleitos em cada uma das duas categorias, levado-se em consideração o ano de lançamento da música.
+Não obstante mostrar os top 10 eleitos, evidenciamos a oportunidade de mostrar o ranking de eleição dos artistas e das músicas, por isso optamos pelo gráfico em barras, uma vez que este proporciona uma melhor visualização entre proporções próximas no comparativo visual.
+
+Diante do exposto, para responder a(s) questão(ões), desenvolvemos quatro histogramas e dividimo-los em dois grupos: <br>
+1) a dos que analisam os cantores; e <br>
+2) a dos que analisam as músicas.
+
+No primeiro grupo, analisaremos os cantores:
+
+<div class="grid grid-cols-2">
+    <div id="ex01" class="card">
+        <h4>Top 10 maiores cantores em todo o período analisado. (A1)</h4>
+   <div style="width: 100%, margin-top: 15px;">
+            ${ vl.render(ex01(divWidth-125)) }
+        </div>
+    </div>
+    <div id="ex02" class="card">
+        <h4>Top 10 maiores cantores com  músicas lançadas em 2023. (A2)</h4>
+        <div style="width: 100%; margin-top: 15px;">
+            ${ vl.render(ex02(divWidth-120)) }
+        </div>
+    </div>
+</div>
+
+Os histogramas acima denominados A1 e A2 representam, respectivamente, os 10 cantores mais ouvidos se considerado todo o período registrado no banco de dados disponibilizado no endereço: https://www.kaggle.com/datasets/nelgiriyewithana/top-spotify-songs-2023, e os 10 cantores mais ouvidos se considerado apenas as músicas lançadas no ano de 2023, mesmo ano do banco de dados anteriormente mencionado.
+
+***Ao analisá-los, evidenciamos que há uma grande variação da composição dos 10 cantores mais ouvidos.***
+<br>
+
+Já no segundo grupo, correspondente às músicas, temos:
+
+<div class="grid grid-cols-2">
+    <div id="ex03" class="card">
+        <h4>Top 10 músicas mais ouvidas em todo o período analisado. B1</h4>
+        <div style="width: 100%; margin-top: 15px;">
+             ${ vl.render(ex03(divWidth-120)) }
+        </div>
+    </div>
+    <div id="ex04" class="card">
+        <h4>Top 10 músicas mais ouvidas que foram lançadas em 2023. B2</h4>
+        <div style="width: 100%; margin-top: 15px;">
+             ${ vl.render(ex04(divWidth-120)) }
+        </div>
+    </div>
+</div>
+
+Os histogramas acima denominados B1 e B2 representam, respectivamente, as 10 músicas mais ouvidas se considerado todo o período registrado no banco de dados supracitado, e as 10 mais ouvidas se considerado apenas aquelas lançadas no ano de 2023, mesmo ano do banco de dados.
+
+***Ao analisá-los, observamos que houve 80% de variação da composição das 10 músicas mais ouvidas.***
+<br>
+
+Dito isto, concluí-se que nos dois caos, dos top 10 cantores e músicas mais ouvidos, ao se comparar todas as músicas e apenas aquelas lançadas no ano de 2023, há uma variação de mais de 79% em ambos os casos.
+
+```js
+
+
+
+const divWidth = Generators.width(document.querySelector("#ex01"));
+```
+
+```
+sql:
+  stores: ./data/spotify-2023.json
+```
+
+```sql id=myquery
+SELECT * FROM stores LIMIT 10
+```
+
+```js
+import * as vega from "npm:vega";
+import * as vegaLite from "npm:vega-lite";
+import * as vegaLiteApi from "npm:vega-lite-api";
+
+const vl = vegaLiteApi.register(vega, vegaLite);
+
+const spotify = await FileAttachment("./data/spotify-2023.json").json({typed: true});
+const MyData = await FileAttachment("./data/Temp.json").json({typed: true});
+
+
+function ex01(VdivWidth) {
+   return {
+        spec: {
+            width: VdivWidth,
+            padding: 15,     
+            data: {
+                values: spotify
+            },
+            "transform": [{
+                "aggregate": 
+                [{
+                    "field": ["in_spotify_playlists"],
+                    "op": "sum", 
+                    "as": "QtdS",
+                }],
+                "groupby": ["QtdA"],
+            }],   
+                "mark": {
+                    "type": "bar",
+                    "size": 14,
+                },                 
+                "encoding": {
+                    "x": {
+                        "field": ["QtdS"],
+                        "type": "quantitative",
+                        "aggregate": "QtdS",
+                    },
+                    "y": {
+                    "field": "QtdS",
+                        "type": "quantitative",
+                        "title": ["QtdS"],    
+                    }
+                }
+           
+          
+        }
+    }
+}
+
+function ex02(VdivWidth) {
+   return {
+        spec: {
+            width: VdivWidth,
+            padding: 15,            
+            data: {
+                values: spotify
+            },
+            "mark": {
+                "type": "bar",
+                "size": 14,
+            },
+            "transform": 
+           [{
+                "aggregate": 
+                [{
+                    "field": ["streams"],
+                    "op": "sum", 
+                    "as": "stream_total",
+                }],
+                "groupby": ["artist(s)_name","released_year"],
+
+            },
+            {"filter": "datum.released_year == 2023 && datum.stream_total >= 510000000"},
+         
+            ],      
+                   
+            "encoding": {
+                "color": {"value": "green"},                
+                "x": {
+                    "field": ["artist(s)_name"],
+                    "type": "nominal",
+                    "aggregate": "artist(s)_name",
+                    "sort": {
+                        "field": "stream_total",
+                        "order": "descending"
+                    },  
+                    "title": "Nome(s) do(s) Cantor(es)",          
+                },
+                "y": {
+                   "field": ["stream_total"],
+                    "type": "quantitative",
+                    "title": "Total de Streams",                        
+                }
+            }
+        }
+    }
+}
+
+function ex03(VdivWidth) {
+  return {
+        spec: {
+            width: VdivWidth,
+            padding: 15,            
+            data: {
+                values: spotify
+            },
+            "mark": {
+                "type": "bar",
+                "size": 14,
+            },
+            "transform": 
+           [{
+                "aggregate": 
+                [{
+                    "field": ["streams"],
+                    "op": "sum", 
+                    "as": "Stream_total",
+                }],
+                "groupby": ["track_name"],
+            },
+            {
+                "filter": "datum.Stream_total >= 2560000000"
+            }],      
+                   
+            "encoding": {
+                "color": {"value": "brown"},                
+                "x": {
+                    "field": ["track_name"],
+                    "type": "nominal",
+                    "aggregate": "track_name",
+                    "sort": {
+                        "field": "Stream_total",
+                        "order": "descending"
+                    },    
+                    "title": "Nome da música",        
+                },
+                "y": {
+                   "field": ["Stream_total"],
+                    "type": "quantitative",
+                    "title": "Total de Streams",    
+                }
+            }
+        }
+    }
+}
+
+function ex04(VdivWidth) {
+   return {
+        spec: {
+            width: VdivWidth,
+            padding: 15,            
+            data: {
+                values: spotify
+            },
+            "mark": {
+                "type": "bar",
+                "size": 14,
+            },
+            "transform": 
+           [{
+                "aggregate": 
+                [{
+                    "field": ["streams"],
+                    "op": "sum", 
+                    "as": "Stream_total",
+                }],
+                "groupby": ["track_name","released_year"],
+            },
+            {"filter": "datum.released_year == 2023 && datum.Stream_total >= 430000000"},
+         
+            ],      
+                   
+            "encoding": {
+                "color": {"value": "gray"},
+                "x": {
+                   "field": ["track_name"],
+                    "type": "nominal",
+                    "aggregate": "track_name",
+                    "sort": {
+                        "field": "Stream_total",
+                        "order": "descending"
+                    },  
+                    "title": "Nome da música",
+
+                },
+                "y": {
+                   "field": ["Stream_total"],
+                    "type": "quantitative",
+                    "title": "Total de Streams",    
+                }
+            }
+        }
+    }
+}
+```
