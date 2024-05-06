@@ -73,12 +73,14 @@ Dito isto, concluí-se que nos dois caos, dos top 10 cantores e músicas mais ou
 const divWidth = Generators.width(document.querySelector("#ex01"));
 ```
 
-```sql
+```
 sql:
   stores: ./data/spotify-2023.json
-SELECT * FROM stores LIMIT 10
 ```
 
+```sql id=myquery
+SELECT * FROM stores LIMIT 10
+```
 
 ```js
 import * as vega from "npm:vega";
@@ -88,47 +90,44 @@ import * as vegaLiteApi from "npm:vega-lite-api";
 const vl = vegaLiteApi.register(vega, vegaLite);
 
 const spotify = await FileAttachment("./data/spotify-2023.json").json({typed: true});
+const MyData = await FileAttachment("./data/Temp.json").json({typed: true});
+
 
 function ex01(VdivWidth) {
    return {
         spec: {
             width: VdivWidth,
-            padding: 15,   
+            padding: 15,     
             data: {
                 values: spotify
             },
-            "mark": {
-                "type": "bar",
-                "size": 14,
-            },
-            "transform": 
-           [
-            {
+            "transform": [{
                 "aggregate": 
                 [{
                     "field": ["in_spotify_playlists"],
                     "op": "sum", 
-                    "as": "Qtd",
-                },
-               ],
-                "groupby": ["in_spotify_playlists"],
-            },
-
-           ],      
-                   
-            "encoding": {
-                "x": {
-                    "field": "Qtd",
-                    "type": "quantitative",
-                    "aggregate": "Qtd",
-                               
-                },
-                "y": {
-                   "field": ["Qtd"],
-                    "type": "quantitative",
-                    "title": "Qtd",    
+                    "as": "QtdS",
+                }],
+                "groupby": ["QtdA"],
+            }],   
+                "mark": {
+                    "type": "bar",
+                    "size": 14,
+                },                 
+                "encoding": {
+                    "x": {
+                        "field": ["QtdS"],
+                        "type": "quantitative",
+                        "aggregate": "QtdS",
+                    },
+                    "y": {
+                    "field": "QtdS",
+                        "type": "quantitative",
+                        "title": ["QtdS"],    
+                    }
                 }
-            }
+           
+          
         }
     }
 }

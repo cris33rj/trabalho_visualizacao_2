@@ -1,0 +1,14 @@
+[
+  {
+    "Item": "Spotify_PlayList",
+    "Valor": 1
+  },
+  {
+    "Item": "Deezer_PlayList",
+    "Valor": 1
+  },
+  {
+    "Item": "Amazon_PlayList",
+    "Valor": 1
+  }
+]
