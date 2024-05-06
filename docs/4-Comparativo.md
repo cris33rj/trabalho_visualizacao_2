@@ -18,7 +18,7 @@ Para respondê-la, desenvolvemos quatro histogramas e dividimo-los em dois grupo
 
 Para os que analisam os cantores, temos:
 
-<div class="grid grid-cols-2">
+<div class="grid grid-cols-2" style="width: 1350px; text-align: center; ">
     <div id="ex01" class="card">
         <h4>Comparação da contagem total de músicas presentes nas playlists e charts das plataformas. (A1)</h4>
    <div style="width: 100%; margin-top: 15px;">
@@ -40,7 +40,7 @@ Os histogramas acima denominados A1 e A2, representam, respectivamente, os 10 ca
 
 Já para as músicas, temos:
 
-<div class="grid grid-cols-2">
+<div class="grid grid-cols-2" style="width: 1350px; text-align: center; ">
     <div id="ex03" class="card">
         <h4>Músicas top 10 da Apple com base no total de músicas presentes em playlists e charts. . B1</h4>
         <div style="width: 100%; margin-top: 15px;">
@@ -66,7 +66,7 @@ Os histogramas acima denominados B1 e B2, representam, respectivamente, as 10 m�
 #### Ao analisá-los, respondemos que SIM, houve 80% de variação da composição das 10 músicas mais ouvidos.
 
 ```js
-const divWidth = 430;
+const divWidth = 400;
 const divheight = 300;
 
 ```
