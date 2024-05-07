@@ -54,28 +54,28 @@ p { max-width: none; }
 
 ## Índice
 <div class="grid grid-cols-3">
-<span class="card"><h4>Introdução<br></h4>
+<span class="card"><h4>1 - Introdução<br></h4>
     <div class="card" flex>
-        <h2><a href="1-Apresentacao">Apresentação</a></h2>
+        <h2><a href="1-Apresentacao">1.1 - Apresentação</a></h2>
     </div>
 </span>
-<span class="card"><h4>Desenvolvimento<br></h4>
+<span class="card"><h4>2 - Desenvolvimento<br></h4>
     <div class="card" >
-        <h2><a href="2-Popularidade_musical">Popularidade Musical</a></h2>
+        <h2><a href="2-Popularidade_musical">2.1 - Popularidade Musical</a></h2>
     </div>
     <div class="card" >
-        <h2><a href="3-Top10">Avaliação dos Top 10</a></h2>
+        <h2><a href="3-Top10">2.2 - Avaliação dos Top 10</a></h2>
     </div>
     <div class="card" >
-        <h2><a href="4-Comparativo">Comparativo entre plataformas</a></h2>
+        <h2><a href="4-Comparativo">2.3 - Comparativo entre plataformas</a></h2>
     </div>
 </span>
-<span class="card"><h4>Fechamento<br></h4>
+<span class="card"><h4>3 - Fechamento<br></h4>
     <div class="card">
-        <h2><a href="5- Discussao">Discussão</a></h2>
+        <h2><a href="5- Discussao">3.1 - Discussão</a></h2>
     </div>
     <div class="card" >
-        <h2><a href="6-Conclusao">Conclusão</a></h2>
+        <h2><a href="6-Conclusao">3.2 - Conclusão</a></h2>
     </div>
 </span>
 </div>
