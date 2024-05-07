@@ -19,49 +19,49 @@ Nos dois primeiros gráficos apontados é possível perceber que "Streams" (em b
 
 <div class="grid grid-cols-2">
     <div id="ex01" class="card">
-        <h4>Danceability X Streams. A1</h4>
+        <h4>Danceability X Streams.</h4>
         <div style="width: 100%; margin-top: 15px;">
             ${ vl.render(ex01(divWidth - 30)) }
         </div>
     </div>  
     <div id="ex02" class="card">
-        <h4>Valence X Streams. A2</h4>
+        <h4>Valence X Streams.</h4>
         <div style="width: 100%; margin-top: 15px;">
             ${ vl.render(ex02(divWidth - 30)) }
         </div>
     </div>
     <div id="ex03" class="card">
-        <h4>Energy X Streams. A3</h4>
+        <h4>Energy X Streams.</h4>
         <div style="width: 100%; margin-top: 15px;">
             ${ vl.render(ex03(divWidth - 30)) }
         </div>
     </div>
     <div id="ex04" class="card">
-        <h4>Acousticness X Streams. A4</h4>
+        <h4>Acousticness X Streams.</h4>
         <div style="width: 100%; margin-top: 15px;">
             ${ vl.render(ex04(divWidth - 30)) }
         </div>
     </div>
      <div id="ex05" class="card">
-        <h4>Instrumentalness X Streams. A5</h4>
+        <h4>Instrumentalness X Streams.</h4>
         <div style="width: 100%; margin-top: 15px;">
             ${ vl.render(ex05(divWidth - 30)) }
         </div>
     </div>
     <div id="ex06" class="card">
-        <h4>Liveness X Streams. A6</h4>
+        <h4>Liveness X Streams.</h4>
         <div style="width: 100%; margin-top: 15px;">
             ${ vl.render(ex06(divWidth - 30)) }
         </div>
     </div>
      <div id="ex07" class="card">
-        <h4>Speechiness X Streams. A7</h4>
+        <h4>Speechiness X Streams.</h4>
         <div style="width: 100%; margin-top: 15px;">
             ${ vl.render(ex07(divWidth - 30)) }
         </div>
     </div>
      <div id="ex08" class="card">
-        <h4>BPM X Streams. A8</h4>
+        <h4>BPM X Streams.</h4>
         <div style="width: 100%; margin-top: 15px;">
             ${ vl.render(ex08(divWidth - 30)) }
         </div>
@@ -71,21 +71,14 @@ Nos dois primeiros gráficos apontados é possível perceber que "Streams" (em b
 ```js
 const divWidth = Generators.width(document.querySelector("#ex01"));
 
-```
-
-
-```js
 import * as vega from "npm:vega";
 import * as vegaLite from "npm:vega-lite";
 import * as vegaLiteApi from "npm:vega-lite-api";
 import { showCode } from './showCode.js'; 
 
-
 const vl = vegaLiteApi.register(vega, vegaLite);
 
 const spotify = await FileAttachment("./data/spotify-2023.csv").csv({typed: true})
-
-
 
 
 function ex01(divWidth) {
@@ -95,6 +88,7 @@ function ex01(divWidth) {
             data: {
                 values: spotify
             },
+            title: "A1",
             "transform": [
                 {"calculate": "datum.streams / 1000000000", "as": "streams in billions"}
                 ],            
@@ -122,6 +116,7 @@ function ex02(divWidth) {
             data: {
                 values: spotify
             },
+            title: "A2",            
             "transform": [
                 {"calculate": "datum.streams / 1000000000", "as": "streams in billions"}
                 ],            
@@ -149,6 +144,7 @@ function ex03(divWidth) {
             data: {
                 values: spotify
             },
+            title: "A3",        
             "transform": [
                 {"calculate": "datum.streams / 1000000000", "as": "streams in billions"}
                 ],            
@@ -176,6 +172,7 @@ function ex04(divWidth) {
             data: {
                 values: spotify
             },
+            title: "A4",            
             "transform": [
                 {"calculate": "datum.streams / 1000000000", "as": "streams in billions"}
                 ],            
@@ -204,6 +201,7 @@ function ex05(divWidth) {
             data: {
                 values: spotify
             },
+            title: "A5",            
             "transform": [
                 {"calculate": "datum.streams / 1000000000", "as": "streams in billions"}
                 ],            
@@ -231,6 +229,7 @@ function ex06(divWidth) {
             data: {
                 values: spotify
             },
+            title: "A6",            
             "transform": [
                 {"calculate": "datum.streams / 1000000000", "as": "streams in billions"}
                 ],            
@@ -258,6 +257,7 @@ function ex07(divWidth) {
             data: {
                 values: spotify
             },
+            title: "A7",            
             "transform": [
                 {"calculate": "datum.streams / 1000000000", "as": "streams in billions"}
                 ],            
@@ -285,6 +285,7 @@ function ex08(divWidth) {
             data: {
                 values: spotify
             },
+            title: "A8",            
             "transform": [
                 {"calculate": "datum.streams / 1000000000", "as": "streams in billions"}
                 ],            
@@ -304,6 +305,4 @@ function ex08(divWidth) {
         }
     }
 }
-
-
 ```
