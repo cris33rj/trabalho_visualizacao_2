@@ -8,9 +8,7 @@
     }
 </style>
 # Parte 4 - Comparativo
-## Análise comparativa entre as plataformas (Spotify, Deezer, Apple Music e Shazam).
-
-
+## Análise comparativa entre as plataformas: Spotify, Deezer, Apple Music e Shazam.
 
 Esta análise visa responder a seguinte questão: O conjunto das top 10 músicas e dos top 10 artistas varia muito se considerarmos apenas musicas lançadas no mesmo ano?
 
@@ -136,13 +134,15 @@ function ex02(divWidth) {
             "size": 14,
             "encoding": {
                 "x": {"field": "spotify_total", 
-                "type": "quantitative",
-                "axis": {
-                "labelAngle": 45  // Set the angle to 45 degrees
-                }},
-                "y": {"field": "track_name", 
-                    "type": "nominal"                    
+                    "type": "quantitative",
+                    "axis": {
+                        "labelAngle": 45  // Set the angle to 45 degrees
                     }
+                },
+                "y": {
+                    "field": "track_name", 
+                    "type": "nominal"                    
+                }
             }            
         }
     }
@@ -160,13 +160,15 @@ function ex03(divWidth) {
             "size": 14,
             "encoding": {
                 "x": {"field": "apple_total", 
-                "type": "quantitative",
-                "axis": {
-                "labelAngle": 45  // Set the angle to 45 degrees
-                }},
-                "y": {"field": "track_name", 
-                    "type": "nominal"                    
+                    "type": "quantitative",
+                    "axis": {
+                        "labelAngle": 45  // Set the angle to 45 degrees
                     }
+                },
+                "y": {
+                    "field": "track_name", 
+                    "type": "nominal"                    
+                }
             }            
         }
     }
@@ -184,13 +186,15 @@ function ex04(divWidth) {
             "size": 14,
             "encoding": {
                 "x": {"field": "deezer_total", 
-                "type": "quantitative",
-                "axis": {
-                "labelAngle": 45  // Set the angle to 45 degrees
-                }},
-                "y": {"field": "track_name", 
-                    "type": "nominal"                    
+                    "type": "quantitative",
+                    "axis": {
+                        "labelAngle": 45  // Set the angle to 45 degrees
                     }
+                },
+                "y": {
+                    "field": "track_name", 
+                    "type": "nominal"                    
+                }
             }            
         }
     }
@@ -208,13 +212,15 @@ function ex05(divWidth) {
             "size": 14,
             "encoding": {
                 "x": {"field": "shazam_total", 
-                "type": "quantitative",
-                "axis": {
-                "labelAngle": 0  // Set the angle to 45 degrees
-                }},
-                "y": {"field": "track_name", 
-                    "type": "nominal"                    
+                    "type": "quantitative",
+                    "axis": {
+                        "labelAngle": 0  // Set the angle to 45 degrees
                     }
+                },
+                "y": {
+                    "field": "track_name", 
+                    "type": "nominal"                    
+                }
             }            
         }
     }
