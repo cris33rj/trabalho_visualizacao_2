@@ -131,7 +131,11 @@ function ex02(divWidth) {
                 },
                 "y": {
                     "field": "track_name", 
-                    "type": "nominal"                    
+                    "type": "nominal",
+                    "sort": {
+                        "field": "spotify_total",
+                        "order": "descending"
+                    },                    
                 }
             }            
         }
@@ -157,7 +161,11 @@ function ex03(divWidth) {
                 },
                 "y": {
                     "field": "track_name", 
-                    "type": "nominal"                    
+                    "type": "nominal",
+                    "sort": {
+                        "field": "apple_total",
+                        "order": "descending"
+                    },                   
                 }
             }            
         }
@@ -183,7 +191,11 @@ function ex04(divWidth) {
                 },
                 "y": {
                     "field": "track_name", 
-                    "type": "nominal"                    
+                    "type": "nominal",
+                    "sort": {
+                        "field": "deezer_total",
+                        "order": "descending"
+                    },                    
                 }
             }            
         }
@@ -209,7 +221,11 @@ function ex05(divWidth) {
                 },
                 "y": {
                     "field": "track_name", 
-                    "type": "nominal"                    
+                    "type": "nominal",
+                    "sort": {
+                        "field": "shazam_total",
+                        "order": "descending"
+                    },                    
                 }
             }            
         }
