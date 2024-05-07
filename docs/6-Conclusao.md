@@ -7,7 +7,7 @@
         text-wrap: pretty;
     }
 </style>
-# Parte 6 - Conclusão
+# P3.2 - Conclusão
 
 ## Apresentação da conclusão do trabalho.
 

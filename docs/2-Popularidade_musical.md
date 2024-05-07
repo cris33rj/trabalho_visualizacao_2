@@ -7,7 +7,7 @@
         text-wrap: pretty;
     }
 </style>
-# Parte 2 - Popularidade Musical
+# 2.1 - Popularidade Musical
 
 ## Análise do que faz uma música ser popular.
 

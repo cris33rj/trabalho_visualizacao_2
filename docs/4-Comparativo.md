@@ -7,7 +7,7 @@
         text-wrap: pretty;
     }
 </style>
-# Parte 4 - Comparativo
+# 2.3 - Comparativo
 ## Análise comparativa entre as plataformas: Spotify, Deezer, Apple Music e Shazam.
 
 Esta análise visa responder a seguinte questão: O conjunto das top 10 músicas e dos top 10 artistas varia muito se considerarmos apenas musicas lançadas no mesmo ano?
