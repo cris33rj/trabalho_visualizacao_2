@@ -18,17 +18,17 @@ Para respondê-la, desenvolvemos quatro histogramas e dividimo-los em dois grupo
 
 Para os que analisam os cantores, temos:
 
-<div class="grid grid-cols-2" style="width: 1350px; text-align: center; ">
+<div class="grid grid-cols-2" style="text-align: center; ">
     <div id="ex01" class="card">
-        <h4>Comparação da contagem total de músicas presentes nas playlists e charts das plataformas. (A1)</h4>
+        <h4>Comparação da contagem total de músicas presentes nas playlists e charts das plataformas.</h4>
    <div style="width: 100%; margin-top: 15px;">
-            ${ vl.render(ex01(divWidth)) }
+            ${ vl.render(ex01(divWidth-80)) }
         </div>
     </div>
     <div id="ex02" class="card">
-        <h4>Músicas top 10 do Spotify com base no total de músicas presentes em playlists e charts. (A2)</h4>
+        <h4>Músicas top 10 do Spotify com base no total de músicas presentes em playlists e charts.</h4>
         <div style="width: 100%; margin-top: 15px;">
-            ${ vl.render(ex02(divWidth)) }
+            ${ vl.render(ex02(divWidth-210)) }
         </div>
     </div>
 </div>
@@ -40,23 +40,26 @@ Os histogramas acima denominados A1 e A2, representam, respectivamente, os 10 ca
 
 Já para as músicas, temos:
 
-<div class="grid grid-cols-2" style="width: 1350px; text-align: center; ">
+<div class="grid grid-cols-2" style="text-align: center; ">
     <div id="ex03" class="card">
-        <h4>Músicas top 10 da Apple com base no total de músicas presentes em playlists e charts. . B1</h4>
+        <h4>Músicas top 10 da Apple com base no total de músicas presentes em playlists e charts.</h4>
         <div style="width: 100%; margin-top: 15px;">
-             ${ vl.render(ex03(divWidth)) }
+             ${ vl.render(ex03(divWidth-160)) }
         </div>
     </div>
     <div id="ex04" class="card">
-        <h4>Músicas top 10 do Deezer com base no total de músicas presentes em playlists e charts. B2</h4>
+        <h4>Músicas top 10 do Deezer com base no total de músicas presentes em playlists e charts.</h4>
         <div style="width: 100%; margin-top: 15px;">
-             ${ vl.render(ex04(divWidth)) }
+             ${ vl.render(ex04(divWidth-210)) }
         </div>
     </div>
+</div>
+
+<div class="grid" style="text-align: center; ">
     <div id="ex05" class="card">
-        <h4>Músicas top 10 do Shazam com base no total de músicas presentes em playlists e charts. B2</h4>
+        <h4>Músicas top 10 do Shazam com base no total de músicas presentes em playlists e charts.</h4>
         <div style="width: 100%; margin-top: 15px;">
-             ${ vl.render(ex05(divWidth)) }
+             ${ vl.render(ex05(divWidth+290)) }
         </div>
     </div>
 </div>
@@ -66,13 +69,9 @@ Os histogramas acima denominados B1 e B2, representam, respectivamente, as 10 m�
 #### Ao analisá-los, respondemos que SIM, houve 80% de variação da composição das 10 músicas mais ouvidos.
 
 ```js
-const divWidth = 400;
+const divWidth = Generators.width(document.querySelector("#ex01"));
 const divheight = 300;
 
-```
-
-
-```js
 import * as vega from "npm:vega";
 import * as vegaLite from "npm:vega-lite";
 import * as vegaLiteApi from "npm:vega-lite-api";
@@ -104,17 +103,22 @@ function ex01(divWidth) {
             data: {
                 values: comparacao_contagem_plataformas 
             },
+            title: "A1",
             "mark": "bar",
+            "size": 14,
             "encoding": {
-                "x": {"field": "plataforma", 
-                "type": "nominal",
-                "axis": {
-                "labelAngle": 45  // Set the angle to 45 degrees
-                }},
-                "y": {"field": "contagem", 
+                "x": {
+                    "field": "plataforma", 
+                    "type": "nominal",
+                    "axis": {
+                        "labelAngle": 45  // Set the angle to 45 degrees
+                    }
+                },
+                "y": {
+                    "field": "contagem", 
                     "type": "quantitative",
                     "scale": {"domain": [0, 5500000]}
-                    }
+                }
             }            
         }
     }
@@ -127,7 +131,9 @@ function ex02(divWidth) {
             data: {
                 values: top_10_songs_spotify_playlists_charts 
             },
+            title: "A2",
             "mark": "bar",
+            "size": 14,
             "encoding": {
                 "x": {"field": "spotify_total", 
                 "type": "quantitative",
@@ -149,7 +155,9 @@ function ex03(divWidth) {
             data: {
                 values: top_10_songs_apple_playlists_charts 
             },
+            title: "A3",
             "mark": "bar",
+            "size": 14,
             "encoding": {
                 "x": {"field": "apple_total", 
                 "type": "quantitative",
@@ -171,7 +179,9 @@ function ex04(divWidth) {
             data: {
                 values: top_10_songs_deezer_playlists_charts 
             },
+            title: "A4",
             "mark": "bar",
+            "size": 14,
             "encoding": {
                 "x": {"field": "deezer_total", 
                 "type": "quantitative",
@@ -193,12 +203,14 @@ function ex05(divWidth) {
             data: {
                 values: top_10_songs_shazam_playlists_charts 
             },
+            title: "A5",
             "mark": "bar",
+            "size": 14,
             "encoding": {
                 "x": {"field": "shazam_total", 
                 "type": "quantitative",
                 "axis": {
-                "labelAngle": 45  // Set the angle to 45 degrees
+                "labelAngle": 0  // Set the angle to 45 degrees
                 }},
                 "y": {"field": "track_name", 
                     "type": "nominal"                    

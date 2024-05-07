@@ -49,16 +49,5 @@ top_songs_shazam = spotify_data[['track_name', 'artist(s)_name', 'in_shazam_char
 top_songs_shazam['shazam_total'] = top_songs_shazam['in_shazam_charts']
 top_songs_shazam = top_songs_shazam.sort_values(by='shazam_total', ascending=False).head(10)
 
-
-
-
-
-
-
-
-
-
-
-
 top_songs_deezer.to_csv(sys.stdout,header=True,index=False)
 
