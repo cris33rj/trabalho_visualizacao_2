@@ -15,49 +15,39 @@ Esta análise visa responder a seguinte questão: O conjunto das top 10 músicas
 Para respondê-la, desenvolvemos quatro histogramas e dividimo-los em dois grupos: os que analisam os cantores e os que analisam as músicas.
 
 Para os que analisam os cantores, temos:
-
-<div class="grid grid-cols-2" style="text-align: center; ">
+<center>
+<div class="grid" style="width: 500px;text-align: center;">
     <div id="ex01" class="card">
-        <h4>Comparação da contagem total de músicas presentes nas playlists e charts das plataformas.</h4>
+        <h4>Comparação da contagem total de músicas presentes nas playlists e charts das plataformas. (A1)</h4>
    <div style="width: 100%; margin-top: 15px;">
-            ${ vl.render(ex01(divWidth-80)) }
-        </div>
-    </div>
-    <div id="ex02" class="card">
-        <h4>Músicas top 10 do Spotify com base no total de músicas presentes em playlists e charts.</h4>
-        <div style="width: 100%; margin-top: 15px;">
-            ${ vl.render(ex02(divWidth-210)) }
+            ${ vl.render(ex01(divWidth)) }
         </div>
     </div>
 </div>
-
-Os histogramas acima denominados A1 e A2, representam, respectivamente, os 10 cantores mais ouvidos se considerado todo o período disponibilizado no banco de dados disponibilizado no endereço: https://www.kaggle.com/datasets/nelgiriyewithana/top-spotify-songs-2023 e os 10 cantores mais ouvidos se considerado apenas as músicas lançadas no ano de 2023, mesmo ano do banco de dados anteriormente mencionado.
-
-#### Ao analisá-los, respondemos que SIM, há uma grande variação da composição dos 10 cantores mais ouvidos.
-
-
-Já para as músicas, temos:
-
+</center>
 <div class="grid grid-cols-2" style="text-align: center; ">
+    <div id="ex02" class="card">
+        <h4>Músicas top 10 do Spotify com base no total de músicas presentes em playlists e charts. (A2)</h4>
+        <div style="width: 100%; margin-top: 15px;">
+            ${ vl.render(ex02(divWidth-205)) }
+        </div>
+    </div>
     <div id="ex03" class="card">
-        <h4>Músicas top 10 da Apple com base no total de músicas presentes em playlists e charts.</h4>
+        <h4>Músicas top 10 da Apple com base no total de músicas presentes em playlists e charts. . B1</h4>
         <div style="width: 100%; margin-top: 15px;">
              ${ vl.render(ex03(divWidth-160)) }
         </div>
     </div>
     <div id="ex04" class="card">
-        <h4>Músicas top 10 do Deezer com base no total de músicas presentes em playlists e charts.</h4>
+        <h4>Músicas top 10 do Deezer com base no total de músicas presentes em playlists e charts. B2</h4>
         <div style="width: 100%; margin-top: 15px;">
              ${ vl.render(ex04(divWidth-210)) }
         </div>
     </div>
-</div>
-
-<div class="grid" style="text-align: center; ">
     <div id="ex05" class="card">
-        <h4>Músicas top 10 do Shazam com base no total de músicas presentes em playlists e charts.</h4>
+        <h4>Músicas top 10 do Shazam com base no total de músicas presentes em playlists e charts. B2</h4>
         <div style="width: 100%; margin-top: 15px;">
-             ${ vl.render(ex05(divWidth+290)) }
+             ${ vl.render(ex05(divWidth-210)) }
         </div>
     </div>
 </div>
@@ -67,7 +57,7 @@ Os histogramas acima denominados B1 e B2, representam, respectivamente, as 10 m�
 #### Ao analisá-los, respondemos que SIM, houve 80% de variação da composição das 10 músicas mais ouvidos.
 
 ```js
-const divWidth = Generators.width(document.querySelector("#ex01"));
+const divWidth = Generators.width(document.querySelector("#ex02"));
 const divheight = 300;
 
 import * as vega from "npm:vega";
