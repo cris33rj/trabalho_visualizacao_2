@@ -8,26 +8,27 @@ export default {
   // lets you organize them into sections and have unlisted pages.
     pages: [
       {
-        name: "Introdução",
+        name: "1 - Introdução",
+        open: false,
         pages: [
-          {name: "Parte 1 - Apresentação", path: "/1-Apresentacao"},
+          {name: "1.1 - Apresentação", path: "/1-Apresentacao"},
         ]
       },
       {
-        name: "Desenvolvimento",
+        name: "2 - Desenvolvimento",
         open: false,
         pages: [
-          {name: "Parte 2 - Popularidade Musical", path: "/2-Popularidade_musical"},
-          {name: "Parte 3 - Top 10", path: "/3-Top10"},      
-          {name: "Parte 4 - Comparativo", path: "/4-Comparativo"},          
+          {name: "2.1 - Popularidade Musical", path: "/2-Popularidade_musical"},
+          {name: "2.2 - Top 10", path: "/3-Top10"},      
+          {name: "2.3 - Comparativo", path: "/4-Comparativo"},          
               ]
       },
       {
-        name: "Fechamento",
+        name: "3 - Fechamento",
         open: false,
         pages: [
-          {name: "Parte 5 - Discussão", path: "/5-Discussao"},
-          {name: "Parte 6 - Conclusão", path: "/6-Conclusao"},          
+          {name: "3.1 - Discussão", path: "/5-Discussao"},
+          {name: "3.2 - Conclusão", path: "/6-Conclusao"},          
         ]
       }      
     ],

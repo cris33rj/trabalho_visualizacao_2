@@ -56,26 +56,26 @@ p { max-width: none; }
 <div class="grid grid-cols-3">
 <span class="card"><h4>Introdução<br></h4>
     <div class="card" flex>
-        <h2>Parte 01<br><a href="1-Apresentacao">Apresentação</a></h2>
+        <h2><a href="1-Apresentacao">Apresentação</a></h2>
     </div>
 </span>
 <span class="card"><h4>Desenvolvimento<br></h4>
     <div class="card" >
-        <h2>Parte 02<br><a href="2-Popularidade_musical">Popularidade Musical</a></h2>
+        <h2><a href="2-Popularidade_musical">Popularidade Musical</a></h2>
     </div>
     <div class="card" >
-        <h2>Parte 03<br><a href="3-Top10">Avaliação dos Top 10</a></h2>
+        <h2><a href="3-Top10">Avaliação dos Top 10</a></h2>
     </div>
     <div class="card" >
-        <h2>Parte 04<br><a href="4-Comparativo">Comparativo entre plataformas</a></h2>
+        <h2><a href="4-Comparativo">Comparativo entre plataformas</a></h2>
     </div>
 </span>
 <span class="card"><h4>Fechamento<br></h4>
     <div class="card">
-        <h2>Parte 05<br><a href="5- Discussao">Discussão</a></h2>
+        <h2><a href="5- Discussao">Discussão</a></h2>
     </div>
     <div class="card" >
-        <h2>Parte 06<br><a href="6-Conclusao">Conclusão</a></h2>
+        <h2><a href="6-Conclusao">Conclusão</a></h2>
     </div>
 </span>
 </div>
