@@ -58,14 +58,7 @@ Nos dois primeiros gráficos apontados é possível perceber que "Streams" (em b
         <h4>Speechiness X Streams.</h4>
         <div style="width: 100%; margin-top: 15px;">
             ${ vl.render(ex07(divWidth - 30)) }
-        </div>
-    </div>
-     <div id="ex08" class="card">
-        <h4>BPM X Streams.</h4>
-        <div style="width: 100%; margin-top: 15px;">
-            ${ vl.render(ex08(divWidth - 30)) }
-        </div>
-    </div>     
+        </div>    
 </div>
 
 ```js
@@ -79,6 +72,27 @@ import { showCode } from './showCode.js';
 const vl = vegaLiteApi.register(vega, vegaLite);
 
 const spotify = await FileAttachment("./data/spotify-2023.csv").csv({typed: true})
+
+showCode(FileAttachment("./top_artistas_media_danceability.csv.py"))
+const top_artistas_media_danceability = await FileAttachment("./top_artistas_media_danceability.csv").csv({typed: true});
+
+showCode(FileAttachment("./top_artistas_media_energy.csv.py"))
+const top_artistas_media_energy = await FileAttachment("./top_artistas_media_energy.csv").csv({typed: true});
+
+showCode(FileAttachment("./top_artistas_media_speechiness.csv.py"))
+const top_artistas_media_speechiness = await FileAttachment("./top_artistas_media_speechiness.csv").csv({typed: true});
+
+showCode(FileAttachment("./top_artistas_media_valence.csv.py"))
+const top_artistas_media_valence = await FileAttachment("./top_artistas_media_valence.csv").csv({typed: true});
+
+showCode(FileAttachment("./top_artistas_media_liveness.csv.py"))
+const top_artistas_media_liveness = await FileAttachment("./top_artistas_media_liveness.csv").csv({typed: true});
+
+showCode(FileAttachment("./top_artistas_media_acousticness.csv.py"))
+const top_artistas_media_acousticness = await FileAttachment("./top_artistas_media_acousticness.csv").csv({typed: true});
+
+showCode(FileAttachment("./top_artistas_media_instrumentalness.csv.py"))
+const top_artistas_media_instrumentalness = await FileAttachment("./top_artistas_media_instrumentalness.csv").csv({typed: true});
 
 
 function ex01(divWidth) {
@@ -276,33 +290,5 @@ function ex07(divWidth) {
             }
         }
     };
-}
-
-function ex08(divWidth) {
-    return {
-        spec: {
-            width: divWidth,
-            data: {
-                values: spotify
-            },
-            title: "A8",            
-            "transform": [
-                {"calculate": "datum.streams / 1000000000", "as": "streams in billions"}
-                ],            
-            "mark": {
-                "type": "point"
-            },
-            "encoding": {
-                "y": {
-                    "field": "streams in billions",
-                    "type": "quantitative"
-                },
-                "x": {
-                    "field": "bpm",
-                    "type": "quantitative"                    
-                }
-            }
-        }
-    }
 }
 ```

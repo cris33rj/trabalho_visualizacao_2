@@ -84,34 +84,47 @@ const top_10_songs_deezer_playlists_charts = await FileAttachment("./top_10_song
 showCode(FileAttachment("./top_10_songs_shazam_playlists_charts.csv.py"))
 const top_10_songs_shazam_playlists_charts = await FileAttachment("./top_10_songs_shazam_playlists_charts.csv").csv({typed: true});
 
-function ex01(divWidth) {
-    return {
+function ex01(divWidth) 
+{
+   return {
         spec: {
             width: divWidth,
-            data: {
-                values: comparacao_contagem_plataformas 
+            padding: 15,            
+            data: 
+            {
+                values: comparacao_contagem_plataformas
             },
+            "transform": [{"filter": "datum.contagem > 0 "}],
             title: "A1",
-            "mark": "bar",
-            "size": 14,
-            "encoding": {
-                "x": {
-                    "field": "plataforma", 
-                    "type": "nominal",
-                    "axis": {"labelAngle": 45 },
+            "mark": 
+            {
+                "type": "bar",
+                "size": 60,
+            },                
+            "encoding": 
+            {
+                "color": {"value": "gray"},
+                "x": 
+                {
+                   "field": ["plataforma"],
+                    "type": "nominal",                     
+                    "title": "Nome da plataforma",
                     "sort": 
                     {
                         "field": "contagem",
                         "order": "descending"
-                    },                
-
+                    },
+                    "axis": {"labelAngle": 45}
                 },
-                "y": {
-                    "field": "contagem", 
+                "y": 
+                {
+                   "field": ["contagem"],
+                    "aggregate": "sum",
                     "type": "quantitative",
-                    "scale": {"domain": [0, 5500000]}
+                    "title": "Total de Streams",
+                    "scale": {"domain": [0, 5500000]}    
                 }
-            }            
+            }
         }
     }
 }
@@ -123,6 +136,7 @@ function ex02(divWidth) {
             data: {
                 values: top_10_songs_spotify_playlists_charts 
             },
+            "transform": [{"filter": "datum.spotify_total > 0 "}],
             title: "A2",
             "mark": "bar",
             "size": 14,
@@ -153,6 +167,7 @@ function ex03(divWidth) {
             data: {
                 values: top_10_songs_apple_playlists_charts 
             },
+            "transform": [{"filter": "datum.apple_total > 0 "}],
             title: "A3",
             "mark": "bar",
             "size": 14,
@@ -183,6 +198,7 @@ function ex04(divWidth) {
             data: {
                 values: top_10_songs_deezer_playlists_charts 
             },
+            "transform": [{"filter": "datum.deezer_total > 0 "}],
             title: "A4",
             "mark": "bar",
             "size": 14,
@@ -213,6 +229,7 @@ function ex05(divWidth) {
             data: {
                 values: top_10_songs_shazam_playlists_charts 
             },
+            "transform": [{"filter": "datum.shazam_total > 0 "}],
             title: "A5",
             "mark": "bar",
             "size": 14,
