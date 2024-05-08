@@ -98,9 +98,13 @@ function ex01(divWidth) {
                 "x": {
                     "field": "plataforma", 
                     "type": "nominal",
-                    "axis": {
-                        "labelAngle": 45  // Set the angle to 45 degrees
-                    }
+                    "axis": {"labelAngle": 45 },
+                    "sort": 
+                    {
+                        "field": "contagem",
+                        "order": "descending"
+                    },                
+
                 },
                 "y": {
                     "field": "contagem", 
