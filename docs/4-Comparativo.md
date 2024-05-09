@@ -50,7 +50,21 @@ Para os que analisam os cantores, temos:
              ${ vl.render(ex05(divWidth-210)) }
         </div>
     </div>
-</div>
+    </div>
+    <div id="ex06" class="card" style="width: 110%;">
+        <h4>Playlists e streams: Relações aos pares. B1</h4>
+        <div style="width: 110%; margin-top: 15px;">
+             ${ vl.render(ex06(divWidth)) }
+        </div>
+    </div>
+    <div></div>
+    <div id="ex07" class="card" style="width: 110%;">
+        <h4>Charts e streams: Relações aos pares. B1</h4>
+        <div style="width: 110%; margin-top: 15px;">
+             ${ vl.render(ex07(divWidth)) }
+        </div>
+    </div>
+
 
 Os histogramas acima denominados B1 e B2, representam, respectivamente, as 10 músicas mais ouvidas se considerado todo o período disponibilizado no banco de dados disponibilizado no endereço: https://www.kaggle.com/datasets/nelgiriyewithana/top-spotify-songs-2023 e as 10 mais ouvidas se considerado apenas aquelas lançadas no ano de 2023, mesmo ano do banco de dados anteriormente mencionado.
 
@@ -252,4 +266,52 @@ function ex05(divWidth) {
         }
     }
 }
+
+function ex06(divWidth) {
+    return {
+        spec: {
+            "repeat": {
+            "row": ["streams","in_spotify_playlists","in_apple_playlists",  "in_deezer_playlists"],
+            "column": ["streams","in_spotify_playlists", "in_apple_playlists",  "in_deezer_playlists"]
+            },          
+            data: {
+                values: spotify 
+            },            
+            spec: {
+            width: 120,
+            height: 120,
+            "mark": "point",            
+            "encoding": {
+                "x": {"field": {"repeat": "column"}, "type": "quantitative"},
+                "y": {"field": {"repeat": "row"}, "type": "quantitative"}
+            }                     
+        }
+        }
+    }
+}
+
+function ex07(divWidth) {
+    return {
+        spec: {
+            "repeat": {
+            "row": ["streams","in_spotify_charts","in_apple_charts",  "in_deezer_charts"],
+            "column": ["streams","in_spotify_charts", "in_apple_charts",  "in_deezer_charts","in_shazam_charts"]
+            },          
+            data: {
+                values: spotify 
+            },            
+            spec: {
+            width: 120,
+            height: 120,
+            "mark": "point",            
+            "encoding": {
+                "x": {"field": {"repeat": "column"}, "type": "quantitative"},
+                "y": {"field": {"repeat": "row"}, "type": "quantitative"}
+            }                     
+        }
+        }
+    }
+}
+
+
 ```
