@@ -12,7 +12,9 @@ caracteristicas = ['danceability_%', 'valence_%', 'energy_%', 'acousticness_%', 
 
 
 # %%
-top_artistas = spotify_data['artist(s)_name'].value_counts().head(10).index
+#top_artistas = spotify_data['artist(s)_name'].value_counts().head(10).index
+spotify_data['streams'] = pd.to_numeric(spotify_data['streams'], errors='coerce')
+top_artistas = spotify_data.groupby('artist(s)_name')['streams'].sum().sort_values(ascending=False).head(10).index
 
 top_artistas_data = spotify_data[spotify_data['artist(s)_name'].isin(top_artistas)]
 

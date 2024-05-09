@@ -13,11 +13,15 @@
 
 Esta análise visa responder a seguinte questão: <b>Existe alguma característica que faz uma música ter mais chance de se tornar popular? </b>
 
-Para respondê-la, geramos oito scatter plots que com o objetivo de observar a relação da variável "Streams" com "Danceability", "Valence", "Energy", "Acousticness", "Instrumentalness", "Liveness", "Speechiness" e "BPM", respectivamente. Os gráficos que apresentam uma tendência mais forte, indicando características presentes em músicas populares são: "Streams X Danceability" e "Streams X Energy". O gráfico "Streams X Speechiness" apresenta também uma tendência, mas de forma inversa. 
+Para respondê-la, geramos dois grupos de gráficos: 1) 7 "scatter plots" que com o objetivo de observar a relação da variável "Streams" com "Danceability", "Valence", "Energy", "Acousticness", "Instrumentalness", "Liveness", "Speechiness" e "BPM", respectivamente; 2) 7 gráficos de barras com as média percentual de cada característica musical para os artistas top 10 de todo o período analisado. 
 
-Nos dois primeiros gráficos apontados é possível perceber que "Streams" (em bilhões) mostra uma tendência de aumento à medida que "Danceability" e "Energy" crescem. Quanto ao gráfico "Streams X Speechiness", percebe-se no gráfico que a maior parte dos pontos se concentram na parte esquerda, evidenciando que músicas com baixa "speechiness" têm um grande número de streams sendo, portanto, mais populares. Por outro lado, à medida que “speechiness” aumenta, há menos pontos, sugerindo que músicas com alta “speechiness” geralmente não são tão populares.
+Com relação aos "scatters plots", aqueles que apresentam uma tendência mais forte, indicando características mais frequentes em músicas populares são: "Streams X Danceability" e "Streams X Energy". O gráfico "Streams X Speechiness" apresenta também uma tendência, mas de forma inversa. 
 
-<div class="grid grid-cols-2">
+Nos dois primeiros gráficos apontados é possível perceber que "Streams" (em bilhões) mostra uma tendência de aumento à medida que "Danceability" e "Energy" crescem, sugerindo que o público em geral aprecia mais músicas dancantes e com alto grau de energia. Quanto ao gráfico "Streams X Speechiness", percebe-se no gráfico que a maior parte dos pontos se concentram na parte esquerda, evidenciando que músicas com baixa "speechiness" (menos elementos de fala) têm um grande número de streams sendo, portanto, mais populares. Por outro lado, à medida que “speechiness” aumenta, há menos pontos, sugerindo que músicas com alta “speechiness” geralmente não são tão populares.
+
+Quanto aos gráficos de barras, os comentários podem ser vistos mais abaixo.
+
+<div class="grid grid-cols-2" style="width: 110%;">
     <div id="ex01" class="card">
         <h4>Danceability X Streams.</h4>
         <div style="width: 100%; margin-top: 15px;">
@@ -58,8 +62,61 @@ Nos dois primeiros gráficos apontados é possível perceber que "Streams" (em b
         <h4>Speechiness X Streams.</h4>
         <div style="width: 100%; margin-top: 15px;">
             ${ vl.render(ex07(divWidth - 30)) }
-        </div>    
+        </div>
+       </div> 
+</div>  
+        <div></div>
+
+A análise mediante os gráficos de barras permite observar, sob outro ângulo, a influência das características musicais na popularidade das músicas. Em relação ao artistas top 10 de todo o período, é possível verificar que a média de "danceability" e "energy" tem um mínimo de 50% e um máximo em torno de 80%, ao passo que as outras características tem um máximo que não passa de 65%.        
+
+<div class="grid grid-cols-2" style="width: 110%;">         
+    <div id="ex08" class="card">
+        <h4>Média de "danceability" para os artistas top 10.</h4>
+        <div style="width: 100%; margin-top: 15px;">
+            ${ vl.render(ex08(divWidth - 110)) }
+        </div>
+    </div>  
+    <div id="ex09" class="card">
+        <h4>Média de "energy" para os artistas top 10.</h4>
+        <div style="width: 100%; margin-top: 15px;">
+            ${ vl.render(ex09(divWidth - 110)) }
+        </div>
+    </div>
+    <div id="ex10" class="card">
+        <h4>Média de "speechiness" para os artistas top 10.</h4>
+        <div style="width: 100%; margin-top: 15px;">
+            ${ vl.render(ex10(divWidth - 110)) }
+        </div>
+    </div>
+    <div id="ex11" class="card">
+        <h4>Média de "valence" para os artistas top 10.</h4>
+        <div style="width: 100%; margin-top: 15px;">
+            ${ vl.render(ex11(divWidth - 110)) }
+        </div>
+    </div>
+    <div id="ex12" class="card">
+        <h4>Média de "liveness" para os artistas top 10.</h4>
+        <div style="width: 100%; margin-top: 15px;">
+            ${ vl.render(ex12(divWidth - 110)) }
+        </div>
+    </div>
+    <div id="ex13" class="card">
+        <h4>Média de "acousticness" para os artistas top 10.</h4>
+        <div style="width: 100%; margin-top: 15px;">
+            ${ vl.render(ex13(divWidth - 110)) }
+        </div>
+    </div>
+    <div id="ex14" class="card">
+        <h4>Média de "instrumentalness" para os artistas top 10.</h4>
+        <div style="width: 100%; margin-top: 15px;">
+            ${ vl.render(ex14(divWidth - 110)) }
+        </div>
+    </div>
+                   
 </div>
+
+
+
 
 ```js
 const divWidth = Generators.width(document.querySelector("#ex01"));
@@ -116,7 +173,8 @@ function ex01(divWidth) {
                 },
                 "x": {
                     "field": "danceability_%",
-                    "type": "quantitative"                    
+                    "type": "quantitative",
+                    "scale": {"domain": [0, 100]}                      
                 }
             }
         }
@@ -144,7 +202,8 @@ function ex02(divWidth) {
                 },
                 "x": {
                     "field": "valence_%",
-                    "type": "quantitative"                    
+                    "type": "quantitative",
+                    "scale": {"domain": [0, 100]}                      
                 }
             }
         }
@@ -172,7 +231,8 @@ function ex03(divWidth) {
                 },
                 "x": {
                     "field": "energy_%",
-                    "type": "quantitative"                    
+                    "type": "quantitative",
+                    "scale": {"domain": [0, 100]}                      
                 }
             }
         }
@@ -200,7 +260,8 @@ function ex04(divWidth) {
                 },
                 "x": {
                     "field": "acousticness_%",
-                    "type": "quantitative"                    
+                    "type": "quantitative",
+                    "scale": {"domain": [0, 100]}                      
                 }
             }
         }
@@ -229,7 +290,8 @@ function ex05(divWidth) {
                 },
                 "x": {
                     "field": "instrumentalness_%",
-                    "type": "quantitative"                    
+                    "type": "quantitative" ,
+                    "scale": {"domain": [0, 100]}                     
                 }
             }
         }
@@ -257,7 +319,8 @@ function ex06(divWidth) {
                 },
                 "x": {
                     "field": "liveness_%",
-                    "type": "quantitative"                    
+                    "type": "quantitative",
+                    "scale": {"domain": [0, 100]}                      
                 }
             }
         }
@@ -285,10 +348,235 @@ function ex07(divWidth) {
                 },
                 "x": {
                     "field": "speechiness_%",
-                    "type": "quantitative"                    
+                    "type": "quantitative",
+                    "scale": {"domain": [0, 100]}                     
                 }
             }
         }
     };
+}
+
+function ex08(divWidth) {
+    return {
+        spec: {
+            width: divWidth,
+            data: {
+                values: top_artistas_media_danceability 
+            },
+            "transform": [{"filter": "datum.media > 0 "}],
+            title: "B1",
+            "mark": "bar",
+            "size": 14,
+            "encoding": {
+                "x": {"field": "media", 
+                    "type": "quantitative",
+                    "axis": {
+                        "labelAngle": 0  // Set the angle to 45 degrees
+                    },
+                    "scale": {"domain": [0, 100]}  
+                },
+                "y": {
+                    "field": "artista", 
+                    "type": "nominal",
+                    "sort": {
+                        "field": "media",
+                        "order": "descending"
+                    },                    
+                }
+            }            
+        }
+    }
+}
+
+function ex09(divWidth) {
+    return {
+        spec: {
+            width: divWidth,
+            data: {
+                values: top_artistas_media_energy 
+            },
+            "transform": [{"filter": "datum.media > 0 "}],
+            title: "B2",
+            "mark": "bar",
+            "size": 14,
+            "encoding": {
+                "x": {"field": "media", 
+                    "type": "quantitative",
+                    "axis": {
+                        "labelAngle": 0  // Set the angle to 45 degrees
+                    },
+                    "scale": {"domain": [0, 100]}  
+                },
+                "y": {
+                    "field": "artista", 
+                    "type": "nominal",
+                    "sort": {
+                        "field": "media",
+                        "order": "descending"
+                    },                    
+                }
+            }            
+        }
+    }
+}
+
+function ex10(divWidth) {
+    return {
+        spec: {
+            width: divWidth,
+            data: {
+                values: top_artistas_media_speechiness 
+            },
+            "transform": [{"filter": "datum.media > 0 "}],
+            title: "B3",
+            "mark": "bar",
+            "size": 14,
+            "encoding": {
+                "x": {"field": "media", 
+                    "type": "quantitative",
+                    "axis": {
+                        "labelAngle": 0  // Set the angle to 45 degrees
+                    },
+                    "scale": {"domain": [0, 100]}  
+                },
+                "y": {
+                    "field": "artista", 
+                    "type": "nominal",
+                    "sort": {
+                        "field": "media",
+                        "order": "descending"
+                    },                    
+                }
+            }            
+        }
+    }
+}
+
+function ex11(divWidth) {
+    return {
+        spec: {
+            width: divWidth,
+            data: {
+                values: top_artistas_media_valence 
+            },
+            "transform": [{"filter": "datum.media > 0 "}],
+            title: "B4",
+            "mark": "bar",
+            "size": 14,
+            "encoding": {
+                "x": {"field": "media", 
+                    "type": "quantitative",
+                    "axis": {
+                        "labelAngle": 0  // Set the angle to 45 degrees
+                    },
+                    "scale": {"domain": [0, 100]}  
+                },
+                "y": {
+                    "field": "artista", 
+                    "type": "nominal",
+                    "sort": {
+                        "field": "media",
+                        "order": "descending"
+                    },                    
+                }
+            }            
+        }
+    }
+}
+
+function ex12(divWidth) {
+    return {
+        spec: {
+            width: divWidth,
+            data: {
+                values: top_artistas_media_liveness 
+            },
+            "transform": [{"filter": "datum.media > 0 "}],
+            title: "B5",
+            "mark": "bar",
+            "size": 14,
+            "encoding": {
+                "x": {"field": "media", 
+                    "type": "quantitative",
+                    "axis": {
+                        "labelAngle": 0  // Set the angle to 45 degrees
+                    },
+                    "scale": {"domain": [0, 100]}  
+                },
+                "y": {
+                    "field": "artista", 
+                    "type": "nominal",
+                    "sort": {
+                        "field": "media",
+                        "order": "descending"
+                    },                    
+                }
+            }            
+        }
+    }
+}
+
+function ex13(divWidth) {
+    return {
+        spec: {
+            width: divWidth,
+            data: {
+                values: top_artistas_media_acousticness 
+            },
+            "transform": [{"filter": "datum.media > 0 "}],
+            title: "B6",
+            "mark": "bar",
+            "size": 14,
+            "encoding": {
+                "x": {"field": "media", 
+                    "type": "quantitative",
+                    "axis": {
+                        "labelAngle": 0  // Set the angle to 45 degrees
+                    },
+                    "scale": {"domain": [0, 100]}  
+                },
+                "y": {
+                    "field": "artista", 
+                    "type": "nominal",
+                    "sort": {
+                        "field": "media",
+                        "order": "descending"
+                    },                    
+                }
+            }            
+        }
+    }
+}
+
+function ex14(divWidth) {
+    return {
+        spec: {
+            width: divWidth,
+            data: {
+                values: top_artistas_media_instrumentalness 
+            },
+            "transform": [{"filter": "datum.media > 0 "}],
+            title: "B7",
+            "mark": "bar",
+            "size": 14,
+            "encoding": {
+                "x": {"field": "media", 
+                    "type": "quantitative",
+                    "axis": {
+                        "labelAngle": 0  // Set the angle to 45 degrees
+                    },
+                    "scale": {"domain": [0, 100]}  
+                },
+                "y": {
+                    "field": "artista", 
+                    "type": "nominal",
+                    "sort": {
+                        "field": "media",
+                        "order": "descending"
+                    },                    
+                }
+            }            
+        }
+    }
 }
 ```
