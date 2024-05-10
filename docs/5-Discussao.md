@@ -43,20 +43,33 @@ No primeiro grupo, analisaremos os cantores:
 
 <div class="grid grid-cols-2">
     <div id="ex01" class="card">
-        <h4>Top 10 maiores cantores com base no total de streams.</h4>
+        <h4>Comparativo entre o total de músicas em playlists por plataforma.</h4>
    <div style="width: 100%, margin-top: 15px;">
             ${ vl.render(ex01(divWidth-160)) }
         </div>
     </div>
     <div id="ex02" class="card">
-        <h4>Top 10 maiores cantores com  músicas lançadas em 2023.</h4>
+        <h4>Comparativo entre o total de gráficos por plataforma.</h4>
         <div style="width: 100%; margin-top: 15px;">
             ${ vl.render(ex02(divWidth-190)) }
         </div>
     </div>
 </div>
 
-
+<div class="grid grid-cols-2">
+    <div id="ex09" class="card">
+        <h4>Comparativo entre o total de músicas em playlists por plataforma.</h4>
+   <div style="width: 100%, margin-top: 15px;">
+            ${ vl.render(ex09(divWidth-160)) }
+        </div>
+    </div>
+    <div id="ex20" class="card">
+        <h4>Comparativo entre o total de gráficos por plataforma.</h4>
+        <div style="width: 100%; margin-top: 15px;">
+            ${ vl.render(ex09(divWidth-190)) }
+        </div>
+    </div>
+</div>
 
 ```js
 
@@ -113,7 +126,8 @@ function ex01(divWidth)
                     "type": "quantitative",
                     "title": "Total de Playlists",
                     "scale": {"domain": [0, 5500000]}    
-                }
+                },
+                 "color": {"field": "Plataforma"}    
             }
         }
     }
@@ -130,7 +144,7 @@ function ex02(divWidth)
                 values: comparacao_contagem_plataformas
             },
             "transform": [{"filter": "datum.charts > 0 "}],
-            title: "A1",
+            title: "A2",
             "mark": 
             {
                 "type": "bar",
@@ -156,10 +170,54 @@ function ex02(divWidth)
                    "field": ["charts"],
                     "aggregate": "sum",
                     "type": "quantitative",
-                    "title": "Total de Playlists",
+                    "title": "Total de Charts",
                     "scale": {"domain": [0, 60000]}    
+                },
+                 "color": {"field": "Plataforma"}                    
+            }
+        }
+    }
+}
+
+function ex09(divWidth) 
+{
+  return {
+        spec: {
+            width: 500,
+            padding: 15,            
+            data: 
+            {
+                values: spotify
+            },
+            title: "A3",
+              "transform": 
+            [
+            {"filter": {"field": "artist(s)_name", "oneOf": ["Miley Cyrus","The Weeknd"]}},
+            ],   
+            "encoding": 
+            {
+                "theta": 
+                {
+                    "aggregate": "sum",                                    
+                    "field": ["streams"], 
+                    "title": "Total de Streams", "type": "quantitative", "stack": true
+                },
+                "color": {"field": "artist(s)_name", "type": "nominal",  "legend": {"title": "Artista(s)"}},
+                "Offset": {"field": "artist(s)_name"},
+            },
+            "layer": 
+            [
+            {
+                "mark": {"type": "arc", "outerRadius": 80, "stroke": "#fff"}
+            },
+            {
+                "mark": {"type": "text", "radius": 100},
+                "encoding": 
+                {
+                    "text": {"field": "artist(s)_name", "type": "nominal"}
                 }
             }
+            ]
         }
     }
 }
