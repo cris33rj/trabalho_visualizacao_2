@@ -102,7 +102,7 @@ function ex01(divWidth)
             "mark": 
             {
                 "type": "bar",
-                "size": 60,
+                "size": 40,
             },                
             "encoding": 
             {
@@ -114,7 +114,7 @@ function ex01(divWidth)
                     "title": "Nome da plataforma",
                     "sort": 
                     {
-                        "field": "playlist",
+                        "field": "Playlist",
                         "order": "descending"
                     },
                     "axis": {"labelAngle": 45}
@@ -148,7 +148,7 @@ function ex02(divWidth)
             "mark": 
             {
                 "type": "bar",
-                "size": 60,
+                "size": 30,
             },                
             "encoding": 
             {
@@ -183,27 +183,30 @@ function ex09(divWidth)
 {
   return {
         spec: {
-            width: 500,
+            width: 300,
             padding: 15,            
             data: 
             {
-                values: spotify
+                values: comparacao_contagem_plataformas
             },
             title: "A3",
-              "transform": 
-            [
-            {"filter": {"field": "artist(s)_name", "oneOf": ["Miley Cyrus","The Weeknd"]}},
-            ],   
+            "transform": [{"filter": "datum.charts > 0 "}],
             "encoding": 
             {
                 "theta": 
                 {
                     "aggregate": "sum",                                    
-                    "field": ["streams"], 
-                    "title": "Total de Streams", "type": "quantitative", "stack": true
+                    "field": ["charts"], 
+                    "title": "Total de Streams", "type": "quantitative", "stack": true,
+                    "sort": 
+                    {
+                        "field": "charts",
+                        "order": "descending"
+                    },
+
                 },
-                "color": {"field": "artist(s)_name", "type": "nominal",  "legend": {"title": "Artista(s)"}},
-                "Offset": {"field": "artist(s)_name"},
+                "color": {"field": "Plataforma", "type": "nominal",  "legend": {"title": "Artista(s)"}},
+                "Offset": {"field": "Plataforma"},
             },
             "layer": 
             [
@@ -214,7 +217,7 @@ function ex09(divWidth)
                 "mark": {"type": "text", "radius": 100},
                 "encoding": 
                 {
-                    "text": {"field": "artist(s)_name", "type": "nominal"}
+                    "text": {"field": "Plataforma", "type": "nominal"}
                 }
             }
             ]
