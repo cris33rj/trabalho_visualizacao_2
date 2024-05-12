@@ -18,7 +18,7 @@
 
 ### O trabalho:
 
-Este trabalho de pesquisa foi produzido no curso de Mestrado em Computação - PGC UFF, como atividade parcial para cumprimento da disciplina de VISUALIZAÇÃO DE DADOS (SI & PGC - UFF), ministrado pelo Professor Marcos Lage.
+Este trabalho de pesquisa foi produzido no curso de Mestrado em Computação - PGC UFF, como atividade parcial para cumprimento da disciplina de **VISUALIZAÇÃO DE DADOS** (SI & PGC - UFF), ministrado pelo Professor **Marcos Lage**.
 
 ### Os alunos:
 
@@ -44,7 +44,7 @@ A tarefa consistia em fazer análises sobre um conjunto de dados disponibilizado
 ### A base de dados:
 
 O conjunto de dados foi disponibilizado no endereço: https://www.kaggle.com/datasets/nelgiriyewithana/top-spotify-songs-2023, 
-e continha uma lista abrangente das músicas mais famosas de 2023 listadas no Spotify. O conjunto de dados oferecia uma variedade de recursos além do que normalmente está disponível em conjuntos de dados semelhantes. Ele possuia 954 registros, incluindo o nome dos campos, e estava em formato CVS (texto com campos separados por vígulas).
+e contem uma lista abrangente das músicas mais famosas de 2023 listadas no **Spotify**. O conjunto de dados oferece uma variedade de recursos além do que normalmente está disponível em conjuntos de dados semelhantes. Possuindo 954 registros, incluindo o nome dos campos, está em formato *CSV** (texto com campos separados por vírgula).
 
 Conforme o **Site kaggle**, o *DATASET* apresentava os seguintes campos:
 
@@ -54,14 +54,14 @@ Conforme o **Site kaggle**, o *DATASET* apresentava os seguintes campos:
 - **release_year** : Ano em que a música foi lançada;
 - **release_month** : Mês em que a música foi lançada;
 - **release_day** : Dia do mês em que a música foi lançada;
-- **in_spotify_playlists** : Número de *playlists* do Spotify nas quais a música está incluída;
-- **in_spotify_charts** : Presença e classificação da música nas paradas do Spotify;
-- **streams** : número total de streams no Spotify;
-- **in_apple_playlists** : número de *playlists* do Apple Music nas quais a música está incluída;
-- **in_apple_charts** : Presença e classificação da música nas paradas musicais da Apple;
-- **in_deezer_playlists** : Número de *playlists* do Deezer em que a música está incluída;
-- **in_deezer_charts** : Presença e posição da música nas paradas da Deezer;
-- **in_shazam_charts** : Presença e classificação da música nas paradas do Shazam;
+- **in_spotify_playlists** : Número de *playlists* do **Spotify** nas quais a música está incluída;
+- **in_spotify_charts** : Presença e classificação da música nas paradas do **Spotify**;
+- **streams** : número total de *streams* no **Spotify**;
+- **in_apple_playlists** : número de *playlists* do **Apple Music** nas quais a música está incluída;
+- **in_apple_charts** : Presença e classificação da música nas paradas musicais da **Apple**;
+- **in_deezer_playlists** : Número de *playlists* do **Deezer** em que a música está incluída;
+- **in_deezer_charts** : Presença e posição da música nas paradas da **Deezer**;
+- **in_shazam_charts** : Presença e classificação da música nas paradas do **Shazam**;
 - **bpm** : Batidas por minuto, uma medida do andamento da música;
 - **key** : tom da música;
 - **mode** : Modo da música (maior ou menor);
