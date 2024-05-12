@@ -296,8 +296,8 @@ function ex06(divWidth) {
     return {
         spec: {
             "repeat": {
-            "row": ["streams","in_spotify_playlists","in_apple_playlists",  "in_deezer_playlists"],
-            "column": ["streams","in_spotify_playlists", "in_apple_playlists",  "in_deezer_playlists"]
+            "row": ["in_spotify_playlists","in_apple_playlists",  "in_deezer_playlists"],
+            "column": ["in_spotify_playlists", "in_apple_playlists",  "in_deezer_playlists"]
             },          
             data: {
                 values: spotify 
@@ -319,8 +319,8 @@ function ex07(divWidth) {
     return {
         spec: {
             "repeat": {
-            "row": ["streams","in_spotify_charts","in_apple_charts",  "in_deezer_charts"],
-            "column": ["streams","in_spotify_charts", "in_apple_charts",  "in_deezer_charts","in_shazam_charts"]
+            "row": ["in_spotify_charts","in_apple_charts",  "in_deezer_charts"],
+            "column": ["in_spotify_charts", "in_apple_charts",  "in_deezer_charts","in_shazam_charts"]
             },          
             data: {
                 values: spotify 
