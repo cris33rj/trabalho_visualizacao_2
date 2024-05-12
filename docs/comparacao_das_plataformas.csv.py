@@ -36,7 +36,7 @@ total_counts = {
                                 'Spotify','Apple','Deezer','Shazam'
                             ]
                     ),
-    'charts': pd.Series(
+    'Charts': pd.Series(
                         [
                             spotify_data['in_spotify_charts'].sum(), 
                             spotify_data['in_apple_charts'].sum(),
@@ -47,7 +47,7 @@ total_counts = {
                                 'Spotify','Apple','Deezer','Shazam'
                             ]
                     ),
-    'playlist': pd.Series(
+    'Playlists': pd.Series(
                         [
                             spotify_data['in_spotify_playlists'].sum(),
                             spotify_data['in_apple_playlists'].sum(),
