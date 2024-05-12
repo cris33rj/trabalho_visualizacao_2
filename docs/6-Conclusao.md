@@ -11,16 +11,4 @@
 
 ## Apresentação da conclusão do trabalho.
 
-Conclusão Conclusão Conclusão Conclusão Conclusão Conclusão Conclusão Conclusão Conclusão <br>
-Conclusão Conclusão Conclusão Conclusão Conclusão Conclusão Conclusão Conclusão Conclusão <br>
-Conclusão Conclusão Conclusão Conclusão Conclusão Conclusão Conclusão Conclusão Conclusão <br>
-Conclusão Conclusão Conclusão Conclusão Conclusão Conclusão Conclusão Conclusão Conclusão <br>
-Conclusão Conclusão Conclusão Conclusão Conclusão Conclusão Conclusão Conclusão Conclusão <br>
-Conclusão Conclusão Conclusão Conclusão Conclusão Conclusão Conclusão Conclusão Conclusão <br>
-Conclusão Conclusão Conclusão Conclusão Conclusão Conclusão Conclusão Conclusão Conclusão <br>
-Conclusão Conclusão Conclusão Conclusão Conclusão Conclusão Conclusão Conclusão Conclusão <br>
-Conclusão Conclusão Conclusão Conclusão Conclusão Conclusão Conclusão Conclusão Conclusão <br>
-Conclusão Conclusão Conclusão Conclusão Conclusão Conclusão Conclusão Conclusão Conclusão <br>
-Conclusão Conclusão Conclusão Conclusão Conclusão Conclusão Conclusão Conclusão Conclusão <br>
-Conclusão Conclusão Conclusão Conclusão Conclusão Conclusão Conclusão Conclusão Conclusão <br>
-Conclusão Conclusão Conclusão Conclusão Conclusão Conclusão Conclusão Conclusão Conclusão <br>
+Após todas as análises feitas
