@@ -20,7 +20,7 @@ Antes de discorrer sobre a tarefa, é necessário salientar que o o conjunto de 
     <div id="ext01" >
         <div>
 
-Ante ao exposto, a primeira análise mostra que há uma concentração maior em *playlists* pertencentes a plataforma **Spotify**, como pode ser visto no quadro **A1**. 
+Ante ao exposto, a primeira análise mostra que há uma concentração maior em *playlists* pertencentes a plataforma **Spotify**, como pode ser visto no quadro **E1**. 
 
 O **Spotify** soma aproximadamente 5.000.000, enquanto que a plataforma **Shazam**, está ausente no conjunto de dados. Mas, para uma melhor análise, representamos ela aqui, toda via sem nenhuma *playlist*.
 
@@ -36,7 +36,7 @@ Levando em consideração este conjunto de dados, infere-se que o uso de *playli
     </div>
 </div>
 
-Já em relação aos Gráficos ("*chart*"), o cenário muda um pouco, como apresentado no diagrama **A2**: 
+Já em relação aos *charts*, o cenário muda um pouco, como apresentado no diagrama **E2**: 
 
 <div class="grid grid-cols-2">
     <div id="ex02" class="card">
@@ -48,17 +48,17 @@ Já em relação aos Gráficos ("*chart*"), o cenário muda um pouco, como apres
     <div id="ext02" >
         <div>
 
-Diferentemente do que ocorreu no quadro **A1**, a plataforma **Spotify** já não possui a liderança no ranqueamento, aparecendo na tímida 3° posição, somente a frente do **Deezer**.
+Diferentemente do que ocorreu no quadro **E1**, a plataforma **Spotify** já não possui a liderança no ranqueamento, aparecendo na tímida 3° posição, somente a frente do **Deezer**.
 
 O **Shazam** que sequer constava do DATASET para a categoria *playlist*, agora lidera, seguido de perto pela **Apple**.
 
-Face ao comportamento apresentado, observa-se que um recuso ou outro é melhor usado por uma ou por outra plataforma. No caso do gráfico ("*Chart*"), não podemos afirmar, mas presumir que as plataformas **Shazam** e **Apple** provavelmente possuem uma melhor funcionalidade de uso para o mencionado recurso. 
+Face ao comportamento apresentado, observa-se que um recuso ou outro é melhor usado por uma ou por outra plataforma. No caso do *Chart*, não podemos afirmar, mas presumir que as plataformas **Shazam** e **Apple** provavelmente possuem uma melhor funcionalidade de uso para o mencionado recurso. 
 
 </div>
     </div>
 </div>
 
-Como forma de explorar a percepção de proporção entre as plataformas para os quesitos analisados, *playlists* e *charts*, dos gráficos **A1** e **A2**, apresentamos as mesmas apurações em gráficos no formato de "pizza":
+Como forma de explorar a percepção de proporção entre as plataformas para os quesitos analisados, *playlists* e *charts*, dos gráficos **E1** e **E2**, apresentamos as mesmas apurações em gráficos no formato de "pizza":
 
 <div class="grid grid-cols-2">
     <div id="ex03" class="card">
@@ -147,7 +147,7 @@ function ex01(divWidth)
                 values: comparacao_contagem_plataformas
             },
             "transform": [{"filter": "datum.Playlists != null "}],
-            title: "A1",
+            title: "E1",
             "mark": 
             {
                 "type": "bar",
@@ -193,7 +193,7 @@ function ex02(divWidth)
                 values: comparacao_contagem_plataformas
             },
             "transform": [{"filter": "datum.Charts > 0 "}],
-            title: "A2",
+            title: "E2",
 
             "mark": 
             {
@@ -239,7 +239,7 @@ function ex03(divWidth)
             {
                 values: comparacao_contagem_plataformas
             },
-            title: "A3",
+            title: "E3",
             "transform": [{"filter": "datum.Playlists > 0 "}],
             "encoding": 
             {
@@ -295,7 +295,7 @@ function ex04(divWidth)
             {
                 values: comparacao_contagem_plataformas
             },
-            title: "A4",
+            title: "E4",
             "config": {"customFormatTypes": true, "formatLocale" : {   "decimal": ",", "thousands": ".", "grouping": [3], "currency": ["R$", ""] } },
             "transform": [{"filter": "datum.Charts > 0 "}],
             "encoding": 
@@ -650,7 +650,7 @@ function ex10(divWidth)
             {
                 values: spotify
             },
-            "title": "A5",
+            "title": "E5",
            "mark": 
             {
                 "type": "bar",
@@ -675,7 +675,7 @@ function ex20(divWidth)
             {
                 values: spotify
             },
-            "title": "A6",
+            "title": "E6",
            "mark": 
             {
                 "type": "bar",
@@ -699,7 +699,7 @@ function ex30(divWidth)
             {
                 values: spotify
             },
-            "title": "A7",
+            "title": "E7",
            "mark": 
             {
                 "type": "bar",
