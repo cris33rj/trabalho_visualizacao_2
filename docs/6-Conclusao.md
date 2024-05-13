@@ -11,7 +11,7 @@
 
 ## Apresentação da conclusão do trabalho.
 
-Após todas as análises feitas, concluímos que não há uma afirmação irrefutável sobre um determinado item ou outro que, se satisfeito, fazem com que um determinada música seja um sucesso. Mas há indícios, como vimos, nos itens xxxx, e yyyy, que, pela concentração de pontos demonstradas nos gráficos, presume-se que são indicativos a serem buscados para atingimento do sucesso musical, tendo em vista que as músicas de maior sucesso tem tais características.
+Após todas as análises feitas, concluímos que, com relação à popularidade músical, não há uma afirmação irrefutável sobre um determinado item ou outro que, se satisfeito, faz com que um determinada música seja um sucesso. Mas há indícios, como vimos, nos gráficos de dispersão e de barras, que possibilitam presumir que "danceability" e "energy" são características a serem buscadas para atingimento do sucesso musical, tendo em vista sua prevalência em músicas de maior sucesso. 
 
 Verificamos, também, que há uma variação superior a 79% numa lista de TOP 10 artistas e músicas mais ouvidas, quando se considera o ano de lançamento da música. Isto se deve justamente pelo lançamento ou não de novas músicas que caem ou não no gosto musical da população, ou ainda dos artistas terem novas músicas de trabalho lançadas no período.
 

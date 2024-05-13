@@ -69,7 +69,7 @@ Quanto aos gráficos de barras, os comentários podem ser vistos mais abaixo.
 </div>  
         <div></div>
 
-A análise mediante os gráficos de barras permite observar, sob outro ângulo, a influência das características musicais na popularidade das músicas. Em relação aos artistas top 10 de todo o período, é possível verificar que a média de "danceability" e "energy" tem um mínimo de 50% e um máximo em torno de 80%, ao passo que as outras características tem um máximo que não passa de 65%.        
+A análise mediante os gráficos de barras permite observar, sob um ângulo mais quantitativo, a influência das características musicais na popularidade das músicas. Em relação aos artistas top 10 de todo o período, é possível verificar que a média de "danceability" e "energy" tem um mínimo de 50% e um máximo em torno de 80%, ao passo que as outras características tem um máximo que não passa de 65%.        
 
 <div class="grid grid-cols-2" style="width: 110%;">         
     <div id="ex08" class="card">
