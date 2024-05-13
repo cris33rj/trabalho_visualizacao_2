@@ -10,11 +10,11 @@
 # 2.3 - Comparativo
 ## Análise comparativa entre as plataformas: Spotify, Deezer, Apple Music e Shazam.
 
-Esta seção da trabalho visa responder a terceira e última questão:
+Esta seção da trabalho visa responder a terceira e última tarefa:
 
-**Discuta as diferenças entre as plataformas (Spotify, Deezer, Apple Music e Shazam)?**
+**Discuta as diferenças entre as plataformas (Spotify, Deezer, Apple Music e Shazam)**
 
-Antes de discorrer sobre a questão, é necessário salientar que o o conjunto de dados, ou o DATASET analisado, conforme o próprio nome do mesmo já diz, é baseado na plataforma **Spotify**. Assim sendo, o comparativo fica restrito a uma quantidade menor de campos.
+Antes de discorrer sobre a tarefa, é necessário salientar que o o conjunto de dados, ou o DATASET analisado, conforme o próprio nome do mesmo já diz, é baseado na plataforma **Spotify**. Assim sendo, o comparativo fica restrito a uma quantidade menor de campos ou com dados melhor coletados para a plataforma **Spotify**.
 
 <div class="grid grid-cols-2">
     <div id="ext01" >
@@ -22,7 +22,7 @@ Antes de discorrer sobre a questão, é necessário salientar que o o conjunto d
 
 Ante ao exposto, a primeira análise mostra que há uma concentração maior em *playlists* pertencentes a plataforma **Spotify**, como pode ser visto no quadro **A1**. 
 
-O **Spotify** soma aproximadamente 5.000.000, enquanto que a plataforma **Shazam**, está ausente no conjunto de dados, mas representamos ela aqui com o nenhuma *playlist*.
+O **Spotify** soma aproximadamente 5.000.000, enquanto que a plataforma **Shazam**, está ausente no conjunto de dados. Mas, para uma melhor análise, representamos ela aqui, toda via sem nenhuma *playlist*.
 
 Levando em consideração este conjunto de dados, infere-se que o uso de *playlist* é maior em usuários da plataforma **Spotify**, face a grande discrepância para o segundo colocado, e consequentemente, os demais.  
 
@@ -40,7 +40,7 @@ Já em relação aos Gráficos ("*chart*"), o cenário muda um pouco, como apres
 
 <div class="grid grid-cols-2">
     <div id="ex02" class="card">
-        <h4>Comparativo entre o total de músicas em playlists por plataforma.</h4>
+        <h4>Comparativo entre o total de músicas em "charts" por plataforma.</h4>
    <div style="width: 100%, margin-top: 15px;">
             ${ vl.render(ex02(divWidth-160)) }
         </div>
@@ -52,7 +52,7 @@ Diferentemente do que ocorreu no quadro **A1**, a plataforma **Spotify** já nã
 
 O **Shazam** que sequer constava do DATASET para a categoria *playlist*, agora lidera, seguido de perto pela **Apple**.
 
-Face ao comportamento apresentado, observa-se que um recuso ou outro é melhor usado por uma ou por outra plataforma. No caso do gráfico ("*Chart*"), o **Shazam** e a Apple provavelmente possuem uma melhor funcionalidade de uso para o mencionado recurso. 
+Face ao comportamento apresentado, observa-se que um recuso ou outro é melhor usado por uma ou por outra plataforma. No caso do gráfico ("*Chart*"), não podemos afirmar, mas presumir que as plataformas **Shazam** e **Apple** provavelmente possuem uma melhor funcionalidade de uso para o mencionado recurso. 
 
 </div>
     </div>
@@ -68,7 +68,7 @@ Como forma de explorar a percepção de proporção entre as plataformas para os
         </div>
     </div>
     <div id="ex04" class="card">
-        <h4>Total de gráficos ("charts") por plataforma.</h4>
+        <h4>Total de "charts" por plataforma.</h4>
         <div style="width: 100%; margin-top: 15px;">
             ${ vl.render(ex04(divWidth-110)) }
         </div>
@@ -108,7 +108,7 @@ Produzimos gráficos em barra que demonstram o quantitativo de músicas que apar
     </div>
 </div>
 
-As análises poderia ser aprofundadas, mas não vislumbramos que os demais comparativos pudessem acrescentar mais valor às análises já apresentadas. Abaixo expomos dois exemplos: 
+As análises poderiam ser aprofundadas, mas não vislumbramos que os demais comparativos pudessem acrescentar mais valor às análises já apresentadas. Abaixo expomos dois exemplos de outras análises: 
 
 <div class="grid grid-cols-1">
     <div id="ex07" class="card">
@@ -269,10 +269,13 @@ function ex03(divWidth)
                 "mark": {"type": "arc", "outerRadius": 80, "stroke": "#fff"}
             },
             {
-                "mark": {"type": "text", "radius": 100},
+                "mark": {"type": "text", "radius": 100, "angle": {"expr" : -75},},
                 "encoding": 
                 {
                     "text": {"field": ["Charts"], 
+                    "format":",",
+                    
+                    "formatType": "number",
                     "aggregate": "sum",  
                     "type": "nominal"}
                 }
@@ -293,6 +296,7 @@ function ex04(divWidth)
                 values: comparacao_contagem_plataformas
             },
             title: "A4",
+            "config": {"customFormatTypes": true, "formatLocale" : {   "decimal": ",", "thousands": ".", "grouping": [3], "currency": ["R$", ""] } },
             "transform": [{"filter": "datum.Charts > 0 "}],
             "encoding": 
             {
@@ -322,12 +326,16 @@ function ex04(divWidth)
                 "mark": {"type": "arc", "outerRadius": 80, "stroke": "#fff"}
             },
             {
-                "mark": {"type": "text", "radius": 100},
+                "mark": {"type": "text", "radius": 100,},
                 "encoding": 
                 {
                     "text": {"field": ["Charts"], 
+                    "format":",",
+                    "formatType": "number",
                     "aggregate": "sum",                                    
-                    "type": "nominal"}
+                    "type": "nominal",
+
+                    }
                 }
             }
             ]
@@ -477,13 +485,12 @@ function ex21(divWidth)
             {
                 values: spotify
             },
-            "title": "Não aparecem em charts de nenhuma plataforma.",
+            "title": "Músicas que não aparecem em charts de nenhuma plataforma.",
             "transform": [{"filter": "datum.in_apple_charts == 0 && datum.in_deezer_charts == 0 && datum.in_shazam_charts == 0 && datum.in_spotify_charts == 0"}],
             "mark": 
             {
                 "type": "bar",
                 "size": 10,
-                "value": "xxx"
             },                
             "encoding": 
             {
@@ -511,7 +518,7 @@ function ex22(divWidth)
             {
                 values: spotify
             },
-            "title": "Ao menos uma vez nos carts de todas as plataformas.",
+            "title": "Músicas que aparecem ao menos uma vez nos carts de todas as plataformas.",
             "transform": [{"filter": "datum.in_apple_charts != 0 && datum.in_deezer_charts != 0 && datum.in_shazam_charts != 0 && datum.in_spotify_charts != 0"}],
             "mark": 
             {
@@ -543,7 +550,7 @@ function ex23(divWidth)
             {
                 values: spotify
             },
-            "title": "Aparecem na playlist do Spotify e do Apple." ,
+            "title": "Músicas que aparecem na playlist do Spotify e do Apple." ,
             "transform": [{"filter": "datum.in_deezer_playlists == 0"}],                
             "mark": 
             {
@@ -681,6 +688,7 @@ function ex20(divWidth)
         }
    }
 }
+
 function ex30(divWidth) 
 {
    return {

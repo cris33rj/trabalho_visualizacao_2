@@ -43,18 +43,18 @@ A tarefa consistia em fazer análises sobre um conjunto de dados disponibilizado
 
 ### O software:
 
-Para desenvolvimento do trabalho, utilizamos:
+Para desenvolvimento do trabalho, deveríamos utilizar:
 1. Observable Framework;
 2. Biblioteca do D3;
 3. Vega-lite;
-4. Python 3.12;
-5. Node.js
-6. Bibliotecas: Numpy, Pandas, Matplotlib, Seaborn, Itertools e sys;
+4. Python;
+5. Node.js; e
+6. Bibliotecas diversas do python (Numpy, Pandas, Matplotlib, Seaborn, Itertools e sys);
 
 ### A base de dados:
 
-O conjunto de dados foi disponibilizado no endereço: https://www.kaggle.com/datasets/nelgiriyewithana/top-spotify-songs-2023, 
-e contem uma lista abrangente das músicas mais famosas de 2023 listadas no **Spotify**. O conjunto de dados oferece uma variedade de recursos além do que normalmente está disponível em conjuntos de dados semelhantes. Possuindo 954 registros, incluindo o nome dos campos, está em formato *CSV** (texto com campos separados por vírgula).
+O conjunto de dados fora disponibilizado no endereço: https://www.kaggle.com/datasets/nelgiriyewithana/top-spotify-songs-2023, 
+e continha uma lista abrangente das músicas mais famosas de 2023 listadas no **Spotify**. O conjunto de dados oferecia uma variedade de recursos além do que normalmente estava disponível em conjuntos de dados semelhantes. Estando no formato **CSV** (texto com campos separados por vírgula), possuía 954 registros, incluindo o nome dos campos.
 
 Conforme o **Site kaggle**, o *DATASET* apresentava os seguintes campos:
 
