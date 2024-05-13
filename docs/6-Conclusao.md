@@ -15,5 +15,5 @@ Após todas as análises feitas, concluímos que não há uma afirmação irrefu
 
 Verificamos, também, que há uma variação superior a 79% numa lista de TOP 10 artistas e músicas mais ouvidas, quando se considera o ano de lançamento da música. Isto se deve justamente pelo lançamento ou não de novas músicas que caem ou não no gosto musical da população, ou ainda dos artistas terem novas músicas de trabalho lançadas no período.
 
-Quanto ao comparativo feito entra as plataformas, observamos que um recuso ou outro é melhor usado por uma ou por outra plataforma, como no caso do *Chart*, que não podemos afirmar, mas presumir que as plataformas **Shazam** e **Apple** provavelmente possuem uma melhor funcionalidade de uso para o mencionado recurso, o mesmo ocorrendo com a *playlist*, no caso do **Spotify**, plataforma base para a obtenção do DATASET. 
+Quanto ao comparativo feito entra as plataformas, observamos que um recurso ou outro é melhor usado por uma ou por outra plataforma, como no caso do *Chart*, que não podemos afirmar, mas presumir que as plataformas **Shazam** e **Apple** provavelmente possuem uma melhor funcionalidade de uso para o mencionado recurso, o mesmo ocorrendo com a *playlist*, no caso do **Spotify**, plataforma base para a obtenção do DATASET. 
 
