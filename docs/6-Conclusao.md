@@ -17,3 +17,5 @@ Verificamos, também, que há uma variação superior a 79% numa lista de TOP 10
 
 Quanto ao comparativo feito entra as plataformas, observamos que um recurso ou outro é melhor usado por uma ou por outra plataforma, como no caso do *Chart*, que não podemos afirmar, mas presumir que as plataformas **Shazam** e **Apple** provavelmente possuem uma melhor funcionalidade de uso para o mencionado recurso, o mesmo ocorrendo com a *playlist*, no caso do **Spotify**, plataforma base para a obtenção do DATASET. 
 
+Por derradeiro, o DATASET foi de fácil entendimento e manuseio e as ferramentas de manipulação de visualização também contribuiram para o bom resultado deste trabalho.
+
