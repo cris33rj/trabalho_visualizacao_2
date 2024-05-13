@@ -11,7 +11,9 @@
 
 ## Análise do que faz uma música ser popular.
 
-Esta análise visa responder a seguinte questão: <b>Existe alguma característica que faz uma música ter mais chance de se tornar popular? </b>
+Partindo para a resolução das questões propostas, esta parte irá estudar a primeira delas: 
+
+**Existe alguma característica que faz uma música ter mais chance de se tornar popular?**
 
 Para respondê-la, geramos dois grupos de gráficos: 1) 7 "scatter plots" que com o objetivo de observar a relação da variável "Streams" com "Danceability", "Valence", "Energy", "Acousticness", "Instrumentalness", "Liveness", "Speechiness" e "BPM", respectivamente; 2) 7 gráficos de barras com as média percentual de cada característica musical para os artistas top 10 de todo o período analisado. 
 

@@ -10,69 +10,120 @@
 # 2.3 - Comparativo
 ## Análise comparativa entre as plataformas: Spotify, Deezer, Apple Music e Shazam.
 
-Esta análise visa responder a seguinte questão: O conjunto das top 10 músicas e dos top 10 artistas varia muito se considerarmos apenas musicas lançadas no mesmo ano?
+Esta seção da trabalho visa responder a terceira e última questão:
 
-Para respondê-la, desenvolvemos quatro histogramas e dividimo-los em dois grupos: os que analisam os cantores e os que analisam as músicas.
+**Discuta as diferenças entre as plataformas (Spotify, Deezer, Apple Music e Shazam)?**
 
-Para os que analisam os cantores, temos:
-<center>
-<div class="grid" style="width: 500px;text-align: center;">
+Antes de discorrer sobre a questão, é necessário salientar que o o conjunto de dados, ou o DATASET analisado, conforme o próprio nome do mesmo já diz, é baseado na plataforma **Spotify**. Assim sendo, o comparativo fica restrito a uma quantidade menor de campos.
+
+<div class="grid grid-cols-2">
+    <div id="ext01" >
+        <div>
+
+Ante ao exposto, a primeira análise mostra que há uma concentração maior em *playlists* pertencentes a plataforma **Spotify**, como pode ser visto no quadro **A1**. 
+
+O **Spotify** soma aproximadamente 5.000.000, enquanto que a plataforma **Shazam**, está ausente no conjunto de dados, mas representamos ela aqui com o nenhuma *playlist*.
+
+Levando em consideração este conjunto de dados, infere-se que o uso de *playlist* é maior em usuários da plataforma **Spotify**, face a grande discrepância para o segundo colocado, e consequentemente, os demais.  
+
+</div>
+    </div>
     <div id="ex01" class="card">
-        <h4>Comparação da contagem total de músicas presentes nas playlists e charts das plataformas. (A1)</h4>
-   <div style="width: 100%; margin-top: 15px;">
-            ${ vl.render(ex01(divWidth)) }
+        <h4>Comparativo entre o total de músicas em playlists por plataforma.</h4>
+        <div style="width: 100%, margin-top: 15px;">
+            ${ vl.render(ex01(divWidth-175)) }
         </div>
     </div>
 </div>
-</center>
-<div class="grid grid-cols-2" style="text-align: center; ">
+
+Já em relação aos Gráficos ("*chart*"), o cenário muda um pouco, como apresentado no diagrama **A2**: 
+
+<div class="grid grid-cols-2">
     <div id="ex02" class="card">
-        <h4>Músicas top 10 do Spotify com base no total de músicas presentes em playlists e charts. (A2)</h4>
-        <div style="width: 100%; margin-top: 15px;">
-            ${ vl.render(ex02(divWidth-205)) }
+        <h4>Comparativo entre o total de músicas em playlists por plataforma.</h4>
+   <div style="width: 100%, margin-top: 15px;">
+            ${ vl.render(ex02(divWidth-160)) }
         </div>
     </div>
+    <div id="ext02" >
+        <div>
+
+Diferentemente do que ocorreu no quadro **A1**, a plataforma **Spotify** já não possui a liderança no ranqueamento, aparecendo na tímida 3° posição, somente a frente do **Deezer**.
+
+O **Shazam** que sequer constava do DATASET para a categoria *playlist*, agora lidera, seguido de perto pela **Apple**.
+
+Face ao comportamento apresentado, observa-se que um recuso ou outro é melhor usado por uma ou por outra plataforma. No caso do gráfico ("*Chart*"), o **Shazam** e a Apple provavelmente possuem uma melhor funcionalidade de uso para o mencionado recurso. 
+
+</div>
+    </div>
+</div>
+
+Como forma de explorar a percepção de proporção entre as plataformas para os quesitos analisados, *playlists* e *charts*, dos gráficos **A1** e **A2**, apresentamos as mesmas apurações em gráficos no formato de "pizza":
+
+<div class="grid grid-cols-2">
     <div id="ex03" class="card">
-        <h4>Músicas top 10 da Apple com base no total de músicas presentes em playlists e charts. . B1</h4>
-        <div style="width: 100%; margin-top: 15px;">
-             ${ vl.render(ex03(divWidth-160)) }
+        <h4>Total de músicas em playlists por plataforma.</h4>
+   <div style="width: 100%, margin-top: 15px;">
+            ${ vl.render(ex03(divWidth-110)) }
         </div>
     </div>
     <div id="ex04" class="card">
-        <h4>Músicas top 10 do Deezer com base no total de músicas presentes em playlists e charts. B2</h4>
+        <h4>Total de gráficos ("charts") por plataforma.</h4>
         <div style="width: 100%; margin-top: 15px;">
-             ${ vl.render(ex04(divWidth-210)) }
+            ${ vl.render(ex04(divWidth-110)) }
         </div>
     </div>
+</div>
+
+Uma outra análise comparativa feita foi sobre todas as músicas contidas no conjunto de dados e a inclusão dessas nas *playlists* das plataformas. 
+
+Para isso, produzimos gráficos em barra que demonstrem o quantitativo de músicas que só aparecem em alguma *playlist* da plataforma **Spotify**, as músicas que pertencem a alguma *playlist* das plataformas **Spotify** e **Deezer**, mas não constam de *playlists* da **Apple**, as que fazem parte de alguma *playlist* das plataformas **Spotify** e **Apple**, mas não figuram naquelas do **Deezer** e, por fim, o quantitativo de músicas que aparecem ao menos uma vez em alguma *playlist* de todas as plataformas simultaneamente, como segue abaixo: 
+
+
+<div class="grid grid-cols-1">
     <div id="ex05" class="card">
-        <h4>Músicas top 10 do Shazam com base no total de músicas presentes em playlists e charts. B2</h4>
-        <div style="width: 100%; margin-top: 15px;">
-             ${ vl.render(ex05(divWidth-210)) }
+        <h4>Total de músicas em playlists por plataforma.</h4>
+        <div style="width: 100%, margin-top: 15px;">
+            ${ vl.render(ex10(divWidth+382)) }
+            ${ vl.render(ex11(divWidth+340)) }        
+            ${ vl.render(ex12(divWidth+340)) }        
+            ${ vl.render(ex13(divWidth+340)) }        
+            ${ vl.render(ex14(divWidth+340)) }       
         </div>
     </div>
-    </div>
-    <div id="ex06" class="card" style="width: 110%;">
-        <h4>Playlists e streams: Relações aos pares. B1</h4>
-        <div style="width: 110%; margin-top: 15px;">
-             ${ vl.render(ex06(divWidth)) }
+</div>
+
+Similarmente a análise anterior, comparamos todas as músicas contidas no conjunto de dados e a inclusão dessas nas *charts* das plataformas. 
+
+Produzimos gráficos em barra que demonstram o quantitativo de músicas que aparecem ao menos uma vez nos *charts* de todas as plataformas e um que mostra o inverso disso: as músicas que não aparecem em nenhum dos *chats* das plataformas, como segue abaixo: 
+
+<div class="grid grid-cols-1">
+    <div id="ex06" class="card">
+        <h4>Total de gráficos ("charts") por plataforma.</h4>
+        <div style="width: 100%, margin-top: 15px;">
+            ${ vl.render(ex20(divWidth+382)) }        
+            ${ vl.render(ex21(divWidth+340)) }        
+            ${ vl.render(ex22(divWidth+340)) }             
         </div>
     </div>
-    <div></div>
-    <div id="ex07" class="card" style="width: 110%;">
-        <h4>Charts e streams: Relações aos pares. B1</h4>
-        <div style="width: 110%; margin-top: 15px;">
-             ${ vl.render(ex07(divWidth)) }
+</div>
+
+As análises poderia ser aprofundadas, mas não vislumbramos que os demais comparativos pudessem acrescentar mais valor às análises já apresentadas. Abaixo expomos dois exemplos: 
+
+<div class="grid grid-cols-1">
+    <div id="ex07" class="card">
+        <h4>Total de gráficos ("charts") por plataforma.</h4>
+        <div style="width: 100%, margin-top: 15px;">
+            ${ vl.render(ex30(divWidth+382)) }        
+            ${ vl.render(ex31(divWidth+340)) }        
+            ${ vl.render(ex32(divWidth+340)) }             
         </div>
     </div>
-
-
-Os histogramas acima denominados B1 e B2, representam, respectivamente, as 10 músicas mais ouvidas se considerado todo o período disponibilizado no banco de dados disponibilizado no endereço: https://www.kaggle.com/datasets/nelgiriyewithana/top-spotify-songs-2023 e as 10 mais ouvidas se considerado apenas aquelas lançadas no ano de 2023, mesmo ano do banco de dados anteriormente mencionado.
-
-#### Ao analisá-los, respondemos que SIM, houve 80% de variação da composição das 10 músicas mais ouvidos.
+</div>
 
 ```js
-const divWidth = Generators.width(document.querySelector("#ex02"));
-const divheight = 300;
+
+const divWidth = Generators.width(document.querySelector("#ex01"));
 
 import * as vega from "npm:vega";
 import * as vegaLite from "npm:vega-lite";
@@ -82,21 +133,8 @@ import { showCode } from './showCode.js';
 const vl = vegaLiteApi.register(vega, vegaLite);
 
 const spotify = await FileAttachment("./data/spotify-2023.json").json({typed: true});
-
-showCode(FileAttachment("./comparacao_contagem_total_plataformas.csv.py"))
-const comparacao_contagem_plataformas = await FileAttachment("./comparacao_contagem_total_plataformas.csv").csv({typed: true});
-
-showCode(FileAttachment("./top_10_songs_spotify_playlists_charts.csv.py"))
-const top_10_songs_spotify_playlists_charts = await FileAttachment("./top_10_songs_spotify_playlists_charts.csv").csv({typed: true});
-
-showCode(FileAttachment("./top_10_songs_apple_playlists_charts.csv.py"))
-const top_10_songs_apple_playlists_charts = await FileAttachment("./top_10_songs_apple_playlists_charts.csv").csv({typed: true});
-
-showCode(FileAttachment("./top_10_songs_deezer_playlists_charts.csv.py"))
-const top_10_songs_deezer_playlists_charts = await FileAttachment("./top_10_songs_deezer_playlists_charts.csv").csv({typed: true});
-
-showCode(FileAttachment("./top_10_songs_shazam_playlists_charts.csv.py"))
-const top_10_songs_shazam_playlists_charts = await FileAttachment("./top_10_songs_shazam_playlists_charts.csv").csv({typed: true});
+showCode(FileAttachment("./comparacao_das_plataformas.csv.py"))
+const comparacao_contagem_plataformas = await FileAttachment("./comparacao_das_plataformas.csv").csv({typed: true});
 
 function ex01(divWidth) 
 {
@@ -108,210 +146,563 @@ function ex01(divWidth)
             {
                 values: comparacao_contagem_plataformas
             },
-            "transform": [{"filter": "datum.contagem > 0 "}],
+            "transform": [{"filter": "datum.Playlists != null "}],
             title: "A1",
             "mark": 
             {
                 "type": "bar",
-                "size": 60,
+                "size": 40,
             },                
             "encoding": 
             {
                 "color": {"value": "gray"},
                 "x": 
                 {
-                   "field": ["plataforma"],
+                   "field": ["Plataforma"],
                     "type": "nominal",                     
                     "title": "Nome da plataforma",
                     "sort": 
                     {
-                        "field": "contagem",
+                        "field": "Playlists",
                         "order": "descending"
                     },
                     "axis": {"labelAngle": 45}
                 },
                 "y": 
                 {
-                   "field": ["contagem"],
+                   "field": ["Playlists"],
                     "aggregate": "sum",
                     "type": "quantitative",
-                    "title": "Total de Streams",
+                    "title": "Total de Playlists",
                     "scale": {"domain": [0, 5500000]}    
-                }
+                },
+                 "color": {"field": "Plataforma"}    
             }
         }
     }
 }
 
-function ex02(divWidth) {
-    return {
+function ex02(divWidth) 
+{
+   return {
         spec: {
             width: divWidth,
-            data: {
-                values: top_10_songs_spotify_playlists_charts 
+            padding: 15,            
+            data: 
+            {
+                values: comparacao_contagem_plataformas
             },
-            "transform": [{"filter": "datum.spotify_total > 0 "}],
+            "transform": [{"filter": "datum.Charts > 0 "}],
             title: "A2",
-            "mark": "bar",
-            "size": 14,
-            "encoding": {
-                "x": {"field": "spotify_total", 
-                    "type": "quantitative",
-                    "axis": {
-                        "labelAngle": 45  // Set the angle to 45 degrees
-                    }
-                },
-                "y": {
-                    "field": "track_name", 
-                    "type": "nominal",
-                    "sort": {
-                        "field": "spotify_total",
+
+            "mark": 
+            {
+                "type": "bar",
+                "size": 30,
+            },                
+            "encoding": 
+            {
+                "color": {"value": "gray"},
+                "x": 
+                {
+                   "field": ["Plataforma"],
+                    "type": "nominal",                     
+                    "title": "Nome da plataforma",
+                    "sort": 
+                    {
+                        "field": "Charts",
                         "order": "descending"
-                    },                    
-                }
-            }            
+                    },
+                    "axis": {"labelAngle": 45}
+                },
+                "y": 
+                {
+                   "field": ["Charts"],
+                    "aggregate": "sum",
+                    "type": "quantitative",
+                    "title": "Total de Charts",
+                    "scale": {"domain": [0, 60000]}    
+                },
+                 "color": {"field": "Plataforma"}                    
+            }
         }
     }
 }
 
-function ex03(divWidth) {
-    return {
+function ex03(divWidth) 
+{
+  return {
         spec: {
             width: divWidth,
-            data: {
-                values: top_10_songs_apple_playlists_charts 
+            padding: 15,            
+            data: 
+            {
+                values: comparacao_contagem_plataformas
             },
-            "transform": [{"filter": "datum.apple_total > 0 "}],
             title: "A3",
-            "mark": "bar",
-            "size": 14,
-            "encoding": {
-                "x": {"field": "apple_total", 
-                    "type": "quantitative",
-                    "axis": {
-                        "labelAngle": 45  // Set the angle to 45 degrees
-                    }
+            "transform": [{"filter": "datum.Playlists > 0 "}],
+            "encoding": 
+            {
+                "theta": 
+                {
+                    "field": ["Playlists"], 
+                    "aggregate": "sum",                                    
+                    "sort": 
+                    {
+                        "field": ["Playlists"],
+                        "type": "quantitative",
+                        "order": "ascending"
+                    },
+                    "title": "Total de Playlists", "type": "quantitative", "stack": true,
                 },
-                "y": {
-                    "field": "track_name", 
-                    "type": "nominal",
-                    "sort": {
-                        "field": "apple_total",
-                        "order": "descending"
-                    },                   
+                "color": {"field": "Plataforma", "type": "nominal",  
+                "sort": 
+                    {
+                        "field": ["Playlists"],
+                        "order": "ascending"
+                    },},
+                "Offset": {"field": "Plataforma"},
+            },
+            "layer": 
+            [
+            {
+                "mark": {"type": "arc", "outerRadius": 80, "stroke": "#fff"}
+            },
+            {
+                "mark": {"type": "text", "radius": 100},
+                "encoding": 
+                {
+                    "text": {"field": ["Charts"], 
+                    "aggregate": "sum",  
+                    "type": "nominal"}
                 }
-            }            
+            }
+            ]
         }
     }
 }
 
-function ex04(divWidth) {
-    return {
+function ex04(divWidth) 
+{
+  return {
         spec: {
             width: divWidth,
-            data: {
-                values: top_10_songs_deezer_playlists_charts 
+            padding: 15,            
+            data: 
+            {
+                values: comparacao_contagem_plataformas
             },
-            "transform": [{"filter": "datum.deezer_total > 0 "}],
             title: "A4",
-            "mark": "bar",
-            "size": 14,
-            "encoding": {
-                "x": {"field": "deezer_total", 
-                    "type": "quantitative",
-                    "axis": {
-                        "labelAngle": 45  // Set the angle to 45 degrees
-                    }
-                },
-                "y": {
-                    "field": "track_name", 
-                    "type": "nominal",
-                    "sort": {
-                        "field": "deezer_total",
+            "transform": [{"filter": "datum.Charts > 0 "}],
+            "encoding": 
+            {
+                "theta": 
+                {
+                    "field": ["Charts"], 
+                    "aggregate": "sum",                                    
+                    "sort": 
+                    {
+                        "field": ["Charts"],
+                        "type": "quantitative",
                         "order": "descending"
-                    },                    
+                    },
+                    "title": "Total de Charts", "type": "quantitative", "stack": true,
+                },
+                "color": {"field": "Plataforma", "type": "nominal",  
+                "sort": 
+                    {
+                        "field": ["Charts"],
+                        "order": "ascending"
+                    },},
+                "Offset": {"field": "Plataforma"},
+            },
+            "layer": 
+            [
+            {
+                "mark": {"type": "arc", "outerRadius": 80, "stroke": "#fff"}
+            },
+            {
+                "mark": {"type": "text", "radius": 100},
+                "encoding": 
+                {
+                    "text": {"field": ["Charts"], 
+                    "aggregate": "sum",                                    
+                    "type": "nominal"}
                 }
-            }            
+            }
+            ]
         }
     }
 }
 
-function ex05(divWidth) {
-    return {
+function ex11(divWidth) 
+{
+   return {
         spec: {
             width: divWidth,
-            data: {
-                values: top_10_songs_shazam_playlists_charts 
+            padding: 30,            
+            data: 
+            {
+                values: spotify
             },
-            "transform": [{"filter": "datum.shazam_total > 0 "}],
-            title: "A5",
-            "mark": "bar",
-            "size": 14,
-            "encoding": {
-                "x": {"field": "shazam_total", 
+            "title": "Músicas que só aparecem nas playlists do Spotify.",
+            "transform": [{"filter": "datum.in_apple_playlists == 0 && datum.in_deezer_playlists == 0"}],
+            "mark": 
+            {
+                "type": "bar",
+                "size": 10,
+            },                
+            "encoding": 
+            {
+                "color": {"value": "blue"},
+                "x": 
+                {
+                "field": ["track_name"],
+                    "aggregate": "count",
                     "type": "quantitative",
-                    "axis": {
-                        "labelAngle": 0  // Set the angle to 45 degrees
-                    }
+                    "title": "Quantidade de músicas",
+                    "scale": {"domain": [0, 15]}                                                 
                 },
-                "y": {
-                    "field": "track_name", 
-                    "type": "nominal",
-                    "sort": {
-                        "field": "shazam_total",
-                        "order": "descending"
-                    },                    
-                }
-            }            
+            }
         }
     }
 }
-
-function ex06(divWidth) {
-    return {
+function ex12(divWidth) 
+{
+   return {
         spec: {
-            "repeat": {
-            "row": ["streams","in_spotify_playlists","in_apple_playlists",  "in_deezer_playlists"],
-            "column": ["streams","in_spotify_playlists", "in_apple_playlists",  "in_deezer_playlists"]
-            },          
-            data: {
-                values: spotify 
-            },            
-            spec: {
-            width: 120,
-            height: 120,
-            "mark": "point",            
-            "encoding": {
-                "x": {"field": {"repeat": "column"}, "type": "quantitative"},
-                "y": {"field": {"repeat": "row"}, "type": "quantitative"}
-            }                     
-        }
+            width: divWidth,
+            padding: 30,            
+            data: 
+            {
+                values: spotify
+            },
+            "title": "Músicas que só aparecem nas playlists do Spotify e do Deezer.",
+            "transform": [{"filter": "datum.in_apple_playlists == 0  && datum.in_deezer_playlists != 0  && datum.in_spotify_playlists != 0"}],                
+            "mark": 
+            {
+                "type": "bar",
+                "size": 10,
+            },                
+            "encoding": 
+            {
+                "color": {"value": "green"},
+                "x": 
+                {
+                "field": ["track_name"],
+                    "aggregate": "count",
+                    "type": "quantitative",
+                    "title": "Quantidade de músicas",
+                    "scale": {"domain": [0, 20]}                                                 
+                },
+            }
         }
     }
 }
 
-function ex07(divWidth) {
-    return {
+function ex13(divWidth) 
+{
+   return {
         spec: {
-            "repeat": {
-            "row": ["streams","in_spotify_charts","in_apple_charts",  "in_deezer_charts"],
-            "column": ["streams","in_spotify_charts", "in_apple_charts",  "in_deezer_charts","in_shazam_charts"]
-            },          
-            data: {
-                values: spotify 
-            },            
-            spec: {
-            width: 120,
-            height: 120,
-            "mark": "point",            
-            "encoding": {
-                "x": {"field": {"repeat": "column"}, "type": "quantitative"},
-                "y": {"field": {"repeat": "row"}, "type": "quantitative"}
-            }                     
-        }
+            width: divWidth,
+            padding: 30,            
+            data: 
+            {
+                values: spotify
+            },
+            "title": "Músicas que só aparecem nas playlists do Spotify e do Apple.",
+            "transform": [{"filter": "datum.in_apple_playlists != 0  && datum.in_deezer_playlists == 0  && datum.in_spotify_playlists != 0"}],                
+
+            "mark": 
+            {
+                "type": "bar",
+                "size": 10,
+            },                
+            "encoding": 
+            {
+                "color": {"value": "gray"},
+                "x": 
+                {
+                "field": ["track_name"],
+                    "aggregate": "count",
+                    "type": "quantitative",
+                    "title": "Quantidade de músicas",
+                    "scale": {"domain": [0, 25]}                         
+                },
+            }
         }
     }
 }
 
+function ex14(divWidth) 
+{
+   return {
+        spec: {
+            width: divWidth,
+            padding: 30,            
+            data: 
+            {
+                values: spotify
+            },
+            "title": "Músicas que aparecem em todas as playlists de todas as plataformas",
+            "transform": [{"filter": "datum.in_apple_playl != 0  && datum.in_deezer_playlists != 0  && datum.in_spotify_playlists != 0"}],                
+            "mark": 
+            {
+                "type": "bar",
+                "size": 10,
+            },                
+            "encoding": 
+            {
+                "color": {"value": "orange"},
+                "x": 
+                {
+                "field": ["track_name"],
+                    "aggregate": "count",
+                    "type": "quantitative",
+                    "title": "Quantidade de músicas",
+                    "scale": {"domain": [0, 1000]}                         
+                },
+            }
+        }
+    }
+}
+
+function ex21(divWidth) 
+{
+   return {
+        spec: {
+            width: divWidth,
+            padding: 30,            
+            data: 
+            {
+                values: spotify
+            },
+            "title": "Não aparecem em charts de nenhuma plataforma.",
+            "transform": [{"filter": "datum.in_apple_charts == 0 && datum.in_deezer_charts == 0 && datum.in_shazam_charts == 0 && datum.in_spotify_charts == 0"}],
+            "mark": 
+            {
+                "type": "bar",
+                "size": 10,
+                "value": "xxx"
+            },                
+            "encoding": 
+            {
+                "color": {"value": "brown"},
+                "x": 
+                {
+                "field": ["track_name"],
+                    "aggregate": "count",
+                    "type": "quantitative",
+                    "title": "Quantidade de músicas",
+                    "scale": {"domain": [0, 60]}                                                 
+                },
+            }
+        }
+    }
+}
+
+function ex22(divWidth) 
+{
+   return {
+        spec: {
+            width: divWidth,
+            padding: 30,            
+            data: 
+            {
+                values: spotify
+            },
+            "title": "Ao menos uma vez nos carts de todas as plataformas.",
+            "transform": [{"filter": "datum.in_apple_charts != 0 && datum.in_deezer_charts != 0 && datum.in_shazam_charts != 0 && datum.in_spotify_charts != 0"}],
+            "mark": 
+            {
+                "type": "bar",
+                "size": 10,
+            },                
+            "encoding": 
+            {
+                "color": {"value": "yellow"},
+                "x": 
+                {
+                "field": ["track_name"],
+                    "aggregate": "count",
+                    "type": "quantitative",
+                    "title": "Quantidade de músicas",
+                    "scale": {"domain": [0, 300]}                                                 
+                },
+            }
+        }
+    }
+}
+function ex23(divWidth) 
+{
+   return {
+        spec: {
+            width: divWidth,
+            padding: 30,            
+            data: 
+            {
+                values: spotify
+            },
+            "title": "Aparecem na playlist do Spotify e do Apple." ,
+            "transform": [{"filter": "datum.in_deezer_playlists == 0"}],                
+            "mark": 
+            {
+                "type": "bar",
+                "size": 10,
+            },                
+            "encoding": 
+            {
+                "color": {"value": "navy"},
+                "x": 
+                {
+                "field": ["track_name"],
+                    "aggregate": "count",
+                    "type": "quantitative",
+                    "title": "Quantidade de músicas",
+                    "scale": {"domain": [0, 25]}                         
+                },
+            }
+        }
+    }
+}
+
+function ex31(divWidth) 
+{
+   return {
+        spec: {
+            width: divWidth,
+            padding: 30,            
+            data: 
+            {
+                values: spotify
+            },
+            "title": "Músicas que aparecem ao menos uma vez em ''charts'' do  Spotify e no Shazam, mas não no Apple e do Dizzer.",
+            "transform": [{"filter": "datum.in_apple_charts == 0 && datum.in_deezer_charts == 0 && datum.in_shazam_charts != 0 && datum.in_spotify_charts != 0"}],
+            "mark": 
+            {
+                "type": "bar",
+                "size": 10,
+            },                
+            "encoding": 
+            {
+                "color": {"value": "silver"},
+                "x": 
+                {
+                "field": ["track_name"],
+                    "aggregate": "count",
+                    "type": "quantitative",
+                    "title": "Quantidade de músicas",
+                    "scale": {"domain": [0, 15]}                                                 
+                },
+            }
+        }
+    }
+}
+
+function ex32(divWidth) 
+{
+   return {
+        spec: {
+            width: divWidth,
+            padding: 30,            
+            data: 
+            {
+                values: spotify
+            },
+            "title": "Músicas que aparecem ao menos uma vez em ''charts'' do  Spotify, mas não nos demais.",
+            "transform": [{"filter": "datum.in_apple_charts == 0 && datum.in_deezer_charts == 0 && datum.in_shazam_charts == 0 && datum.in_spotify_charts != 0"}],
+            "mark": 
+            {
+                "type": "bar",
+                "size": 10,
+            },                
+            "encoding": 
+            {
+                "color": {"value": "olive"},
+                "x": 
+                {
+                "field": ["track_name"],
+                    "aggregate": "count",
+                    "type": "quantitative",
+                    "title": "Quantidade de músicas",
+                    "scale": {"domain": [0, 20]}                                                 
+                },
+            }
+        }
+    }
+}
+
+
+function ex10(divWidth) 
+{
+   return {
+        spec: {
+            width: divWidth,
+            padding: 10,            
+            data: 
+            {
+                values: spotify
+            },
+            "title": "A5",
+           "mark": 
+            {
+                "type": "bar",
+                "size": 10,
+            },                
+            "encoding": 
+            {
+                "color": {"value": "white"},
+            }
+        }
+   }
+}
+
+
+function ex20(divWidth) 
+{
+   return {
+        spec: {
+            width: divWidth,
+            padding: 10,            
+            data: 
+            {
+                values: spotify
+            },
+            "title": "A6",
+           "mark": 
+            {
+                "type": "bar",
+                "size": 10,
+            },                
+            "encoding": 
+            {
+                "color": {"value": "white"},
+            }
+        }
+   }
+}
+function ex30(divWidth) 
+{
+   return {
+        spec: {
+            width: divWidth,
+            padding: 10,            
+            data: 
+            {
+                values: spotify
+            },
+            "title": "A7",
+           "mark": 
+            {
+                "type": "bar",
+                "size": 10,
+            },                
+            "encoding": 
+            {
+                "color": {"value": "white"},
+            }
+        }
+   }
+}
 
 ```
