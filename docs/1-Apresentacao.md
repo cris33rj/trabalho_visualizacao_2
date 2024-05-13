@@ -38,13 +38,13 @@ Este trabalho de pesquisa foi produzido no curso de Mestrado em Computação - P
 A tarefa consistia em fazer análises sobre um conjunto de dados disponibilizado no **Site Kaggle**, com o objetivo de responder a três perguntas:
 
 1. Existe alguma característica que faz uma música ter mais chance de se tornar popular?
-2. O conjunto das top 10 músicas e dos top 10 artistas varia muito se considerarmos apenas musicas lançadas no mesmo ano?
+2. O conjunto das top 10 músicas e dos top 10 artistas varia muito se considerarmos apenas músicas lançadas no mesmo ano?
 3. Discuta as diferenças entre as plataformas: Spotify, Deezer, Apple Music e Shazam?
 
 ### O software:
 
 Para desenvolvimento do trabalho, utilizamos:
-1. Observable Framework,;
+1. Observable Framework;
 2. Biblioteca do D3;
 3. Vega-lite;
 4. Python 3.12;

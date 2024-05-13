@@ -15,11 +15,11 @@ Partindo para a resolução das questões propostas, esta parte irá estudar a p
 
 **Existe alguma característica que faz uma música ter mais chance de se tornar popular?**
 
-Para respondê-la, geramos dois grupos de gráficos: 1) 7 "scatter plots" que com o objetivo de observar a relação da variável "Streams" com "Danceability", "Valence", "Energy", "Acousticness", "Instrumentalness", "Liveness", "Speechiness" e "BPM", respectivamente; 2) 7 gráficos de barras com as média percentual de cada característica musical para os artistas top 10 de todo o período analisado. 
+Para respondê-la, geramos dois grupos de gráficos: 1) 7 "scatter plots" que com o objetivo de observar a relação da variável "Streams" com "Danceability", "Valence", "Energy", "Acousticness", "Instrumentalness", "Liveness", "Speechiness" e "BPM", respectivamente; 2) 7 gráficos de barras com a média percentual de cada característica musical para os artistas top 10 de todo o período analisado. 
 
 Com relação aos "scatters plots", aqueles que apresentam uma tendência mais forte, indicando características mais frequentes em músicas populares são: "Streams X Danceability" e "Streams X Energy". O gráfico "Streams X Speechiness" apresenta também uma tendência, mas de forma inversa. 
 
-Nos dois primeiros gráficos apontados é possível perceber que "Streams" (em bilhões) mostra uma tendência de aumento à medida que "Danceability" e "Energy" crescem, sugerindo que o público em geral aprecia mais músicas dancantes e com alto grau de energia. Quanto ao gráfico "Streams X Speechiness", percebe-se no gráfico que a maior parte dos pontos se concentram na parte esquerda, evidenciando que músicas com baixa "speechiness" (menos elementos de fala) têm um grande número de streams sendo, portanto, mais populares. Por outro lado, à medida que “speechiness” aumenta, há menos pontos, sugerindo que músicas com alta “speechiness” geralmente não são tão populares.
+Nos dois primeiros gráficos apontados é possível perceber que "Streams" (em bilhões) mostra uma tendência de aumento à medida que "Danceability" e "Energy" crescem, sugerindo que o público em geral aprecia mais músicas dançantes e com alto grau de energia. Quanto ao gráfico "Streams X Speechiness", percebe-se no gráfico que à maior parte dos pontos se concentram na parte esquerda, evidenciando que músicas com baixa "speechiness" (menos elementos de fala) têm um grande número de streams sendo, portanto, mais populares. Por outro lado, à medida que “speechiness” aumenta, há menos pontos, sugerindo que músicas com alta “speechiness” geralmente não são tão populares.
 
 Quanto aos gráficos de barras, os comentários podem ser vistos mais abaixo.
 
@@ -69,7 +69,7 @@ Quanto aos gráficos de barras, os comentários podem ser vistos mais abaixo.
 </div>  
         <div></div>
 
-A análise mediante os gráficos de barras permite observar, sob outro ângulo, a influência das características musicais na popularidade das músicas. Em relação ao artistas top 10 de todo o período, é possível verificar que a média de "danceability" e "energy" tem um mínimo de 50% e um máximo em torno de 80%, ao passo que as outras características tem um máximo que não passa de 65%.        
+A análise mediante os gráficos de barras permite observar, sob outro ângulo, a influência das características musicais na popularidade das músicas. Em relação aos artistas top 10 de todo o período, é possível verificar que a média de "danceability" e "energy" tem um mínimo de 50% e um máximo em torno de 80%, ao passo que as outras características tem um máximo que não passa de 65%.        
 
 <div class="grid grid-cols-2" style="width: 110%;">         
     <div id="ex08" class="card">
