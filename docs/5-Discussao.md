@@ -190,35 +190,68 @@ function ex09(divWidth)
                 values: spotify
             },
             title: "A3",
-              "transform": 
+            "transform": 
             [
             {"filter": {"field": "artist(s)_name", "oneOf": ["Miley Cyrus","The Weeknd"]}},
             ],   
-            "encoding": 
-            {
-                "theta": 
-                {
-                    "aggregate": "sum",                                    
-                    "field": ["streams"], 
-                    "title": "Total de Streams", "type": "quantitative", "stack": true
-                },
-                "color": {"field": "artist(s)_name", "type": "nominal",  "legend": {"title": "Artista(s)"}},
-                "Offset": {"field": "artist(s)_name"},
-            },
-            "layer": 
+
+            "hconcat": 
             [
             {
-                "mark": {"type": "arc", "outerRadius": 80, "stroke": "#fff"}
-            },
-            {
-                "mark": {"type": "text", "radius": 100},
                 "encoding": 
                 {
-                    "text": {"field": "artist(s)_name", "type": "nominal"}
+                    "theta": 
+                    {
+                        "aggregate": "sum",                                    
+                        "field": ["streams"], 
+                        "title": "Total de Streams", "type": "quantitative", "stack": true
+                    },
+                    "color": {"field": "artist(s)_name", "type": "nominal",  "legend": {"title": "Artista(s)"}},
+                    "Offset": {"field": "artist(s)_name"},
+                },
+                "layer": 
+                [
+                {
+                    "mark": {"type": "arc", "outerRadius": 80, "stroke": "#fff"}
+                },
+                {
+                    "mark": {"type": "text", "radius": 100},
+                    "encoding": 
+                    {
+                        "text": {"field": "artist(s)_name", "type": "nominal"}
+                    }
+                }
+                ]
+            },
+            {
+                "encoding": 
+                {
+                    "color": {"value": "brown"},                
+                    "x": 
+                    {
+                        "field": ["track_name"],
+                        "type": "nominal",
+                        "aggregate": "track_name",
+                        "sort": 
+                        {
+                            "field" : "artist(s)_name",
+                            "order": "ascending",
+                        },    
+                        "title": "Nome da música",
+                        "axis": {"labelAngle": 45} ,
+                    },
+                    "y": 
+                    {
+                        "aggregate": "sum",                                    
+                        "field": ["streams"], 
+                        "title": "Total de Streams", 
+                    },
+                    "xOffset": {"field": "artist(s)_name"},
+                    "color": {"field": "artist(s)_name", "legend" : { "title": "Artistas"}}    
                 }
             }
             ]
-        }
+        }  
     }
 }
 ```
