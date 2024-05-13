@@ -112,7 +112,7 @@ As análises poderiam ser aprofundadas, mas não vislumbramos que os demais comp
 
 <div class="grid grid-cols-1">
     <div id="ex07" class="card">
-        <h4>Total de gráficos ("charts") por plataforma.</h4>
+        <h4>Total de charts por plataforma.</h4>
         <div style="width: 100%, margin-top: 15px;">
             ${ vl.render(ex30(divWidth+382)) }        
             ${ vl.render(ex31(divWidth+340)) }        
@@ -155,7 +155,6 @@ function ex01(divWidth)
             },                
             "encoding": 
             {
-                "color": {"value": "gray"},
                 "x": 
                 {
                    "field": ["Plataforma"],
@@ -202,7 +201,6 @@ function ex02(divWidth)
             },                
             "encoding": 
             {
-                "color": {"value": "gray"},
                 "x": 
                 {
                    "field": ["Plataforma"],
@@ -240,7 +238,7 @@ function ex03(divWidth)
                 values: comparacao_contagem_plataformas
             },
             title: "E3",
-            "transform": [{"filter": "datum.Playlists > 0 "}],
+            "transform": [{"filter": "datum.Playlists != null "}],
             "encoding": 
             {
                 "theta": 
@@ -255,11 +253,11 @@ function ex03(divWidth)
                     },
                     "title": "Total de Playlists", "type": "quantitative", "stack": true,
                 },
-                "color": {"field": "Plataforma", "type": "nominal",  
+                "color": {"field": "Plataforma",   
                 "sort": 
                     {
                         "field": ["Playlists"],
-                        "order": "ascending"
+                        "order": "descending"
                     },},
                 "Offset": {"field": "Plataforma"},
             },
@@ -269,10 +267,10 @@ function ex03(divWidth)
                 "mark": {"type": "arc", "outerRadius": 80, "stroke": "#fff"}
             },
             {
-                "mark": {"type": "text", "radius": 100, "angle": {"expr" : -75},},
+                "mark": {"type": "text", "radius": 110, "angle": {"expr" : -75},},
                 "encoding": 
                 {
-                    "text": {"field": ["Charts"], 
+                    "text": {"field": ["Playlists"], 
                     "format":",",
                     
                     "formatType": "number",
@@ -485,7 +483,7 @@ function ex21(divWidth)
             {
                 values: spotify
             },
-            "title": "Músicas que não aparecem em charts de nenhuma plataforma.",
+            "title": "Músicas que não aparecem em ''charts'' de nenhuma plataforma.",
             "transform": [{"filter": "datum.in_apple_charts == 0 && datum.in_deezer_charts == 0 && datum.in_shazam_charts == 0 && datum.in_spotify_charts == 0"}],
             "mark": 
             {
@@ -518,7 +516,7 @@ function ex22(divWidth)
             {
                 values: spotify
             },
-            "title": "Músicas que aparecem ao menos uma vez nos carts de todas as plataformas.",
+            "title": "Músicas que aparecem ao menos uma vez nos ''charts'' de todas as plataformas.",
             "transform": [{"filter": "datum.in_apple_charts != 0 && datum.in_deezer_charts != 0 && datum.in_shazam_charts != 0 && datum.in_spotify_charts != 0"}],
             "mark": 
             {

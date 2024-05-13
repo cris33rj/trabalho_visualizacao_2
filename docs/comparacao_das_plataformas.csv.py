@@ -10,13 +10,11 @@ def remover_virgula(string):
         string = float(string.replace(',', ''))        
     return string 
 
-spotify_data['in_spotify_playlists'] = spotify_data['in_spotify_playlists'].apply(remover_virgula)
-
 spotify_data['in_apple_playlists'] = spotify_data['in_apple_playlists'].apply(remover_virgula)
 
 spotify_data['in_deezer_playlists'] = spotify_data['in_deezer_playlists'].apply(remover_virgula)
 
-spotify_data['in_spotify_charts'] = spotify_data['in_spotify_charts'].apply(remover_virgula)
+spotify_data['in_spotify_playlists'] = spotify_data['in_spotify_playlists'].apply(remover_virgula)
 
 spotify_data['in_apple_charts'] = spotify_data['in_apple_charts'].apply(remover_virgula)
 
@@ -24,38 +22,40 @@ spotify_data['in_deezer_charts'] = spotify_data['in_deezer_charts'].apply(remove
 
 spotify_data['in_shazam_charts'] = spotify_data['in_shazam_charts'].apply(remover_virgula)
 
+spotify_data['in_spotify_charts'] = spotify_data['in_spotify_charts'].apply(remover_virgula)
+
 total_counts = {
     'Plataforma': pd.Series(
                         [
-                            'Spotify',
                             'Apple',
                             'Deezer',
-                            'Shazam'
+                            'Shazam',
+                            'Spotify'
                         ], index=
                             [
-                                'Spotify','Apple','Deezer','Shazam'
+                                'Apple','Deezer','Shazam','Spotify'
                             ]
                     ),
     'Charts': pd.Series(
                         [
-                            spotify_data['in_spotify_charts'].sum(), 
                             spotify_data['in_apple_charts'].sum(),
                             spotify_data['in_deezer_charts'].sum(),
-                            spotify_data['in_shazam_charts'].sum()
+                            spotify_data['in_shazam_charts'].sum(),
+                            spotify_data['in_spotify_charts'].sum()
                         ], index=
                             [
-                                'Spotify','Apple','Deezer','Shazam'
+                                'Apple','Deezer','Shazam','Spotify'
                             ]
                     ),
     'Playlists': pd.Series(
                         [
-                            spotify_data['in_spotify_playlists'].sum(),
                             spotify_data['in_apple_playlists'].sum(),
                             spotify_data['in_deezer_playlists'].sum(),                            
-                            0
+                            0,
+                            spotify_data['in_spotify_playlists'].sum()
                         ], index=
                             [
-                                'Spotify','Apple','Deezer','Shazam'
+                                'Apple','Deezer','Shazam','Spotify'
                             ]
                         ),
    
