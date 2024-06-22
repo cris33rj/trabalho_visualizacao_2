@@ -130,6 +130,14 @@ import * as vegaLite from "npm:vega-lite";
 import * as vegaLiteApi from "npm:vega-lite-api";
 import { showCode } from './showCode.js'; 
 
+vega.formatLocale(
+    {
+  "decimal": ",",
+  "thousands": ".",
+  "grouping": [3]
+    }
+)
+
 const vl = vegaLiteApi.register(vega, vegaLite);
 
 const spotify = await FileAttachment("./data/spotify-2023.json").json({typed: true});

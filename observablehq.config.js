@@ -18,7 +18,7 @@ export default {
         name: "2 - Desenvolvimento",
         open: false,
         pages: [
-          {name: "2.1 - Popularidade Musical", path: "/2-Popularidade_musical"},
+          {name: "2.1 - Acidentes em Mapas", path: "/2-Acidentes em mapas"},
           {name: "2.2 - Top 10", path: "/3-Top10"},      
           {name: "2.3 - Comparativo", path: "/4-Comparativo"},          
               ]
