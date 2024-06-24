@@ -19,7 +19,7 @@ export default {
         open: false,
         pages: [
           {name: "2.1 - Acidentes em Mapas", path: "/2-Acidentes em mapas"},
-          {name: "2.2 - Top 10", path: "/3-Top10"},      
+          {name: "2.2 - Acidentes em Séries Temporais", path: "/3-Acidentes em Séries Temporais"},      
           {name: "2.3 - Comparativo", path: "/4-Comparativo"},          
               ]
       },
