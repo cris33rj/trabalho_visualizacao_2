@@ -67,7 +67,7 @@ p { max-width: none; }
         <h2><a href="3-Acidentes em Séries Temporais">2.2 - Acidentes em Séries Temporais</a></h2>
     </div>
     <div class="card" >
-        <h2><a href="4-Comparativo">2.3 - Comparativo entre plataformas</a></h2>
+        <h2><a href="4-Outros Tipos de Visualizações">2.3 - Outros Tipos de Visualizações</a></h2>
     </div>
 </span>
 <span class="card"><h4>3 - Fechamento<br></h4>
