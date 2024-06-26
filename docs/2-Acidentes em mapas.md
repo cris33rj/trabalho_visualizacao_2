@@ -49,20 +49,20 @@ toc: false
 </div>
 
 <div style="width: 100%; margin-top: 15px;">
-    <h2 class="title">Acidentes no ano de 2023 por Estado</h2>
+    <h2 class="title">Acidentes registrados pela PRF ano de 2023 por Estado</h2>
     <div id="ex01" style="width: 100%; margin-top: 15px;">
         ${ vl.render(ex01(divWidth01 - 80)) }
     </div>
 </div>
 <div style="width: 100%; margin-top: 15px;">
-    <h2 class="title" style="text-align: center;">Locais de Acidentes com Base na Latitude e Longitude</h2>
+    <h2 class="title" style="text-align: center;">Locais de Acidentes Registrados pela PRF em 2023 com Base na Latitude e Longitude</h2>
     <h4 class="title" style="text-align: center;">(Coloque o mouse sobre o ponto para mais informações)</h4>
     <div id="ex02" style="width: 100%; margin-top: 15px;">
         ${ vl.render(ex02(divWidth02 - 80)) }
     </div>
 </div>
 <div style="width: 100%; margin-top: 15px; align: center;">
-    <h2 class="title" style="text-align: center;">Quantidade de Acidentes por Município em 2023</h2>
+    <h2 class="title" style="text-align: center;">Quantidade de Acidentes Registrados pela PRF por Município em 2023</h2>
     <h4 class="title" style="text-align: center;">(Coloque o mouse sobre o município para mais informações)</h4>
     <div id="ex03" style="width: 100%; margin-top: 15px;">
         ${ vl.render(ex03(divWidth03 - 80)) }
