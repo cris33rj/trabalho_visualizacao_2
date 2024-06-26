@@ -55,17 +55,25 @@ toc: false
     </div>
 </div>
 <div style="width: 100%; margin-top: 15px;">
-    <h2>EX02</h2>
+    <h2 class="title" style="text-align: center;">Locais de Acidentes com Base na Latitude e Longitude</h2>
+    <h4 class="title" style="text-align: center;">(Coloque o mouse sobre o ponto para mais informações)</h4>
     <div id="ex02" style="width: 100%; margin-top: 15px;">
         ${ vl.render(ex02(divWidth02 - 80)) }
     </div>
 </div>
+<div style="width: 100%; margin-top: 15px; align: center;">
+    <h2 class="title" style="text-align: center;">Quantidade de Acidentes por Município em 2023</h2>
+    <h4 class="title" style="text-align: center;">(Coloque o mouse sobre o município para mais informações)</h4>
+    <div id="ex03" style="width: 100%; margin-top: 15px;">
+        ${ vl.render(ex03(divWidth03 - 80)) }
+    </div>
+</div>
 
-<div style="width: 100%; height: 500px; margin-top: 15px;">
+<!-- <div style="width: 100%; height: 500px; margin-top: 15px;">
     <h2 class="title">EX03</h2>
     <div id="ex03" style="width: 100%; height: 430px;  margin-top: 15px;">
     </div>
-</div>
+</div> -->
 
 ```js
 const nycBoroughs = await FileAttachment("./data/nyc-boroughs.json").json({
@@ -96,6 +104,12 @@ const datatran2023 = await FileAttachment("./data/datatran2023.json").json({
 const brasil_completo = await FileAttachment(
   "./data/brasil_completo.json"
 ).json({
+  typed: true,
+});
+
+const updated_taxa_acidentes_por_municipio = await FileAttachment(
+  "./data/updated_taxa_acidentes_por_municipio.csv"
+).csv({
   typed: true,
 });
 ```
@@ -178,7 +192,7 @@ function ex02(divWidth) {
         {
           calculate: "toNumber(replace(datum.longitude, ',', '.'))",
           as: "lon",
-        }        
+        },
       ],
       projection: {
         type: "mercator",
@@ -203,7 +217,7 @@ function ex02(divWidth) {
           encoding: {
             longitude: { field: "lon", type: "quantitative" },
             latitude: { field: "lat", type: "quantitative" },
-            size: { value: 10 },
+            size: { value: 5 },
             color: { value: "red" },
             tooltip: [
               { field: "municipio", type: "nominal", title: "Municipio" },
@@ -212,8 +226,7 @@ function ex02(divWidth) {
             ],
           },
         },
-      ],
-      title: "Locations of Accidents Based on Latitude and Longitude",
+      ],      
     },
   };
 }
@@ -224,93 +237,68 @@ function ex03(divWidth) {
       width: divWidth,
       height: 300,
       background: "#FFFFFF",
+      projection: {
+        type: "mercator",
+      },
       layer: [
+      {
+      data: {
+        values: brasil_completo,
+        format: {
+          type: "json",
+          property: "features",
+        },
+      },
+      transform: [
         {
+          lookup: "properties.id",
+          from: {
+            data: {
+              values: updated_taxa_acidentes_por_municipio,              
+            },
+            key: "id",
+            fields: ["Taxa"],
+          },
+        },
+      ],      
+      mark: {
+            type: "geoshape",            
+            stroke: "#BFBFBF",
+            strokeWidth: 0.5,
+          },  
+      encoding: {
+        color: {
+          field: "Taxa",
+          type: "quantitative",
+          scale: {
+                domain: [1, 1000], // Adjust the domain according to your data
+                range: ["#FFEBEE", "#B71C1C"], // Gradient of red
+              },
+        },
+        tooltip: [
+              { field: "properties.name", type: "nominal", title: "Municipio" },
+              { field: "Taxa", type: "nominal", title: "Taxa" },
+              
+            ],
+      },
+    },
+    {
           data: {
             values: br_states,
             format: {
               type: "json",
-              feature: "features",
+              property: "features",
             },
-          },
+          },          
           mark: {
             type: "geoshape",
-            fill: "lightgray",
-            stroke: "white",
-          },
-          encoding: {
-            tooltip: [
-              { field: "properties.name", type: "nominal", title: "State" },
-            ],
-          },
+            fill: null,
+            stroke: "#BFBFBF",
+            strokeWidth: 1,
+          },          
         },
-        {
-          data: {
-            values: datatran2023,
-            format: {
-              type: "json",
-            },
-          },
-          transform: [
-            {
-              calculate: "replace(datum.latitude, ',', '.')",
-              as: "lat",
-            },
-            {
-              calculate: "replace(datum.longitude, ',', '.')",
-              as: "lon",
-            },
-          ],
-          mark: "circle",
-          encoding: {
-            longitude: {
-              field: "lon",
-              type: "quantitative",
-            },
-            latitude: {
-              field: "lat",
-              type: "quantitative",
-            },
-            size: {
-              value: 50,
-            },
-            color: {
-              value: "red",
-            },
-            tooltip: [
-              { field: "municipio", type: "nominal", title: "Municipio" },
-              { field: "data_inversa", type: "temporal", title: "Date" },
-              { field: "causa_acidente", type: "nominal", title: "Cause" },
-              { field: "tipo_acidente", type: "nominal", title: "Type" },
-              {
-                field: "classificacao_acidente",
-                type: "nominal",
-                title: "Classification",
-              },
-              {
-                field: "pessoas",
-                type: "quantitative",
-                title: "People Involved",
-              },
-              { field: "mortos", type: "quantitative", title: "Deaths" },
-              {
-                field: "feridos_leves",
-                type: "quantitative",
-                title: "Minor Injuries",
-              },
-              {
-                field: "feridos_graves",
-                type: "quantitative",
-                title: "Severe Injuries",
-              },
-            ],
-          },
-        },
-      ],
+      ]
     },
   };
 }
-
-
-
 ```
