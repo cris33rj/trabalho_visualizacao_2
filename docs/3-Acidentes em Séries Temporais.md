@@ -49,7 +49,7 @@ toc: false
 </div>
 
 <div style="width: 100%; margin-top: 15px;">
-    <h2 class="title">Número de acidentes mensais no País em 2023</h2>
+    <h2 class="title">Número de acidentes mensais no País Registrados pela PRF em 2023</h2>
     <div id="ex01" style="width: 100%; margin-top: 15px;">
         ${ vl.render(ex01(divWidth01 - 80)) }
     </div>
