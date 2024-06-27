@@ -62,7 +62,7 @@ toc: false
     </div>
 </div>
 <div style="width: 100%; margin-top: 15px; align: center;">
-    <h2 class="title" style="text-align: center;">Quantidade de Acidentes Registrados pela PRF por Município em 2023</h2>
+    <h2 class="title" style="text-align: center;">Choropleth de Acidentes Registrados pela PRF por Município em 2023</h2>
     <h4 class="title" style="text-align: center;">(Coloque o mouse sobre o município para mais informações)</h4>
     <div id="ex03" style="width: 100%; margin-top: 15px;">
         ${ vl.render(ex03(divWidth03 - 80)) }
@@ -76,20 +76,6 @@ toc: false
 </div> -->
 
 ```js
-const nycBoroughs = await FileAttachment("./data/nyc-boroughs.json").json({
-  typed: true,
-});
-const collisions_borough = await FileAttachment(
-  "./data/collisions_borough.csv"
-).csv({ typed: true });
-
-const nycNeighs = await FileAttachment("./data/nyc-neighs.json").json({
-  typed: true,
-});
-const collisions_neighs = await FileAttachment(
-  "./data/collisions_neighs.csv"
-).csv({ typed: true });
-
 const br_states = await FileAttachment("./data/br_states.json").json({
   typed: true,
 });
