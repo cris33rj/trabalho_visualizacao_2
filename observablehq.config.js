@@ -19,6 +19,7 @@ export default {
         open: false,
         pages: [
           {name: "2.1 - Acidentes em Mapas", path: "/2-Acidentes em mapas"},
+          {name: "2.1 - Análise regional", path: "/2.1-Analise_regional"},
           {name: "2.2 - Acidentes em Séries Temporais", path: "/3-Acidentes em Séries Temporais"},      
           {name: "2.3 - Outros Tipos de Visualizações", path: "/4-Outros Tipos de Visualizações"},          
               ]

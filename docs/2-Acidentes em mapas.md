@@ -45,8 +45,9 @@ toc: false
 </style>
 
 <div class="hero">
-  <h2>Visualização com mapas</h2>
+  <h2>Análise de acidentes por região</h2>
 </div>
+
 
 <div style="width: 100%; margin-top: 15px;">
     <h2 class="title">Acidentes registrados pela PRF ano de 2023 por Estado</h2>
@@ -155,8 +156,8 @@ function ex01(divWidth) {
               scale: { scheme: "reds" },
             },
           tooltip: [
+              { field: "properties.Estado", type: "nominal", title: "Estado" },
               { field: "Acidentes", type: "quantitative", title: "Acidentes" },
-
             ],
           },
         },
@@ -211,8 +212,8 @@ function ex02(divWidth) {
             color: { value: "red" },
             tooltip: [
               { field: "municipio", type: "nominal", title: "Municipio" },
-              { field: "causa_acidente", type: "nominal", title: "Cause" },
-              { field: "tipo_acidente", type: "nominal", title: "Type" },
+              { field: "causa_acidente", type: "nominal", title: "Causa" },
+              { field: "tipo_acidente", type: "nominal", title: "Tipo de acidente" },
             ],
           },
         },
