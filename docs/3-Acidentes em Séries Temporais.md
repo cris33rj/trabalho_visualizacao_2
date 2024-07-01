@@ -55,6 +55,14 @@ toc: false
     </div>
 </div>
 
+<div style="width: 100%; margin-top: 15px;">
+    <h2 class="title">Distribuição Mensal Por Tipo de Acidente</h2>
+    <h4 class="title">(Clique nos títulos das legendas ver selecionar distribuição para um tipo específico de acidente).</h4>
+    <div id="ex02" style="width: 100%; margin-top: 15px;">
+        ${ vl.render(ex02(divWidth02 - 80)) }
+    </div>
+</div>
+
 ```js
 const br_states = await FileAttachment("./data/br_states.json").json({
   typed: true,
@@ -69,6 +77,7 @@ const datatran2023 = await FileAttachment("./data/datatran2023.json").json({
 
 ```js
 const divWidth01 = Generators.width(document.querySelector("#ex01"));
+const divWidth02 = Generators.width(document.querySelector("#ex02"));
 ```
 
 ```js
@@ -126,4 +135,48 @@ function ex01(divWidth) {
     },
   };
 }
+
+function ex02(divWidth) {
+  return {
+    spec: {
+      width: divWidth,
+      height: 300,
+      data: {
+        values: datatran2023,
+      },
+      mark: {
+        type: "bar",
+        cornerRadiusTopLeft: 3,
+        cornerRadiusTopRight: 3,
+      },
+      encoding: {
+        x: { timeUnit: "month", field: "data_inversa", type: "ordinal" },
+        y: { aggregate: "count" },
+        color: {
+          field: "classificacao_acidente",
+          scale: {
+            domain: ["Com Vítimas Fatais", "Com Vítimas Feridas", "Sem Vítimas"], // Replace with actual accident types
+            range: ["#1f77b4", "#ff7f0e", "#2ca02c"], // Replace with desired colors
+          },
+        },
+        tooltip: [
+          { field: "data_inversa", title: "Date" },
+          { field: "classificacao_acidente", title: "Accident Classification" },
+          { aggregate: "count", title: "Count" },
+        ],
+      },
+      selection: {
+        accidentType: {
+          type: "multi",
+          fields: ["classificacao_acidente"],
+          bind: "legend",
+        },
+      },
+      transform: [
+        { filter: { selection: "accidentType" } },
+      ],
+    },
+  };
+}
+
 ```
