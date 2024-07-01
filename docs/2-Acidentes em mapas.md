@@ -154,6 +154,10 @@ function ex01(divWidth) {
               type: "quantitative",
               scale: { scheme: "reds" },
             },
+          tooltip: [
+              { field: "Acidentes", type: "quantitative", title: "Acidentes" },
+
+            ],
           },
         },
       ],
