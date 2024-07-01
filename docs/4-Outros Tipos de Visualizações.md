@@ -55,6 +55,13 @@ toc: false
     </div>
 </div>
 
+<div style="width: 100%; margin-top: 15px;">
+    <h2 class="title">Heatmap de Acidentes X Causas por Estado</h2>
+    <div id="ex02" style="width: 100%; margin-top: 15px;">
+        ${ vl.render(ex02(divWidth01 - 80)) }
+    </div>
+</div>
+
 ```js
 const br_states = await FileAttachment("./data/br_states.json").json({
   typed: true,
@@ -68,6 +75,7 @@ const datatran2023 = await FileAttachment("./data/datatran2023.json").json({
 
 ```js
 const divWidth01 = Generators.width(document.querySelector("#ex01"));
+const divWidth02 = Generators.width(document.querySelector("#ex02"));
 ```
 
 ```js
@@ -83,8 +91,8 @@ function ex01(divWidth) {
       width: divWidth,
       height: 300,
       data: {
-        values: datatran2023
-      },      
+        values: datatran2023,
+      },
       mark: "bar",
       encoding: {
         x: {
@@ -126,4 +134,58 @@ function ex01(divWidth) {
     },
   };
 }
+
+function ex02(divWidth) {
+  return {
+    spec: {
+      width: divWidth,
+      height: 600,      
+      data: { values: datatran2023, },
+      transform: [
+        {
+          aggregate: [{ op: "count", as: "num_acidentes" }],
+          groupby: ["uf", "tipo_acidente"],
+        },
+      ],
+      encoding: {
+        y: { field: "uf", type: "ordinal" },
+        x: { 
+          field: "tipo_acidente", 
+          type: "ordinal",
+          axis: {
+            labelFontSize: 12,  // Increase font size of the x-axis labels
+            labelAngle: 45,     // Rotate x-axis labels 45 degrees
+          }
+        },
+      },
+      layer: [
+        {
+          mark: "rect",
+          encoding: {
+            color: {
+              field: "num_acidentes",
+              type: "quantitative",
+              title: "Quantidade de Acidentes X Causa",
+              legend: { direction: "horizontal", gradientLength: 120 },
+            },
+          },
+        },
+        {
+          mark: "text",
+          encoding: {
+            text: { field: "num_acidentes", type: "quantitative" },
+            color: {
+              condition: { test: "datum['num_acidentes'] > 1000", value: "white" },
+              value: "black",
+            },
+          },
+        },
+      ],
+      config: {
+        axis: { grid: true, tickBand: "extent" },
+      },
+    },
+  };
+}
+
 ```
