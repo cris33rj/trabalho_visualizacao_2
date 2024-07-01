@@ -35,11 +35,8 @@ Este trabalho de pesquisa foi produzido no curso de Mestrado em Computação - P
 
 ### A tarefa:
 
-A tarefa consistia em fazer análises sobre um conjunto de dados disponibilizado no **Site Kaggle**, com o objetivo de responder a três perguntas:
-
-1. Existe alguma característica que faz uma música ter mais chance de se tornar popular?
-2. O conjunto das top 10 músicas e dos top 10 artistas varia muito se considerarmos apenas músicas lançadas no mesmo ano?
-3. Discuta as diferenças entre as plataformas: Spotify, Deezer, Apple Music e Shazam?
+O foco deste trabalho é investigar, com base nos dadosa de ocorrências de traânsito feitas pela Polícia Federal Rodoviária, os 
+fatores que contribuemgeram o maior número de acidentes nas estradas federais, bem como evidenciar as relações existentes e não percebidas, no que tange a composição dos topos dos diversos agrupamentos.
 
 ### O software:
 
@@ -53,33 +50,56 @@ Para desenvolvimento do trabalho, deveríamos utilizar:
 
 ### A base de dados:
 
-O conjunto de dados fora disponibilizado no endereço: https://www.kaggle.com/datasets/nelgiriyewithana/top-spotify-songs-2023, 
-e continha uma lista abrangente das músicas mais famosas de 2023 listadas no **Spotify**. O conjunto de dados oferecia uma variedade de recursos além do que normalmente estava disponível em conjuntos de dados semelhantes. Estando no formato **CSV** (texto com campos separados por vírgula), possuía 954 registros, incluindo o nome dos campos.
+Para realização da tarefa foi utilizado conjunto d4e dados ofertados através de bases públicas como descrito aseguir:
 
-Conforme o **Site kaggle**, o *DATASET* apresentava os seguintes campos:
+Arquivo: Datatran2003.csv<br>
+Local de origem: https://www.gov.br/prf/pt-br/acesso-a-informacao/dados-abertos/dados-abertos-da-prf<br>
+Descrição: Dados de acidentes coletados pela PRF.
 
-- **track_name** : Nome da música;
-- **artist(s)_name** : Nome do(s) artista(s) da música;
-- **artist_count** : número de artistas que contribuíram para a música;
-- **release_year** : Ano em que a música foi lançada;
-- **release_month** : Mês em que a música foi lançada;
-- **release_day** : Dia do mês em que a música foi lançada;
-- **in_spotify_playlists** : Número de *playlists* do **Spotify** nas quais a música está incluída;
-- **in_spotify_charts** : Presença e classificação da música nas paradas do **Spotify**;
-- **streams** : número total de *streams* no **Spotify**;
-- **in_apple_playlists** : número de *playlists* do **Apple Music** nas quais a música está incluída;
-- **in_apple_charts** : Presença e classificação da música nas paradas musicais da **Apple**;
-- **in_deezer_playlists** : Número de *playlists* do **Deezer** em que a música está incluída;
-- **in_deezer_charts** : Presença e posição da música nas paradas da **Deezer**;
-- **in_shazam_charts** : Presença e classificação da música nas paradas do **Shazam**;
-- **bpm** : Batidas por minuto, uma medida do andamento da música;
-- **key** : tom da música;
-- **mode** : Modo da música (maior ou menor);
-- **danceability_%** : Porcentagem que indica quão adequada a música é para dançar;
-- **valence_%** : Positividade do conteúdo musical da música;
-- **energy_%** : Nível de energia percebido da música;
-- **acousticness_%** : quantidade de som acústico na música;
-- **instrumentalness_%** : Quantidade de conteúdo instrumental na música;
-- **liveness_%** : Presença de elementos de performance ao vivo; e
-- **Speechiness_%** : Quantidade de palavras faladas na música.
+Dicionário de dados:
+<div class="grid grid-cols-1">    
+<div class="card" >
 
+| Ordem          | Campo          | Descrição |
+| :----:             |    :----:           |    :----           |
+|	1	|	id 	|	Variável com valores numéricos,representando o identificador do acidente.	|
+|	2	|	data_inversa 	|	Data da ocorrência no formatodd/mm/aaaa.	|
+|	3	|	dia_semana	|	Dia da semana da ocorrência. Ex.:Segunda, Terça, etc.	|
+|	4	|	horário	|	Horário da ocorrência no formatohh:mm:ss.	|
+|	5	|	uf	|	Unidade da Federação. Ex.: MG, PE, DF,etc.	|
+|	6	|	br	|	Variável com valores numéricos,representando o identificador da BR do acidente.ponto.	|
+|	7	|	km 	|	Identificação do quilômetro onde ocorreu o acidente, com valor mínimo de 0,1 km ecom a casa decimal separada por 	|
+|	8	|	municipio	|	Nome do município de ocorrência do acidente.	|
+|	9	|	causa_acidente	|	Identificação da causa principal doacidente. Neste conjunto de dados são excluídos os acidentes com a variávelcausa principal igual a “Não”.	|
+|	10	|	Tipo_acidente	|	Identificação do tipo de acidente. Ex.:Colisão frontal, Saída de pista, etc. Neste conjunto de dados são excluídos os tiposde acidentes com ordem maior ou igual a dois. A ordem do acidente na acidente: Sem Vítimas, Com VítimasFeridas, Com Vítimas Fatais e Ignorado.mesma ocorrência.	|
+|	11	|	classificação_acidente	|	Classificação quanto à gravidade do demonstra asequência cronológica dos tipos presentes 	|
+|	12	|	fase_dia	|	Fase do dia no momento do acidente. Ex.Amanhecer, Pleno dia, etc.	|
+|	13	|	sentido_via	|	Sentido da via considerando o ponto decolisão: Crescente e decrescente.	|
+|	14	|	condição_meteorologica	|	Condição meteorológica no momento doacidente: Céu claro, chuva, vento, etc.	|
+|	15	|	tipo_pista	|	Tipo da pista considerandoa quantidade de faixas: Dupla, simples ou múltipla.	|
+|	16	|	tracado_via	|	Descrição do traçado da via.	|
+|	17	|	uso_solo	|	Descrição sobre as características do localdo acidente: Urbano=Sim;Rural=Não.	|
+|	18	|	pessoas	|	Total de pessoas envolvidas na ocorrência.	|
+|	19	|	mortos	|	Total de pessoas mortas envolvidas naocorrência.	|
+|	20	|	feridos_leves	|	Total de pessoas com ferimentos levesenvolvidas na ocorrência.	|
+|	21	|	feridos_graves	|	Total de pessoas com ferimentos gravesenvolvidas na ocorrência.	|
+|	22	|	ilesos	|	Total de pessoas ilesas envolvidas naocorrência.	|
+|	23	|	ignorados 	|	Total de pessoas envolvidas na ocorrência e que não se soube o estado físico.veículos envolvidos na 	|
+|	24	|	feridos	|	Total de pessoas feridas envolvidas na ocorrência (éa soma dos feridos leves com os graves).	|
+|	25	|	veiculos	|	Total de ocorrência.	|
+|	26	|	latitude	|	Latitude do local do acidente em formato geodésico decimal.	|
+|	27	|	longitude	|	Longitude do local do acidente em formato geodésico decimal.	|
+|	28	|	regional	|	Superintendência regional da PRF cujo acidente ocorreu dentro dos limites de suacircunscrição . Atenção nem semprea UF da regional coincide com a UF doacidente. Ex:A circunscrição da SPRF-DF “GO”.grande parte está localizada na UF	|
+|	29	|	delegacia	|	delegacia da PRF cujo acidente ocorreu dentro dos limites de sua circunscrição.	|
+|	30	|	uop	|	UOP é unidade operacional. Unidade operacional da PRF cujo acidente ocorreudentro dos limites de sua circunscrição.	|
+</div>
+</div>
+<h6>Ref.:  https://drive.google.com/file/d/11pXLw_0D0hHVS8fiC8cv2dPX39vpuOH1/view</h6>
+
+Arquivo: br_stats.json<br>
+Local de origem: https://www.ibge.gov.br/geociencias/organizacao-do-territorio/malhas-territoriais/15774-malhas.html?=&t=downloads<br>
+Descrição: Polígonos de mapa para dados de municípios.
+
+Arquivo: brasil_completo.json<br>
+Local de origem: https://github.com/adolfoguimaraes/mapas_dataset/blob/main/brasil/BR_Municipios_2020_small.json<br>
+Descrição: Polígonos de mapa para dados de municípios.
