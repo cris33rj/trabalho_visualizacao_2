@@ -139,22 +139,47 @@ function ex02(divWidth) {
   return {
     spec: {
       width: divWidth,
-      height: 600,      
-      data: { values: datatran2023, },
-      transform: [
+      height: 600,
+      params: [
         {
+          name: "selectedMonth",
+          value: 1,
+          bind: {
+            input: "range",
+            min: 1,
+            max: 12,
+            step: 1,
+            name: "Mês: "
+          }
+        }
+      ],
+      data: {
+        values: datatran2023,    
+        
+      },
+      transform: [
+    {
+      "calculate": "toDate(datum.data_inversa + 1, '%d-%m-%Y')",
+      "as": "date"
+    },
+    {
+      "filter": "month(datum.date) == selectedMonth - 1"  // Change 1 to the desired month (1 for January, 2 for February, etc.)
+    },
+    {
           aggregate: [{ op: "count", as: "num_acidentes" }],
           groupby: ["uf", "tipo_acidente"],
         },
-      ],
+  ],   
+         
+      
       encoding: {
         y: { field: "uf", type: "ordinal" },
-        x: { 
-          field: "tipo_acidente", 
+        x: {
+          field: "tipo_acidente",
           type: "ordinal",
           axis: {
-            labelFontSize: 12,  // Increase font size of the x-axis labels
-            labelAngle: 45,     // Rotate x-axis labels 45 degrees
+            labelFontSize: 12, // Increase font size of the x-axis labels
+            labelAngle: 45, // Rotate x-axis labels 45 degrees
           }
         },
       },
@@ -179,7 +204,7 @@ function ex02(divWidth) {
               value: "black",
             },
           },
-        },
+        },         
       ],
       config: {
         axis: { grid: true, tickBand: "extent" },
