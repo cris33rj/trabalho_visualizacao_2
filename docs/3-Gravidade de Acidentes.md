@@ -2,59 +2,41 @@
 toc: false
 ---
 
-<style>
-
-.hero {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  font-family: var(--sans-serif);
-  margin: 4rem 0 8rem;
-  text-wrap: balance;
-  text-align: center;
-}
-
-.hero h1 {
-  margin: 2rem 0;
-  max-width: none;
-  font-size: 14vw;
-  font-weight: 900;
-  line-height: 1;
-  background: linear-gradient(30deg, var(--theme-foreground-focus), currentColor);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-.hero h2 {
-  margin: 0;
-  max-width: none;
-  font-size: 3vw;
-  font-style: initial;
-  font-weight: 500;
-  line-height: 1;
-  color: var(--theme-foreground-muted);
-}
-
-@media (min-width: 640px) {
-  .hero h1 {
-    font-size: 90px;
-  }
-}
-
+<style> 
+    p, li, ol, table, figure, figcaption, h1, h2, h3, h4, h5, h6, .katex-display
+    {
+        max-width:none;
+        text-align: justify;
+        margin: 15px 15px;
+        text-wrap: pretty;
+    }
 </style>
 
-<div class="hero">
-  <h2>Gravidade de Acidentes</h2>
-</div>
+
+# 2.2 - Análise de gravidades dos acidentes
+
+### Análise dos acidentes por classificação de gravidade ocorridos mês a mês entre 2021 e 2024.
+
+Esta análise visa responder as seguintes questões:
+
+1) A quantidade total de acidentes, incluindo todas as classificações, varia entre os anos?
+2) Entre as classificações de gravidade houve alguma que variou substancialmente entre os anos?
+
+
+
+Para responder a essas perguntas vamos analisar os dados do gráfico no quadro <b>A1</b>:
 
 <div style="width: 100%; margin-top: 15px;">
     <h2 style="max-width: 900px !important; width: 1000px !important;">Distribuição Anual de Acidentes por Classificação de Gravidade</h2>
-    <h4 style="max-width: 1000px !important; width: 1000px !important;">(Clique nos títulos das legendas para selecionar distribuição para um tipo específico de acidente e selecione o ano na barra inferior).</h4>
+    <h4 style="max-width: 1000px !important; width: 1000px !important;">(Clique nos títulos das legendas para selecionar distribuição para um tipo específico de acidente e selecione o ano na barra inferior. Para voltar a ver o gráfico com barras em pilha, clica em qualquer outra área).</h4>
     <div id="ex02" style="width: 100%; margin-top: 15px;">
         ${ vl.render(ex02(divWidth02 - 80)) }
     </div>
 </div>
+
+<b>Resposta pergunta 1:</b> Ao selecionar cada ano na barra horizontal inferior, é possível perceber que o ano de 2023 apresentou um aumento significativo na quantidade de acidentes, quando comparado aos outros anos, com a maioria das barras em um nível bem mais alto.
+
+<b>Resposta pergunta 2:</b> Ao selecionar cada ano na barra horizontal inferior, juntamente com a seleção de cada legenda, é possível perceber que no ano de 2023 o número de vítimas fatais aumentou consideravelmente quando comparado aos outros anos (selecione para ver apenas barras azuis), com a maior parte dos meses com contagem acima de 150 acidentes fatais. Também é possível perceber que em 2021 o número de acidentes com pessoas feridas (barra cor de abóbora) e que sairam ilesas (gráfico verde) está levemente maior que os anos seguintes. Aparentemente, a redução de um tipo de acidente quanto à gravidade parece refletir no aumento dos outros, e vice-versa. 
 
 ```js
 const br_states = await FileAttachment("./data/br_states.json").json({
@@ -140,7 +122,7 @@ function ex02(divWidth) {
       },
       encoding: {
         x: { timeUnit: "yearmonth", field: "date", type: "ordinal" },
-        y: { aggregate: "count" },
+        y: { aggregate: "count", type:"quantitative" },
         color: {
           field: "classificacao_acidente",
           scale: {
@@ -149,7 +131,7 @@ function ex02(divWidth) {
           },
         },
         tooltip: [
-          { field: "data_inversa", title: "Date" },
+          { field: "date", title: "Date" },
           { field: "classificacao_acidente", title: "Accident Classification" },
           { aggregate: "count", title: "Count" },
         ],        
