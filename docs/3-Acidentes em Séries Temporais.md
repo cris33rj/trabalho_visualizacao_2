@@ -71,6 +71,10 @@ const datatran2023 = await FileAttachment("./data/datatran2023.json").json({
   typed: true,
 });
 
+const datatran = await FileAttachment("./data/datatran.json").json({
+  typed: true,
+})
+
 
 // view(Inputs.table(datatran2023));
 ```
@@ -141,16 +145,55 @@ function ex02(divWidth) {
     spec: {
       width: divWidth,
       height: 300,
-      data: {
-        values: datatran2023,
+      selection: {
+        accidentType: {
+          type: "multi",
+          fields: ["classificacao_acidente"],
+          bind: "legend",
+        },
       },
+      params: [
+        {
+          name: "selectedYear",
+          value: 2021,
+          bind: {
+            input: "range",
+            min: 2021,
+            max: 2024,
+            step: 1,
+            name: "Ano: "
+          }
+        }
+      ],
+      data: {
+        values: datatran,
+      },
+       transform: [
+    {
+      "calculate": "toDate(datum.data_inversa, '%m/%d/%Y')",
+      "as": "date"
+    },
+    {
+      "calculate": "year(datum.data_inversa)",
+      "as": "year"
+    },
+    {
+          filter: "datum.year == selectedYear"
+        },       
+        {
+           filter: { selection: "accidentType" } 
+        },
+
+          
+    
+       ],
       mark: {
         type: "bar",
         cornerRadiusTopLeft: 3,
         cornerRadiusTopRight: 3,
       },
       encoding: {
-        x: { timeUnit: "month", field: "data_inversa", type: "ordinal" },
+        x: { timeUnit: "month", field: "date", type: "ordinal" },
         y: { aggregate: "count" },
         color: {
           field: "classificacao_acidente",
@@ -163,20 +206,10 @@ function ex02(divWidth) {
           { field: "data_inversa", title: "Date" },
           { field: "classificacao_acidente", title: "Accident Classification" },
           { aggregate: "count", title: "Count" },
-        ],
-      },
-      selection: {
-        accidentType: {
-          type: "multi",
-          fields: ["classificacao_acidente"],
-          bind: "legend",
-        },
-      },
-      transform: [
-        { filter: { selection: "accidentType" } },
-      ],
+        ],        
+      },     
+     
     },
   };
 }
-
 ```
