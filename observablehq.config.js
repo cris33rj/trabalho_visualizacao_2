@@ -20,7 +20,7 @@ export default {
         pages: [
           {name: "2.1 - Acidentes em Mapas", path: "/2-Acidentes em mapas"},
           {name: "2.1 - Análise regional", path: "/2.1-Analise_regional"},
-          {name: "2.2 - Acidentes em Séries Temporais", path: "/3-Acidentes em Séries Temporais"},      
+          {name: "2.2 - Gravidade de Acidentes", path: "/3-Gravidade de Acidentes"},      
           {name: "2.3 - Outros Tipos de Visualizações", path: "/4-Outros Tipos de Visualizações"},          
           {name: "2.4 - Tipos e causas de acidentes", path: "/2.4-Tipos_e_causas_de_acidentes"},          
           {name: "2.5 - Locais e condições dos acidentes", path: "/2.5-Locais_e_condicoes_dos_acidentes"},          

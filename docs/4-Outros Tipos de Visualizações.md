@@ -2,46 +2,14 @@
 toc: false
 ---
 
-<style>
-
-.hero {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  font-family: var(--sans-serif);
-  margin: 4rem 0 8rem;
-  text-wrap: balance;
-  text-align: center;
-}
-
-.hero h1 {
-  margin: 2rem 0;
-  max-width: none;
-  font-size: 14vw;
-  font-weight: 900;
-  line-height: 1;
-  background: linear-gradient(30deg, var(--theme-foreground-focus), currentColor);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-.hero h2 {
-  margin: 0;
-  max-width: none;
-  font-size: 3vw;
-  font-style: initial;
-  font-weight: 500;
-  line-height: 1;
-  color: var(--theme-foreground-muted);
-}
-
-@media (min-width: 640px) {
-  .hero h1 {
-    font-size: 90px;
-  }
-}
-
+<style> 
+    p, li, ol, table, figure, figcaption, h1, h2, h3, h4, h5, h6, .katex-display
+    {
+        max-width:none;
+        text-align: justify;
+        margin: 15px 15px;
+        text-wrap: pretty;
+    }
 </style>
 
 <div class="hero">
@@ -49,16 +17,29 @@ toc: false
 </div>
 
 <div style="width: 100%; margin-top: 15px;">
-    <h2 class="title">Distribuição de Acidentes Registrados pela PRF de Acordo com o Horário</h2>
+    <h2 style="max-width: 1500px !important; width: 1500px !important;">Distribuição de Acidentes Registrados pela PRF em 2023 de Acordo com o Horário</h2>
     <div id="ex01" style="width: 100%; margin-top: 15px;">
         ${ vl.render(ex01(divWidth01 - 80)) }
     </div>
 </div>
 
+</br>
+</br>
+
 <div style="width: 100%; margin-top: 15px;">
-    <h2 class="title">Heatmap de Acidentes X Causas por Estado</h2>
+    <h2 style="max-width: 900px !important; width: 1000px !important;">Heatmap de Acidentes X Causas por Estado</h2>
     <div id="ex02" style="width: 100%; margin-top: 15px;">
         ${ vl.render(ex02(divWidth01 - 80)) }
+    </div>
+</div>
+</br>
+</br>
+
+<div style="width: 100%; margin-top: 15px;">
+    <h2 style="max-width: 900px !important; width: 1000px !important;">Tendências de Acidentes Registrados pela PRF entre 2021 e 2024 </h2>
+    <h4 style="max-width: 900px !important; width: 1000px !important;">(Selecione o ano na barra inferior) </h4>
+    <div id="ex03" style="width: 100%; margin-top: 15px;">
+        ${ vl.render(ex03(divWidth01 - 80)) }
     </div>
 </div>
 
@@ -70,7 +51,11 @@ const datatran2023 = await FileAttachment("./data/datatran2023.json").json({
   typed: true,
 });
 
-const datatran = await FileAttachment("./data/datatran.csv").dsv({delimiter: ";",typed: true,});
+const datatran = await FileAttachment("./data/datatran.json").json({
+  typed: true,
+});
+
+
 
 // view(Inputs.table(datatran2023));
 ```
@@ -78,6 +63,7 @@ const datatran = await FileAttachment("./data/datatran.csv").dsv({delimiter: ";"
 ```js
 const divWidth01 = Generators.width(document.querySelector("#ex01"));
 const divWidth02 = Generators.width(document.querySelector("#ex02"));
+const divWidth03 = Generators.width(document.querySelector("#ex03"));
 ```
 
 ```js
@@ -235,4 +221,73 @@ function ex02(divWidth) {
   };
 }
 
+
+function ex03(divWidth) {
+  return {
+    spec: {
+      width: divWidth,
+      height: 300,
+      data: {
+        values: datatran,
+      },
+      params: [
+        {
+          name: "selectedYear",
+          value: 2021,
+          bind: {
+            input: "range",
+            min: 2021,
+            max: 2024,
+            step: 1,
+            name: "Ano: "
+          }
+        }
+      ],
+      transform: [
+    {
+      "calculate": "toDate(datum.data_inversa, '%m/%d/%Y')",
+      "as": "date"
+    },
+    {
+      "calculate": "year(datum.data_inversa)",
+      "as": "year"
+    },
+    {
+          filter: "datum.year == selectedYear"
+        },     
+    
+       ],
+      
+      layer: [
+        {
+          params: [
+            {
+              name: "brush",
+              select: { type: "interval", encodings: ["x"] },
+            },
+          ],
+          mark: "area",
+        },
+        {
+          transform: [{ filter: { param: "brush" } }],
+          mark: { type: "area", color: "goldenrod" },
+        },
+      ],
+
+      encoding: {
+        x: {
+          timeUnit: "yearmonth",
+          field: "date",
+          type: "temporal",
+        },
+        y: {
+          aggregate: "count",
+          field: "id",
+          type: "quantitative",
+          scale: {"domain": [0, 2500]}
+        },
+      },
+    },
+  };
+}
 ```

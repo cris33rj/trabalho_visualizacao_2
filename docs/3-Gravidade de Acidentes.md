@@ -1,0 +1,143 @@
+---
+toc: false
+---
+
+<style> 
+    p, li, ol, table, figure, figcaption, h1, h2, h3, h4, h5, h6, .katex-display
+    {
+        max-width:none;
+        text-align: justify;
+        margin: 15px 15px;
+        text-wrap: pretty;
+    }
+</style>
+
+
+# 2.2 - Análise de gravidades dos acidentes
+
+### Análise dos acidentes por classificação de gravidade ocorridos mês a mês entre 2021 e 2024.
+
+Esta análise visa responder as seguintes questões:
+
+1) A quantidade total de acidentes, incluindo todas as classificações, varia entre os anos?
+2) Entre as classificações de gravidade houve alguma que variou substancialmente entre os anos?
+
+
+
+Para responder a essas perguntas vamos analisar os dados do gráfico no quadro <b>A1</b>:
+
+<div style="width: 100%; margin-top: 15px;">
+    <h2 style="max-width: 900px !important; width: 1000px !important;">Distribuição Anual de Acidentes por Classificação de Gravidade</h2>
+    <h4 style="max-width: 1000px !important; width: 1000px !important;">(Clique nos títulos das legendas para selecionar distribuição para um tipo específico de acidente e selecione o ano na barra inferior. Para voltar a ver o gráfico com barras em pilha, clica em qualquer outra área).</h4>
+    <div id="ex02" style="width: 100%; margin-top: 15px;">
+        ${ vl.render(ex02(divWidth02 - 80)) }
+    </div>
+</div>
+
+<b>Resposta pergunta 1:</b> Ao selecionar cada ano na barra horizontal inferior, é possível perceber que o ano de 2023 apresentou um aumento significativo na quantidade de acidentes, quando comparado aos outros anos, com a maioria das barras em um nível bem mais alto.
+
+<b>Resposta pergunta 2:</b> Ao selecionar cada ano na barra horizontal inferior, juntamente com a seleção de cada legenda, é possível perceber que no ano de 2023 o número de vítimas fatais aumentou consideravelmente quando comparado aos outros anos (selecione para ver apenas barras azuis), com a maior parte dos meses com contagem acima de 150 acidentes fatais. Também é possível perceber que em 2021 o número de acidentes com pessoas feridas (barra cor de abóbora) e que sairam ilesas (gráfico verde) está levemente maior que os anos seguintes. Aparentemente, a redução de um tipo de acidente quanto à gravidade parece refletir no aumento dos outros, e vice-versa. 
+
+```js
+const br_states = await FileAttachment("./data/br_states.json").json({
+  typed: true,
+});
+const datatran2023 = await FileAttachment("./data/datatran2023.json").json({
+  typed: true,
+});
+
+const datatran = await FileAttachment("./data/datatran.json").json({
+  typed: true,
+})
+
+
+// view(Inputs.table(datatran2023));
+```
+
+```js
+const divWidth01 = Generators.width(document.querySelector("#ex01"));
+const divWidth02 = Generators.width(document.querySelector("#ex02"));
+```
+
+```js
+import * as vega from "npm:vega";
+import * as vegaLite from "npm:vega-lite";
+import * as vegaLiteApi from "npm:vega-lite-api";
+
+const vl = vegaLiteApi.register(vega, vegaLite);
+
+
+
+function ex02(divWidth) {
+  return {
+    spec: {
+      width: divWidth,
+      height: 300,
+      selection: {
+        accidentType: {
+          type: "multi",
+          fields: ["classificacao_acidente"],
+          bind: "legend",
+        },
+      },
+      params: [
+        {
+          name: "selectedYear",
+          value: 2021,
+          bind: {
+            input: "range",
+            min: 2021,
+            max: 2024,
+            step: 1,
+            name: "Ano: "
+          }
+        }
+      ],
+      data: {
+        values: datatran,
+      },
+       transform: [
+    {
+      "calculate": "toDate(datum.data_inversa, '%m/%d/%Y')",
+      "as": "date"
+    },
+    {
+      "calculate": "year(datum.data_inversa)",
+      "as": "year"
+    },
+    {
+          filter: "datum.year == selectedYear"
+        },       
+        {
+           filter: { selection: "accidentType" } 
+        },
+
+          
+    
+       ],
+      mark: {
+        type: "bar",
+        cornerRadiusTopLeft: 3,
+        cornerRadiusTopRight: 3,
+      },
+      encoding: {
+        x: { timeUnit: "yearmonth", field: "date", type: "ordinal" },
+        y: { aggregate: "count", type:"quantitative" },
+        color: {
+          field: "classificacao_acidente",
+          scale: {
+            domain: ["Com Vítimas Fatais", "Com Vítimas Feridas", "Sem Vítimas"], // Replace with actual accident types
+            range: ["#1f77b4", "#ff7f0e", "#2ca02c"], // Replace with desired colors
+          },
+        },
+        tooltip: [
+          { field: "date", title: "Date" },
+          { field: "classificacao_acidente", title: "Accident Classification" },
+          { aggregate: "count", title: "Count" },
+        ],        
+      },     
+     
+    },
+  };
+}
+```
