@@ -97,16 +97,36 @@ function ex01(divWidth) {
       width: divWidth,
       height: 300,
       data: {
-        values: datatran2023,
+        values: datatran,
       },
-      transform: [
+      params: [
         {
-          filter: { field: "id", valid: true },
-        },
-        {
-          filter: { field: "data_inversa", valid: true },
-        },
+          name: "selectedYear",
+          value: 2021,
+          bind: {
+            input: "range",
+            min: 2021,
+            max: 2024,
+            step: 1,
+            name: "Ano: "
+          }
+        }
       ],
+      transform: [
+    {
+      "calculate": "toDate(datum.data_inversa, '%m/%d/%Y')",
+      "as": "date"
+    },
+    {
+      "calculate": "year(datum.data_inversa)",
+      "as": "year"
+    },
+    {
+          filter: "datum.year == selectedYear"
+        },     
+    
+       ],
+      
       layer: [
         {
           params: [
@@ -126,14 +146,14 @@ function ex01(divWidth) {
       encoding: {
         x: {
           timeUnit: "yearmonth",
-          field: "data_inversa",
+          field: "date",
           type: "temporal",
         },
         y: {
           aggregate: "count",
           field: "id",
           type: "quantitative",
-          scale: {"domain": [0, 10000]}
+          scale: {"domain": [0, 2500]}
         },
       },
     },
@@ -193,7 +213,7 @@ function ex02(divWidth) {
         cornerRadiusTopRight: 3,
       },
       encoding: {
-        x: { timeUnit: "month", field: "date", type: "ordinal" },
+        x: { timeUnit: "yearmonth", field: "date", type: "ordinal" },
         y: { aggregate: "count" },
         color: {
           field: "classificacao_acidente",
