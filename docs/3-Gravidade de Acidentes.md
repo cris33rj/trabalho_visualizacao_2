@@ -15,7 +15,7 @@ toc: false
 
 # 2.2 - Análise de gravidades dos acidentes
 
-### Análise dos acidentes por classificação de gravidade ocorridos mês a mês entre 2021 e 2024.
+### Análise dos acidentes por classificação de gravidade, ocorridos mês a mês entre 2021 e 2024.
 
 Esta análise visa responder as seguintes questões:
 
@@ -28,7 +28,7 @@ Para responder a essas perguntas vamos analisar os dados do gráfico no quadro <
 
 <div style="width: 100%; margin-top: 15px;">
     <h2 style="max-width: 900px !important; width: 1000px !important;">Distribuição Anual de Acidentes por Classificação de Gravidade</h2>
-    <h4 style="max-width: 1000px !important; width: 1000px !important;">(Clique nos títulos das legendas para selecionar distribuição para um tipo específico de acidente e selecione o ano na barra inferior. Para voltar a ver o gráfico com barras em pilha, clica em qualquer outra área).</h4>
+    <h4 style="max-width: 1000px !important; width: 1000px !important;">(Clique nos títulos das legendas para selecionar distribuição para um tipo específico de acidente e selecione o ano na barra inferior. Para voltar a ver o gráfico com barras em pilha, clique em qualquer outra área. Também é possível obter informações de contagem posicionando o mouse sobre as barras.).</h4>
     <div id="ex02" style="width: 100%; margin-top: 15px;">
         ${ vl.render(ex02(divWidth02 - 80)) }
     </div>
