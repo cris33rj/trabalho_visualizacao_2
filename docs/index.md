@@ -64,7 +64,7 @@ p { max-width: none; }
         <h2><a href="2-Acidentes em mapas">2.1 - Acidentes em Mapas</a></h2>
     </div>
     <div class="card" >
-        <h2><a href="3-Acidentes em Séries Temporais">2.2 - Acidentes em Séries Temporais</a></h2>
+        <h2><a href="3-Gravidade de Acidentes">2.2 - Gravidade de Acidentes</a></h2>
     </div>
     <div class="card" >
         <h2><a href="4-Outros Tipos de Visualizações">2.3 - Outros Tipos de Visualizações</a></h2>
