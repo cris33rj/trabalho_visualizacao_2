@@ -35,8 +35,7 @@ Este trabalho de pesquisa foi produzido no curso de Mestrado em Computação - P
 
 ### A tarefa:
 
-O foco deste trabalho é investigar, com base nos dadosa de ocorrências de traânsito feitas pela Polícia Federal Rodoviária, os 
-fatores que contribuemgeram o maior número de acidentes nas estradas federais, bem como evidenciar as relações existentes e não percebidas, no que tange a composição dos topos dos diversos agrupamentos.
+ O foco desse trabalho é investigar, com base nos dados de ocorrências de trânsito fornecidos pela Polícia Rodoviária Federal, os fatores que mais contribuíram para o número de acidentes nas estradas federais. Além disso, busca-se evidenciar as relações existentes e, muitas vezes, não percebidas, no que diz respeito à composição dos diferentes tipos de agrupamentos.
 
 ### O software:
 
@@ -50,7 +49,7 @@ Para desenvolvimento do trabalho, deveríamos utilizar:
 
 ### A base de dados:
 
-Para realização da tarefa foi utilizado conjunto d4e dados ofertados através de bases públicas como descrito aseguir:
+Para realização da tarefa foi utilizado conjunto de dados ofertados através de bases públicas como descrito aseguir:
 
 Arquivo: Datatran2003.csv<br>
 Local de origem: https://www.gov.br/prf/pt-br/acesso-a-informacao/dados-abertos/dados-abertos-da-prf<br>
@@ -103,3 +102,7 @@ Descrição: Polígonos de mapa para dados de municípios.
 Arquivo: brasil_completo.json<br>
 Local de origem: https://github.com/adolfoguimaraes/mapas_dataset/blob/main/brasil/BR_Municipios_2020_small.json<br>
 Descrição: Polígonos de mapa para dados de municípios.
+
+Arquivo: br_states.json<br>
+Local de origem: https://github.com/giuliano-macedo/geodata-br-states/blob/main/geojson/br_states.json<br>
+Descrição: Polígonos de mapa para dados dos estados.
