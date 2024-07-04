@@ -70,6 +70,8 @@ const datatran2023 = await FileAttachment("./data/datatran2023.json").json({
   typed: true,
 });
 
+const datatran = await FileAttachment("./data/datatran.csv").dsv({delimiter: ";",typed: true,});
+
 // view(Inputs.table(datatran2023));
 ```
 
@@ -142,11 +144,22 @@ function ex02(divWidth) {
       height: 600,
       params: [
         {
+          name: "selectedYear",
+          value: 2021,
+          bind: {
+            input: "range",
+            min: 2021,
+            max: 2024,
+            step: 1,
+            name: "Ano: "
+          }
+        },
+        {
           name: "selectedMonth",
           value: 1,
           bind: {
             input: "range",
-            min: 1,
+            min: 0,
             max: 12,
             step: 1,
             name: "Mês: "
@@ -154,7 +167,7 @@ function ex02(divWidth) {
         }
       ],
       data: {
-        values: datatran2023,    
+        values: datatran,    
         
       },
       transform: [
@@ -162,9 +175,12 @@ function ex02(divWidth) {
       "calculate": "toDate(datum.data_inversa + 1, '%d-%m-%Y')",
       "as": "date"
     },
-    {
-      "filter": "month(datum.date) == selectedMonth - 1"  // Change 1 to the desired month (1 for January, 2 for February, etc.)
-    },
+     {
+          "filter": "(selectedMonth == 0 || month(datum.date) == selectedMonth - 1)"  // Allow for "all months" selection
+        },
+        {
+          "filter": "(datum.ano == selectedYear)"  // Allow for "all years" selection
+        },
     {
           aggregate: [{ op: "count", as: "num_acidentes" }],
           groupby: ["uf", "tipo_acidente"],
@@ -200,8 +216,14 @@ function ex02(divWidth) {
           encoding: {
             text: { field: "num_acidentes", type: "quantitative" },
             color: {
-              condition: { test: "datum['num_acidentes'] > 1000", value: "white" },
-              value: "black",
+              condition: [{ 
+                test: "datum['num_acidentes'] > 1000 && selectedMonth == 0 ", 
+                value: "white" },
+                { 
+                test: "datum['num_acidentes'] > 70 && selectedMonth > 0 ", 
+                value: "white" }],
+              
+            value: "black",
             },
           },
         },         
