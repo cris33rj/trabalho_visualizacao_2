@@ -62,6 +62,13 @@ toc: false
     </div>
 </div>
 
+<div style="width: 100%; margin-top: 15px;">
+    <h2 style="max-width: 900px !important; width: 1000px !important;">Número de acidentes mensais no País Registrados pela PRF em 2023</h2>
+    <div id="ex03" style="width: 100%; margin-top: 15px;">
+        ${ vl.render(ex03(divWidth01 - 80)) }
+    </div>
+</div>
+
 ```js
 const br_states = await FileAttachment("./data/br_states.json").json({
   typed: true,
@@ -70,7 +77,11 @@ const datatran2023 = await FileAttachment("./data/datatran2023.json").json({
   typed: true,
 });
 
-const datatran = await FileAttachment("./data/datatran.csv").dsv({delimiter: ";",typed: true,});
+const datatran = await FileAttachment("./data/datatran.json").json({
+  typed: true,
+});
+
+
 
 // view(Inputs.table(datatran2023));
 ```
@@ -78,6 +89,7 @@ const datatran = await FileAttachment("./data/datatran.csv").dsv({delimiter: ";"
 ```js
 const divWidth01 = Generators.width(document.querySelector("#ex01"));
 const divWidth02 = Generators.width(document.querySelector("#ex02"));
+const divWidth03 = Generators.width(document.querySelector("#ex03"));
 ```
 
 ```js
@@ -235,4 +247,73 @@ function ex02(divWidth) {
   };
 }
 
+
+function ex03(divWidth) {
+  return {
+    spec: {
+      width: divWidth,
+      height: 300,
+      data: {
+        values: datatran,
+      },
+      params: [
+        {
+          name: "selectedYear",
+          value: 2021,
+          bind: {
+            input: "range",
+            min: 2021,
+            max: 2024,
+            step: 1,
+            name: "Ano: "
+          }
+        }
+      ],
+      transform: [
+    {
+      "calculate": "toDate(datum.data_inversa, '%m/%d/%Y')",
+      "as": "date"
+    },
+    {
+      "calculate": "year(datum.data_inversa)",
+      "as": "year"
+    },
+    {
+          filter: "datum.year == selectedYear"
+        },     
+    
+       ],
+      
+      layer: [
+        {
+          params: [
+            {
+              name: "brush",
+              select: { type: "interval", encodings: ["x"] },
+            },
+          ],
+          mark: "area",
+        },
+        {
+          transform: [{ filter: { param: "brush" } }],
+          mark: { type: "area", color: "goldenrod" },
+        },
+      ],
+
+      encoding: {
+        x: {
+          timeUnit: "yearmonth",
+          field: "date",
+          type: "temporal",
+        },
+        y: {
+          aggregate: "count",
+          field: "id",
+          type: "quantitative",
+          scale: {"domain": [0, 2500]}
+        },
+      },
+    },
+  };
+}
 ```

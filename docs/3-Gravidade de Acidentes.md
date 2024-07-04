@@ -45,14 +45,7 @@ toc: false
 </style>
 
 <div class="hero">
-  <h2>Visualização com mapas</h2>
-</div>
-
-<div style="width: 100%; margin-top: 15px;">
-    <h2 class="title">Número de acidentes mensais no País Registrados pela PRF em 2023</h2>
-    <div id="ex01" style="width: 100%; margin-top: 15px;">
-        ${ vl.render(ex01(divWidth01 - 80)) }
-    </div>
+  <h2>Gravidade de Acidentes</h2>
 </div>
 
 <div style="width: 100%; margin-top: 15px;">
@@ -91,74 +84,7 @@ import * as vegaLiteApi from "npm:vega-lite-api";
 
 const vl = vegaLiteApi.register(vega, vegaLite);
 
-function ex01(divWidth) {
-  return {
-    spec: {
-      width: divWidth,
-      height: 300,
-      data: {
-        values: datatran,
-      },
-      params: [
-        {
-          name: "selectedYear",
-          value: 2021,
-          bind: {
-            input: "range",
-            min: 2021,
-            max: 2024,
-            step: 1,
-            name: "Ano: "
-          }
-        }
-      ],
-      transform: [
-    {
-      "calculate": "toDate(datum.data_inversa, '%m/%d/%Y')",
-      "as": "date"
-    },
-    {
-      "calculate": "year(datum.data_inversa)",
-      "as": "year"
-    },
-    {
-          filter: "datum.year == selectedYear"
-        },     
-    
-       ],
-      
-      layer: [
-        {
-          params: [
-            {
-              name: "brush",
-              select: { type: "interval", encodings: ["x"] },
-            },
-          ],
-          mark: "area",
-        },
-        {
-          transform: [{ filter: { param: "brush" } }],
-          mark: { type: "area", color: "goldenrod" },
-        },
-      ],
 
-      encoding: {
-        x: {
-          timeUnit: "yearmonth",
-          field: "date",
-          type: "temporal",
-        },
-        y: {
-          aggregate: "count",
-          field: "id",
-          type: "quantitative",
-          scale: {"domain": [0, 2500]}
-        },
-      },
-    },
-  };
-}
 
 function ex02(divWidth) {
   return {
