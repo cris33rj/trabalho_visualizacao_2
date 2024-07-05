@@ -18,8 +18,8 @@ export default {
         name: "2 - Desenvolvimento",
         open: false,
         pages: [
-          {name: "2.1 - Acidentes em Mapas", path: "/2-Acidentes em mapas"},
-          {name: "2.1 - Análise regional", path: "/2.1-Analise_regional"},
+          {name: "2.1 - Visão geral", path: "/2.1-Visao_geral"},
+          {name: "2.2 - Análise regional", path: "/2.2-Analise_regional"},
           {name: "2.2 - Gravidade de Acidentes", path: "/3-Gravidade de Acidentes"},      
           {name: "2.3 - Outros Tipos de Visualizações", path: "/4-Outros Tipos de Visualizações"},          
           {name: "2.4 - Tipos e causas de acidentes", path: "/2.4-Tipos_e_causas_de_acidentes"},          

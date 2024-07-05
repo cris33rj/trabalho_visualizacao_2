@@ -51,9 +51,7 @@ const datatran2023 = await FileAttachment("./data/datatran2023.json").json({
   typed: true,
 });
 
-const datatran = await FileAttachment("./data/datatran.json").json({
-  typed: true,
-});
+const datatran = await FileAttachment("./data/datatran.csv").dsv({delimiter: ";",typed: true,});
 
 
 
