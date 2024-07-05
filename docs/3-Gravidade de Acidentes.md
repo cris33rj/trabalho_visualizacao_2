@@ -94,6 +94,17 @@ function ex02(divWidth) {
       data: {
         values: datatran,
       },
+      "title": {
+        "text": "F1",
+        "titlePadding":20,
+        "color": "black",
+        "subtitle": "Acidentes por classificação de gravidade",
+        "subtitlePadding":20,
+        "subtitleColor": "purple",
+      },
+      "padding": 15,
+      "background": "#f8f4f4",   
+
        transform: [
     {
       "calculate": "toDate(datum.data_inversa, '%m/%d/%Y')",
@@ -119,8 +130,14 @@ function ex02(divWidth) {
         cornerRadiusTopRight: 3,
       },
       encoding: {
-        x: { timeUnit: "yearmonth", field: "date", type: "ordinal" },
-        y: { aggregate: "count", type:"quantitative" },
+        x: { timeUnit: "yearmonth", field: "date", type: "ordinal" ,
+          "title": "Data (Mês-Ano)", 
+          "axis": {"labelAngle": 0, "labelPadding":10,"titlePadding":20,},  
+        },
+        y: { aggregate: "count", type:"quantitative" ,
+          "title": "Quantidade de acidente(s)", 
+          "axis": {"labelAngle": 0, "labelPadding":10,"titlePadding":20,},  
+        },
         color: {
           field: "classificacao_acidente",
           scale: {
