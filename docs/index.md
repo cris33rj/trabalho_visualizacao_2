@@ -61,13 +61,19 @@ p { max-width: none; }
 </span>
 <span class="card"><h4>2 - Desenvolvimento<br></h4>
     <div class="card" >
-        <h2><a href="2-Acidentes em mapas">2.1 - Acidentes em Mapas</a></h2>
+        <h2><a href="2.1-Visao_geral">2.1 - Visão Geral</a></h2>
     </div>
     <div class="card" >
-        <h2><a href="3-Gravidade de Acidentes">2.2 - Gravidade de Acidentes</a></h2>
+        <h2><a href="2.2-Analise_regional">2.2 - Análise Regional</a></h2>
     </div>
     <div class="card" >
-        <h2><a href="4-Outros Tipos de Visualizações">2.3 - Outros Tipos de Visualizações</a></h2>
+        <h2><a href="2.3-Gravidade de Acidentes">2.3 - Gravidade de Acidentes</a></h2>
+    </div>
+    <div class="card" >
+        <h2><a href="2.4-Tipos_e_causas_de_acidentes">2.4 - Tipos e Causas de Acidentes</a></h2>
+    </div>
+    <div class="card" >
+        <h2><a href="2.5-Locais_e_condicoes_dos_acidentes">2.5 - Locais e Condições dos Acidentes</a></h2>
     </div>
 </span>
 <span class="card"><h4>3 - Fechamento<br></h4>
