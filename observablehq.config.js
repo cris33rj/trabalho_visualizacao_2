@@ -29,8 +29,8 @@ export default {
         name: "3 - Fechamento",
         open: false,
         pages: [
-          {name: "3.1 - Discussão", path: "/5-Discussao"},
-          {name: "3.2 - Conclusão", path: "/6-Conclusao"},          
+          {name: "3.1 - Discussão", path: "/3.1-Discussao"},
+          {name: "3.2 - Conclusão", path: "/3.2-Conclusao"},          
         ]
       }      
     ],
