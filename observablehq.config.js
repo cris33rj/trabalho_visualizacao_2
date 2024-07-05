@@ -11,7 +11,7 @@ export default {
         name: "1 - Introdução",
         open: false,
         pages: [
-          {name: "1.1 - Apresentação", path: "/1-Apresentacao"},
+          {name: "1.1 - Apresentação", path: "/1.1-Apresentacao"},
         ]
       },
       {
@@ -23,7 +23,6 @@ export default {
           {name: "2.3 - Gravidade de Acidentes", path: "/2.3-Gravidade de Acidentes"},     
           {name: "2.4 - Tipos e causas de acidentes", path: "/2.4-Tipos_e_causas_de_acidentes"},          
           {name: "2.5 - Locais e condições dos acidentes", path: "/2.5-Locais_e_condicoes_dos_acidentes"},          
-          
         ]
       },
       {
